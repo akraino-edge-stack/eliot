@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "39aab299_f180de59",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-04-30T11:39:18Z",
+      "side": 1,
+      "message": "IP can be read from variables",
+      "range": {
+        "startLine": 6,
+        "startChar": 22,
+        "endLine": 6,
+        "endChar": 35
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8103600_fb6a7631",
         "filename": "thinos_setup.sh",
         "patchSetId": 1
@@ -64,6 +87,29 @@
         "startChar": 3,
         "endLine": 9,
         "endChar": 4
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20e00011_60353977",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-04-30T11:39:18Z",
+      "side": 1,
+      "message": "IP can be read from variable.",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 33
       },
       "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
