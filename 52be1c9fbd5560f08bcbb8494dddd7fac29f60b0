@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0766dfb_7df6fbbe",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-04-30T11:10:22Z",
+      "side": 1,
+      "message": "Please add File header including brief info about ELIOT deployment of Thin OS installation",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 1
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8103600_fb6a7631",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-04-30T11:10:22Z",
+      "side": 1,
+      "message": "add comment for logic used in this block",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daf7ec13_8aed1ca2",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-04-30T11:10:22Z",
+      "side": 1,
+      "message": "remove alternative method from code file",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "053e30e3_6589f07f",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-04-30T11:10:22Z",
+      "side": 1,
+      "message": "general comment, group common steps together and add blank line between logical different blocks\nReadability need to imporve",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 4
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "81beb762_8c741b60",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-04-30T11:10:22Z",
+      "side": 1,
+      "message": "In ELIOT Deployment, ELIOT Node(Thin OS) should be deploy from ELIOT manager.\nwrite code to ssh to ELIOT Node and then start installation from ELIOT manager",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 10
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
