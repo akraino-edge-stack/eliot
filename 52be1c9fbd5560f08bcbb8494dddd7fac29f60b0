@@ -140,6 +140,69 @@
     },
     {
       "key": {
+        "uuid": "1d06ba89_4ecb68b8",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2019-05-05T06:28:28Z",
+      "side": 1,
+      "message": "In the help function, each \u0027echo ...\u0027 is followed by an empty line. I am not sure if we need these empty lines.",
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75130d9f_e1d0a5fd",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2019-05-05T06:28:28Z",
+      "side": 1,
+      "message": "I think there should not be spaces at the head of this line, right?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 15
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cc29324_d8925cc1",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 90
+      },
+      "writtenOn": "2019-05-05T06:28:28Z",
+      "side": 1,
+      "message": "At the end of this line, there is a whitespace which should be deleted.",
+      "range": {
+        "startLine": 60,
+        "startChar": 34,
+        "endLine": 60,
+        "endChar": 42
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81beb762_8c741b60",
         "filename": "thinos_setup.sh",
         "patchSetId": 1
