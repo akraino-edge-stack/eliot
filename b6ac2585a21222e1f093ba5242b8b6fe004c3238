@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21e820b2_8f9854ce",
+        "filename": "src/thin_os_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-05-06T10:12:06Z",
+      "side": 1,
+      "message": "can mention which ip to be kept in the pattern. it shoud be same as the host machine . like that.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 36
+      },
+      "revId": "b6ac2585a21222e1f093ba5242b8b6fe004c3238",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b08a47c_051f02b0",
+        "filename": "src/thin_os_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-05-06T10:12:06Z",
+      "side": 1,
+      "message": "delete the blank line.",
+      "revId": "b6ac2585a21222e1f093ba5242b8b6fe004c3238",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8cb13c4_678a0c0b",
+        "filename": "src/thin_os_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-05-06T10:12:06Z",
+      "side": 1,
+      "message": "can shift to same line",
+      "revId": "b6ac2585a21222e1f093ba5242b8b6fe004c3238",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f4dec7c_7b555402",
+        "filename": "src/thin_os_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-05-06T10:12:06Z",
+      "side": 1,
+      "message": "IP is where we have qcow2 file right ? so we can specify it will download the thin os qcow2 image from server.",
+      "range": {
+        "startLine": 122,
+        "startChar": 58,
+        "endLine": 122,
+        "endChar": 73
+      },
+      "revId": "b6ac2585a21222e1f093ba5242b8b6fe004c3238",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
