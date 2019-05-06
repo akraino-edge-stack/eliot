@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "b93b99e4_5738e69e",
+        "filename": "src/thin_os_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-05-06T10:43:47Z",
+      "side": 1,
+      "message": "It will be more than 80 characters. Splitting into two lines might be necessary",
+      "parentUuid": "f8cb13c4_678a0c0b",
+      "revId": "b6ac2585a21222e1f093ba5242b8b6fe004c3238",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f4dec7c_7b555402",
         "filename": "src/thin_os_setup.sh",
         "patchSetId": 1
