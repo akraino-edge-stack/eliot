@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8adcaa0_d362985d",
+        "filename": "src/LEDGERP/installation/ledge_vm_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-05-20T10:13:43Z",
+      "side": 1,
+      "message": "Need to change constant values into variables",
+      "revId": "3f943daa571dfe62dd71eb30a91e35007c54310e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb60ef4c_ca9be2e3",
+        "filename": "src/LEDGERP/installation/ledge_vm_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-05-20T10:13:43Z",
+      "side": 1,
+      "message": "Need to change using constant values into variables",
+      "revId": "3f943daa571dfe62dd71eb30a91e35007c54310e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
