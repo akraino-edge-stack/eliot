@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "adfeaa3d_bb7b0400",
+        "filename": "scripts/nodelist",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-05-24T08:55:22Z",
+      "side": 1,
+      "message": "Modified",
+      "parentUuid": "27b1487b_3c0b1574",
+      "revId": "56a0396f50903b3d66f5eeeb21e907d8a3dcee68",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b955ab_c460cfe0",
         "filename": "scripts/setup.sh",
         "patchSetId": 12
