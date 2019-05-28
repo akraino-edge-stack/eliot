@@ -62,17 +62,10 @@ echo "after common_steps"
 # start
 
 source config_kubeedge
-#sample
-#return
+
 take_keedge
 
 execute_keedge_controller
 
-#sample
-#execute_edge
 exec_edge
 kubectl get nodes
-
-kubectl create -f deployment.yaml
-
-kubectl get pods
