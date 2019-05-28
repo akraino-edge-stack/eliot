@@ -1,0 +1,13 @@
+---
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'prometheusJob'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'cadvisor'
+    scrape_interval: 5s
+    static_configs:
+      # please put CAdvisr IP address here
+      - targets: ['192.168.1.22:8080', '192.168.1.14:8080']
