@@ -74,6 +74,14 @@ setup_k8sworkers()
 }
 
 
+#verify kubernetes setup by deploying nginx server.
+
+verify_k8s_status(){
+  set -o xtrace
+  source verifyk8s.sh | tee verifyk8s.log
+}
+
+
 # Start
 #
 
@@ -85,3 +93,5 @@ fi
 
 
 setup_k8smaster
+sleep 20
+verify_k8s_status
