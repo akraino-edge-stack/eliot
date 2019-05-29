@@ -37,7 +37,6 @@ execute_keedge_controller(){
    ./kubeedge init
 }
 
-
 exec_edge(){
 
    cd $HOME/eliot/scripts/src
@@ -45,7 +44,7 @@ exec_edge(){
 
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} \
    source config_kubeedge
-   
+
    source config_kubeedge
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${common_steps} < /dev/null
 echo "after common_steps"
@@ -54,7 +53,7 @@ echo "after common_steps"
    sshpass -p ${edgenodepassword} \
    ssh ${edgenodeusr}@${edgenodeip} \
    tar -xvzf /etc/kubeedge/certs.tgz --directory /etc/kubeedge
-   
+
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${edge_start} < /dev/null
 }
 
