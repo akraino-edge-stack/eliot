@@ -32,13 +32,13 @@ spec:
         - name: nginx
           image: nginx:1.15.12
           ports:
-        - containerPort: 80
-          hostPort: 80
+            - containerPort: 80
+              hostPort: 80
 EOF
 
 #check if nginx is already deployed
 if ! kubectl get pods | grep nginx; then
-  kubectl create -f testk8snginx.yaml
+  kubectl create -f testk8s-nginx.yaml
 fi
 
 #To check whether the deployment is succesesfull
