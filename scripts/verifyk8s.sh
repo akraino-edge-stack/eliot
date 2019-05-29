@@ -38,7 +38,7 @@ EOF
 
 #check if nginx is already deployed
 if ! kubectl get pods | grep nginx; then
-  kubectl create -f testk8s-nginx.yaml
+  kubectl create -f ~/testk8s-nginx.yaml
 fi
 
 #To check whether the deployment is succesesfull
