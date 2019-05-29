@@ -14,30 +14,28 @@ take_keedge(){
    source ~/.profile
    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
    make
-   #kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
-   #kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
 }
 
 source config_kubeedge
-common_steps="git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
+common_steps="sudo git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
 source ~/.profile && \
+cd $GOPATH/src && \
+sudo chmod -R 777 github.com && \
 cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
-make && \
-chmod +x kubeedge"
+make"
 
 certif_copy="cd /etc/kubeedge &&\
 scp certs.tar.gz"
 
 edge_start="cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
-chmod +x kubeedge && \
-./kubeedge join --edgecontrollerip=$masternodeip --edgenodeid=eliotedge02 --k8sserverip=$masternodeip:8080"
+sudo chmod +x kubeedge && \
+sudo ./kubeedge join --edgecontrollerip=$masternodeip --edgenodeid=eliotedge02 --k8sserverip=$masternodeip:8080"
 
 execute_keedge_controller(){
    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
    sudo chmod +x kubeedge
    ./kubeedge init
 }
-
 
 exec_edge(){
 
@@ -46,7 +44,7 @@ exec_edge(){
 
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} \
    source config_kubeedge
-   
+
    source config_kubeedge
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${common_steps} < /dev/null
 echo "after common_steps"
@@ -55,24 +53,20 @@ echo "after common_steps"
    sshpass -p ${edgenodepassword} \
    ssh ${edgenodeusr}@${edgenodeip} \
    tar -xvzf /etc/kubeedge/certs.tgz --directory /etc/kubeedge
-   
+
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${edge_start} < /dev/null
 }
 
 # start
 
 source config_kubeedge
-#sample
-#return
+
 take_keedge
 
 execute_keedge_controller
 
-#sample
-#execute_edge
 exec_edge
-kubectl get nodes
+sudo kubectl get nodes
 
-kubectl create -f deployment.yaml
-
-kubectl get pods
+chmod +x $HOME/eliot/scripts/verifyk8s.sh
+source $HOME/eliot/scripts/verifyk8s.sh
