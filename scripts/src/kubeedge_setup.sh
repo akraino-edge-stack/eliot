@@ -51,17 +51,17 @@ echo $HOME
 
 user_check="jenkins"
 home_path="/home/jenkins"
-   if [ $HOME == $home_path ];then
-      cd $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src
-   else
-      cd $HOME/eliot/scripts/src
-   fi
+   #if [ $HOME == $home_path ];then
+   cd /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src
+   #else
+   #   cd $HOME/eliot/scripts/src
+   #fi
 
-   if [ $HOME == $home_path ];then
-      sshpass -p ${edgenodepassword} scp $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
-   else
-      sshpass -p ${edgenodepassword} scp $HOME/eliot/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
-   fi
+   #if [ $HOME == $home_path ];then
+   sshpass -p ${edgenodepassword} scp /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
+   #else
+   #   sshpass -p ${edgenodepassword} scp $HOME/eliot/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
+   #fi
 
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} \
    source config_kubeedge
@@ -90,16 +90,16 @@ execute_keedge_controller
 exec_edge
 sudo kubectl get nodes
 
-user_chec="jenkins"
+#user_chec="jenkins"
 
-if [ $(whoami) == $user_chec ];then
+#if [ $(whoami) == $user_chec ];then
 
-  chmod +x $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
-  source $HOME/work/workpsace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
+chmod +x /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
+source /home/jenkins/work/workpsace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
 
-else
+#else
 
-  chmod +x $HOME/eliot/scripts/verifyk8s.sh
-  source $HOME/eliot/scripts/verifyk8s.sh
+#  chmod +x $HOME/eliot/scripts/verifyk8s.sh
+#  source $HOME/eliot/scripts/verifyk8s.sh
 
-fi
+#fi
