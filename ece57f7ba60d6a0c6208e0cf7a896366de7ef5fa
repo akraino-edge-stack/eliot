@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b7dde05_5dcbf9d0",
+        "filename": "scripts/prometheus.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-05-29T04:19:24Z",
+      "side": 1,
+      "message": "please add licence terms in beggining of file",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "ece57f7ba60d6a0c6208e0cf7a896366de7ef5fa",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ecea0956_981d8420",
+        "filename": "scripts/prometheus.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-05-29T04:19:24Z",
+      "side": 1,
+      "message": "remove extra blank lines",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 0
+      },
+      "revId": "ece57f7ba60d6a0c6208e0cf7a896366de7ef5fa",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1670258b_55946d6e",
+        "filename": "scripts/prometheus.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 162
+      },
+      "writtenOn": "2019-05-29T04:19:24Z",
+      "side": 1,
+      "message": "remove blank lines between logical code",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 31
+      },
+      "revId": "ece57f7ba60d6a0c6208e0cf7a896366de7ef5fa",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
