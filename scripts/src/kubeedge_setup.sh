@@ -38,16 +38,26 @@ execute_keedge_controller(){
 }
 
 exec_edge(){
+user_check="jenkins"
+   if [ $(whoami) == $user_check ];then
+      cd $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src
+   else
+      cd $HOME/eliot/scripts/src
+   fi
 
-   cd $HOME/eliot/scripts/src
-   sshpass -p ${edgenodepassword} scp $HOME/release/eliot/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
+   if [ $(whoami) == $user_check ];then
+      sshpass -p ${edgenodepassword} scp $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:$HOME
+   else
+      sshpass -p ${edgenodepassword} scp $HOME/eliot/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
+   fi
 
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} \
    source config_kubeedge
 
    source config_kubeedge
    sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${common_steps} < /dev/null
-echo "after common_steps"
+
+   echo "After cloning the code in ELIOT edge node"
    sshpass -p ${edgenodepassword} scp /etc/kubeedge/certs.tgz ${edgenodeusr}@${edgenodeip}:/etc/kubeedge
 
    sshpass -p ${edgenodepassword} \
@@ -68,5 +78,16 @@ execute_keedge_controller
 exec_edge
 sudo kubectl get nodes
 
-chmod +x $HOME/eliot/scripts/verifyk8s.sh
-source $HOME/eliot/scripts/verifyk8s.sh
+user_chec="jenkins"
+
+if [ $(whoami) == $user_chec ];then
+
+  chmod +x $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
+  source $HOME/work/workpsace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
+
+else
+
+  chmod +x $HOME/eliot/scripts/verifyk8s.sh
+  source $HOME/eliot/scripts/verifyk8s.sh
+
+fi
