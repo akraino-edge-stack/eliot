@@ -1,6 +1,6 @@
-edgenodeusr="root"
+edgenodeusr="jenkins"
 edgenodeip="10.10.0.54"
-edgenodepassword="Huawei@akraino"
+edgenodepassword="jenkins"
 masternodeusr="root"
 masternodeip="10.10.0.45"
 masternodepassword="Huawei@akraino"

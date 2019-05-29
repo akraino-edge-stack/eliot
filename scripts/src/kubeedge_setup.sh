@@ -14,8 +14,6 @@ take_keedge(){
    source ~/.profile
    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
    make
-   #kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
-   #kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
 }
 
 source config_kubeedge
@@ -71,5 +69,5 @@ execute_keedge_controller
 exec_edge
 sudo kubectl get nodes
 
-sudo kubectl create -f deployment.yaml
-sudo kubectl get pods
+chmod +x $HOME/eliot/scripts/verifyk8s.sh
+source $HOME/eliot/scripts/verifyk8s.sh
