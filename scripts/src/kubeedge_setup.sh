@@ -17,7 +17,10 @@ take_keedge(){
 }
 
 source config_kubeedge
-common_steps="sudo git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
+common_steps="echo $GOPATH && \
+echo $HOME && \
+echo $(whoami) && \
+sudo git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
 source ~/.profile && \
 cd $GOPATH/src && \
 sudo chmod -R 777 github.com && \
@@ -38,6 +41,14 @@ execute_keedge_controller(){
 }
 
 exec_edge(){
+echo $(whoami)
+echo =========
+echo $(pwd)
+echo ========
+echo $GOPATH
+echo ========
+echo $HOME
+
 user_check="jenkins"
    if [ $(whoami) == $user_check ];then
       cd $HOME/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src
