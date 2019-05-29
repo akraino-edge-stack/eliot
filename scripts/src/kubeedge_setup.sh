@@ -32,7 +32,7 @@ scp certs.tar.gz"
 
 edge_start="cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
 sudo chmod +x kubeedge && \
-sudo ./kubeedge join --edgecontrollerip=$masternodeip --edgenodeid=eliotedge02 --k8sserverip=$masternodeip:8080"
+sudo ./kubeedge join --edgecontrollerip=$masternodeip --edgenodeid=edgenode001 --k8sserverip=$masternodeip:8080"
 
 execute_keedge_controller(){
    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
@@ -88,6 +88,8 @@ take_keedge
 execute_keedge_controller
 
 exec_edge
+
+sleep 10
 sudo kubectl get nodes
 
 #user_chec="jenkins"
@@ -95,7 +97,7 @@ sudo kubectl get nodes
 #if [ $(whoami) == $user_chec ];then
 
 chmod +x /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
-source /home/jenkins/work/workpsace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
+source /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
 
 #else
 
