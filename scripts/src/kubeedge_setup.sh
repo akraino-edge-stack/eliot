@@ -17,6 +17,7 @@ take_keedge(){
 }
 
 source config_kubeedge
+
 common_steps="echo $GOPATH && \
 echo $HOME && \
 echo $(whoami) && \
@@ -32,7 +33,7 @@ scp certs.tar.gz"
 
 edge_start="cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
 sudo chmod +x kubeedge && \
-sudo ./kubeedge join --edgecontrollerip=$masternodeip --edgenodeid=edgenode001 --k8sserverip=$masternodeip:8080"
+sudo ./kubeedge join --edgecontrollerip=$MASTERNODEIP --edgenodeid=edgenode001 --k8sserverip=$MASTERNODEIP:8080"
 
 execute_keedge_controller(){
    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
@@ -49,34 +50,24 @@ echo $GOPATH
 echo ========
 echo $HOME
 
-user_check="jenkins"
-home_path="/home/jenkins"
-   #if [ $HOME == $home_path ];then
-   cd /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src
-   #else
-   #   cd $HOME/eliot/scripts/src
-   #fi
 
-   #if [ $HOME == $home_path ];then
-   sshpass -p ${edgenodepassword} scp /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
-   #else
-   #   sshpass -p ${edgenodepassword} scp $HOME/eliot/scripts/src/config_kubeedge ${edgenodeusr}@${edgenodeip}:/root
-   #fi
+   cd $PATH_OF_ELIOTFOLDER/scripts/src
+   sshpass -p ${EDGENODEPASSWORD} scp $PATH_OF_ELIOTFOLDER/scripts/src/config_kubeedge ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
-   sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} \
+   sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
    source config_kubeedge
 
    source config_kubeedge
-   sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${common_steps} < /dev/null
+   sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} ${common_steps} < /dev/null
 
    echo "After cloning the code in ELIOT edge node"
-   sshpass -p ${edgenodepassword} scp /etc/kubeedge/certs.tgz ${edgenodeusr}@${edgenodeip}:/etc/kubeedge
+   sshpass -p ${EDGENODEPASSWORD} scp /etc/kubeedge/certs.tgz ${EDGENODEUSR}@${EDGENODEIP}:/etc/kubeedge
 
-   sshpass -p ${edgenodepassword} \
-   ssh ${edgenodeusr}@${edgenodeip} \
+   sshpass -p ${EDGENODEPASSWORD} \
+   ssh ${EDGENODEUSR}@${EDGENODEIP} \
    tar -xvzf /etc/kubeedge/certs.tgz --directory /etc/kubeedge
 
-   sshpass -p ${edgenodepassword} ssh ${edgenodeusr}@${edgenodeip} ${edge_start} < /dev/null
+   sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} ${edge_start} < /dev/null
 }
 
 # start
@@ -92,16 +83,6 @@ exec_edge
 sleep 10
 sudo kubectl get nodes
 
-#user_chec="jenkins"
+chmod +x $PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh
+source $PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh
 
-#if [ $(whoami) == $user_chec ];then
-
-chmod +x /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
-source /home/jenkins/work/workspace/eliot-deploy-kubeedge-virtual-daily-master/scripts/verifyk8s.sh
-
-#else
-
-#  chmod +x $HOME/eliot/scripts/verifyk8s.sh
-#  source $HOME/eliot/scripts/verifyk8s.sh
-
-#fi
