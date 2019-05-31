@@ -1,6 +1,26 @@
-edgenodeusr="root"
-edgenodeip="10.10.0.54"
-edgenodepassword="Huawei@akraino"
-masternodeusr="root"
-masternodeip="10.10.0.45"
-masternodepassword="Huawei@akraino"
+# edge node user name
+EDGENODEUSR=""
+
+# edge node ip
+EDGENODEIP=""
+
+# edge node password
+EDGENODEPASSWORD=""
+
+# master node user name
+MASTERNODEUSR=""
+
+# master node ip
+MASTERNODEIP=""
+
+# master node password
+MASTERNODEPASSWORD=""
+
+# eliot source code path including eliot folder
+PATH_OF_ELIOTFOLDER=""
+
+# home path of edge node
+HOME_EDGENODE=""
+
+# edgenode id for kubeedge configuration
+EDGENODEID=""
