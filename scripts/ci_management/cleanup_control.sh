@@ -8,22 +8,22 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+# constants
+
+TESTYAML="testk8s-nginx.yaml"
+
 # start
 
-kubeedge reset
+source ../src/config_kubeedge
+cd
+kubectl delete -f testk8s-nginx.yaml
 
-reset="kubeedge reset --k8sserverip ${masternodeip}:8080"
+sshpass -p ${EDGENODEPASSWORD} \
+scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge.sh \
+${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
-while read line
-do
-    nodeinfo="${line}"
-    nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
-    nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
-    nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-    masternodeip=$(echo ${nodeinfo} | cut -d"|" -f3)
+sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
+source cleanup_edge.sh
 
-    sshpass -p ${nodepaswd} \
-    kubeedge reset --k8sserverip ${masternodeip}:8080
-
-done < nodelist
-
+cd $PATH_OF_ELIOTFOLDER/scripts/ci_management
+source cleanup_master.sh
