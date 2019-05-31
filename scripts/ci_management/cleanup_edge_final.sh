@@ -8,22 +8,21 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+# constants
+
+NGINX=$(sudo docker ps | grep nginx | wc -l)
+KUBEPROXY=$(sudo docker ps | grep k8s.gcr.io | wc -l)
+CONSTZERO="0"
+
 # start
 
-kubeedge reset
+echo "nginx container stop"
+if [ $NGINX != $CONSTZERO ]; then
+   sudo docker kill $(docker ps -q --filter ancestor=nginx:1.15.12 )
+fi
 
-reset="kubeedge reset --k8sserverip ${masternodeip}:8080"
-
-while read line
-do
-    nodeinfo="${line}"
-    nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
-    nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
-    nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-    masternodeip=$(echo ${nodeinfo} | cut -d"|" -f3)
-
-    sshpass -p ${nodepaswd} \
-    kubeedge reset --k8sserverip ${masternodeip}:8080
-
-done < nodelist
-
+echo "kubeproxy container stop"
+if [ $KUBEPROXY != $CONSTZERO ]; then
+   sudo docker kill $(docker ps -q --filter ancestor=k8s.gcr.io/kube-proxy:v1.14.2 )
+fi
+echo "Finished"
