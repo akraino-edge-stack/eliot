@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5e66345_99b0e7c9",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-03T06:23:28Z",
+      "side": 1,
+      "message": "take edge node name from configuration file. Also for further improvement can have the join command in loop. \nCurrent design is only for one kubeedge worker node.",
+      "range": {
+        "startLine": 36,
+        "startChar": 67,
+        "endLine": 36,
+        "endChar": 78
+      },
+      "revId": "a56600a93cfe4adbe08711359c3e7438f2d84bb9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e8d1804_614c6f3f",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-03T06:23:28Z",
+      "side": 1,
+      "message": "can add some headline or heading if we are printing this in the console to categorize the details.",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 14
+      },
+      "revId": "a56600a93cfe4adbe08711359c3e7438f2d84bb9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
