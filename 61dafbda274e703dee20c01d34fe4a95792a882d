@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "365854c1_401d0841",
+        "filename": "scripts/ci_management/cleanup_control.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-03T12:33:26Z",
+      "side": 1,
+      "message": "The Variable is not being used in the script in the kubectl delete cmd",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b04095c2_8b2c4c51",
+        "filename": "scripts/ci_management/cleanup_edge.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-03T12:33:26Z",
+      "side": 1,
+      "message": "In Edge Node will have testk8s-nginx.yaml file ? I think this file is present in ELIOT Manager only. Please check the same.",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c8b5275_8c0bc58d",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-03T12:33:26Z",
+      "side": 1,
+      "message": "this variable is not being used in the script",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7632bd5a_0b26d50e",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-03T12:33:26Z",
+      "side": 1,
+      "message": "repeated config_kubeedge; one can be removed. line number 53 \u0026 55",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
