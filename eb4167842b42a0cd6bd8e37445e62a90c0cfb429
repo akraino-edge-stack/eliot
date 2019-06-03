@@ -16,6 +16,24 @@
       "revId": "eb4167842b42a0cd6bd8e37445e62a90c0cfb429",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46463cd2_c3cf24aa",
+        "filename": "scripts/src/config_kubeedge",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T07:05:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6655bcfb_9a71c25b",
+      "revId": "eb4167842b42a0cd6bd8e37445e62a90c0cfb429",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
