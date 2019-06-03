@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c6035265_6d651aa6",
+        "filename": "scripts/ci_management/cleanup_control.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T12:49:53Z",
+      "side": 1,
+      "message": "Modified line no. 19 to use TESTYAML",
+      "parentUuid": "365854c1_401d0841",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b04095c2_8b2c4c51",
         "filename": "scripts/ci_management/cleanup_edge.sh",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2019-06-03T12:33:26Z",
       "side": 1,
       "message": "In Edge Node will have testk8s-nginx.yaml file ? I think this file is present in ELIOT Manager only. Please check the same.",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b64c80ee_f8a21a31",
+        "filename": "scripts/ci_management/cleanup_edge.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T12:49:53Z",
+      "side": 1,
+      "message": "yes. I think you are right.",
+      "parentUuid": "b04095c2_8b2c4c51",
       "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "c5473f58_789441e7",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T12:49:53Z",
+      "side": 1,
+      "message": "yes. Removed that variable. Not required",
+      "parentUuid": "4c8b5275_8c0bc58d",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7632bd5a_0b26d50e",
         "filename": "scripts/src/kubeedge_setup.sh",
         "patchSetId": 8
@@ -64,6 +118,24 @@
       "writtenOn": "2019-06-03T12:33:26Z",
       "side": 1,
       "message": "repeated config_kubeedge; one can be removed. line number 53 \u0026 55",
+      "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "854af7bb_cc316a85",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T12:49:53Z",
+      "side": 1,
+      "message": "One is executing in edge and another one in Master",
+      "parentUuid": "7632bd5a_0b26d50e",
       "revId": "61dafbda274e703dee20c01d34fe4a95792a882d",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
