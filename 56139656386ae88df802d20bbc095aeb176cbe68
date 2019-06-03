@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "219f8084_63f9574b",
+        "filename": "scripts/ci_management/cleanup_edge.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T07:05:26Z",
+      "side": 1,
+      "message": "changed as a constant in the same file",
+      "parentUuid": "5f0d7029_a6051d58",
+      "range": {
+        "startLine": 17,
+        "startChar": 9,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "56139656386ae88df802d20bbc095aeb176cbe68",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ffe83a1_37b6def0",
         "filename": "scripts/ci_management/cleanup_edge.sh",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6d243de8_1470ddd7",
+        "filename": "scripts/ci_management/cleanup_edge.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T07:05:26Z",
+      "side": 1,
+      "message": "some limitations are there. we will mention this one on docs.",
+      "parentUuid": "5ffe83a1_37b6def0",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "56139656386ae88df802d20bbc095aeb176cbe68",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81731877_e1005a34",
         "filename": "scripts/ci_management/cleanup_edge.sh",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2019-06-03T06:23:28Z",
       "side": 1,
       "message": "instead of absoulte path /root/go/src can provide $GOPATH/src",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "56139656386ae88df802d20bbc095aeb176cbe68",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8a37336_7d79cba9",
+        "filename": "scripts/ci_management/cleanup_edge.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-03T07:05:26Z",
+      "side": 1,
+      "message": "will mention this one on installation docs",
+      "parentUuid": "81731877_e1005a34",
       "range": {
         "startLine": 42,
         "startChar": 14,
