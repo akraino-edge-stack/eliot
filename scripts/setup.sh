@@ -81,6 +81,23 @@ verify_k8s_status(){
   source verifyk8s.sh | tee verifyk8s.log
 }
 
+install_cadvisor_edge(){
+ set -o xtrace
+ SETUP_CADVISOR_ATEDGE="cd AfterRelease1/eliot/scripts/ && source cadvisorsetup.sh" 
+ while read line
+ do
+     nodeinfo="${line}"
+     nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
+     nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
+     nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_CADVISOR_ATEDGE} < /dev/null
+ done < nodelist
+}
+
+install_prometheus(){
+set -o xtrace
+source prometheus.sh | tee install_prometheus.log
+}
 
 # Start
 #
@@ -95,3 +112,9 @@ fi
 setup_k8smaster
 sleep 20
 verify_k8s_status
+
+install_cadvisor_edge
+sleep 10
+install_prometheus
+sleep 5 
+sudo docker ps | grep prometheus
