@@ -16,7 +16,7 @@ CONSTZERO="0"
 
 # start
 
-source config_kubeedge
+source config_kubeedge > /dev/null 2>&1
 source ~/.profile
 
 cd
