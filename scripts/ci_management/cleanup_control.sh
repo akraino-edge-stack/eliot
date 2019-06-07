@@ -14,23 +14,29 @@ TESTYAML="testk8s-nginx.yaml"
 
 # start
 
-source ../src/config_kubeedge
+source ../src/config_kubeedge > /dev/null 2>&1
 cd
 kubectl delete -f $TESTYAML
 
-sshpass -p ${EDGENODEPASSWORD} \
-scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge.sh \
-${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+exec_edge_master(){
 
-sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
-source cleanup_edge.sh
+   sshpass -p ${EDGENODEPASSWORD} \
+   scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge.sh \
+   ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
-cd $PATH_OF_ELIOTFOLDER/scripts/ci_management
-source cleanup_master.sh
+   sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
+   source cleanup_edge.sh
 
-sshpass -p ${EDGENODEPASSWORD} \
-scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge_final.sh \
-${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+   cd $PATH_OF_ELIOTFOLDER/scripts/ci_management
+   source cleanup_master.sh
 
-sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
-source cleanup_edge_final.sh
+   sshpass -p ${EDGENODEPASSWORD} \
+   scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge_final.sh \
+   ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+
+   sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
+   source cleanup_edge_final.sh
+
+}
+
+exec_edge_master > /dev/null 2>&1
