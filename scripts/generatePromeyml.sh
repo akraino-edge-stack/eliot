@@ -26,7 +26,7 @@ do
   echo $workernodeip
   count=2
   echo $count
-done < nodelist
+done < nodelist > /dev/null 2>&1
 
 echo "workernodeip="
 echo $workernodeip

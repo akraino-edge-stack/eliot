@@ -69,7 +69,7 @@ setup_k8sworkers()
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
- done < nodelist
+ done < nodelist > /dev/null 2>&1
 
 }
 
@@ -83,7 +83,7 @@ verify_k8s_status(){
 
 install_cadvisor_edge(){
  set -o xtrace
- SETUP_CADVISOR_ATEDGE="cd AfterRelease1/eliot/scripts/ && source cadvisorsetup.sh" 
+ SETUP_CADVISOR_ATEDGE="cd eliot/scripts/ && source cadvisorsetup.sh" 
  while read line
  do
      nodeinfo="${line}"
@@ -91,7 +91,7 @@ install_cadvisor_edge(){
      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_CADVISOR_ATEDGE} < /dev/null
- done < nodelist
+ done < nodelist > /dev/null 2>&1
 }
 
 install_prometheus(){
