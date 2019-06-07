@@ -14,23 +14,23 @@ TESTYAML="testk8s-nginx.yaml"
 
 # start
 
-source ../src/config_kubeedge
+source ../src/config_kubeedge > /dev/null 2>&1
 cd
 kubectl delete -f $TESTYAML
 
 sshpass -p ${EDGENODEPASSWORD} \
 scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge.sh \
-${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE > /dev/null 2>&1
 
 sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
-source cleanup_edge.sh
+source cleanup_edge.sh > /dev/null 2>&1
 
 cd $PATH_OF_ELIOTFOLDER/scripts/ci_management
-source cleanup_master.sh
+source cleanup_master.sh > /dev/null 2>&1
 
 sshpass -p ${EDGENODEPASSWORD} \
 scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge_final.sh \
-${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE > /dev/null 2>&1
 
 sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
-source cleanup_edge_final.sh
+source cleanup_edge_final.sh > /dev/null 2>&1

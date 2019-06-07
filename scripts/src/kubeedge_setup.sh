@@ -16,7 +16,7 @@ take_keedge(){
    make
 }
 
-source config_kubeedge
+source config_kubeedge > /dev/null 2>&1
 
 common_steps="echo $GOPATH && \
 echo $HOME && \
@@ -44,30 +44,30 @@ exec_edge(){
 
    sshpass -p ${EDGENODEPASSWORD} \
    scp $PATH_OF_ELIOTFOLDER/scripts/src/config_kubeedge \
-   ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+   ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE > /dev/null 2>&1
 
    sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
-   source config_kubeedge
+   source config_kubeedge > /dev/null 2>&1
 
-   source config_kubeedge
+   source config_kubeedge > /dev/null 2>&1
    sshpass -p ${EDGENODEPASSWORD} \
-   ssh ${EDGENODEUSR}@${EDGENODEIP} ${common_steps} < /dev/null
+   ssh ${EDGENODEUSR}@${EDGENODEIP} ${common_steps} > /dev/null 2>&1
 
    echo "After cloning the code in ELIOT edge node"
    sshpass -p ${EDGENODEPASSWORD} \
-   scp /etc/kubeedge/certs.tgz ${EDGENODEUSR}@${EDGENODEIP}:/etc/kubeedge
+   scp /etc/kubeedge/certs.tgz ${EDGENODEUSR}@${EDGENODEIP}:/etc/kubeedge > /dev/null 2>&1
 
    sshpass -p ${EDGENODEPASSWORD} \
    ssh ${EDGENODEUSR}@${EDGENODEIP} \
-   tar -xvzf /etc/kubeedge/certs.tgz --directory /etc/kubeedge
+   tar -xvzf /etc/kubeedge/certs.tgz --directory /etc/kubeedge > /dev/null 2>&1
 
    sshpass -p ${EDGENODEPASSWORD} \
-   ssh ${EDGENODEUSR}@${EDGENODEIP} ${edge_start} < /dev/null
+   ssh ${EDGENODEUSR}@${EDGENODEIP} ${edge_start} > /dev/null 2>&1
 }
 
 # start
 
-source config_kubeedge
+source config_kubeedge > /dev/null 2>&1
 
 take_keedge
 
