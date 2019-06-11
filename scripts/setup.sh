@@ -18,6 +18,11 @@
 # sshpass needs to be installed before executing this script.                          #
 ########################################################################################
 
+# constants
+
+OSPLATFORM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
+
 show_help()
 {
   echo "The script helps in setting up the ELIOT Toplogy Infrastrucutre"
@@ -73,6 +78,46 @@ setup_k8sworkers()
 
 }
 
+setup_k8smaster_centos()
+{
+  set -o xtrace
+  #sudo rm -rf ~/.kube
+  source common_centos.sh | tee eliotcommon_centos.log
+  source k8smaster_centos.sh | tee kubeadm_centos.log
+  # Setup ELIOT Node
+  setup_k8sworkers_centos
+}
+
+
+setup_k8sworkers_centos()
+{
+  set -o xtrace
+
+  # Install Docker on ELIOT Node
+
+  ELIOT_REPO="https://gerrit.akraino.org/r/eliot"
+  SETUP_WORKER_COMMON_CENTOS="sudo rm -rf ~/eliot &&\
+                              git clone ${ELIOT_REPO} &&\
+                              cd eliot/scripts && source common_centos.sh"
+
+  #SETUP_WORKER_CENTOS="cd eliot/scripts/ && source k8sworker.sh"
+
+  KUBEADM_JOIN_CENTOS=$(grep "kubeadm join " ./kubeadm_centos.log)
+  KUBEADM_JOIN_CENTOS="sudo ${KUBEADM_JOIN_CENTOS}"
+
+ # Read all the Worker Node details from nodelist file.
+ while read line
+ do
+     nodeinfo="${line}"
+     nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
+     nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
+     nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON_CENTOS} < /dev/null
+     #sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_CENTOS} < /dev/null
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null
+ done < nodelist
+
+}
 
 #verify kubernetes setup by deploying nginx server.
 
@@ -108,13 +153,25 @@ then
   exit 0
 fi
 
+if [[ $OSPLATFORM = *CentOS* ]]; then
+   setup_k8smaster_centos
+else
+   setup_k8smaster
+   sleep 20
+   verify_k8s_status
+   install_cadvisor_edge
+   sleep 10
+   install_prometheus
+   sleep 5
+   sudo docker ps | grep prometheus
+fi
 
-setup_k8smaster
-sleep 20
-verify_k8s_status
+#setup_k8smaster
+#sleep 20
+#verify_k8s_status
 
-install_cadvisor_edge
-sleep 10
-install_prometheus
-sleep 5 
-sudo docker ps | grep prometheus
+#install_cadvisor_edge
+#sleep 10
+#install_prometheus
+#sleep 5 
+#sudo docker ps | grep prometheus
