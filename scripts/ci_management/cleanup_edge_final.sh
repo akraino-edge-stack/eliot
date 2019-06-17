@@ -15,7 +15,6 @@ KUBEPROXY=$(sudo docker ps | grep k8s.gcr.io | wc -l)
 CONSTZERO="0"
 
 # start
-
 echo "nginx container stop"
 if [ $NGINX != $CONSTZERO ]; then
    sudo docker kill $(docker ps -q --filter ancestor=nginx:1.15.12 )
@@ -23,6 +22,6 @@ fi
 
 echo "kubeproxy container stop"
 if [ $KUBEPROXY != $CONSTZERO ]; then
-   sudo docker kill $(docker ps -q --filter ancestor=k8s.gcr.io/kube-proxy:v1.14.2 )
+   sudo docker kill $(docker ps -q --filter ancestor=k8s.gcr.io/kube-proxy:v1.14.3 )
 fi
 echo "Finished"
