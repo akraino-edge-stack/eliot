@@ -21,9 +21,9 @@ source ~/.profile
 
 cd
 
-if [ -d "/root/go/src/github.com/kubeedge/kubeedge/keadm" ]; then
+if [ -d "$GOPATH/src/github.com/kubeedge/kubeedge/keadm" ]; then
    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
-   ./kubeedge reset --k8sserverip $MASTERNODEIP:8080
+   ./keadm reset --k8sserverip $MASTERNODEIP:8080
 fi
 
 cd /etc/kubeedge

@@ -8,12 +8,36 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+{ set +x; } > /dev/null 2>&1
+
+if [ -n "$1" ]; then
+
+if [ "$1" != "--help" ]; then
+    echo ""
+    echo "Usage of the command is wrong.. Please type ./kubeedge_setup.sh --help for more details"
+    echo ""
+    exit 0
+fi
+
+fi
+
+if [ "$1" == "--help" ]; then
+    echo ""
+    echo "This script will setup the kubeedge installation on Eliot master and Eliot edge"
+    echo "Before Executing this, add Eliot master and Eliot edge details in config_kubeedge file"
+    echo ""
+    exit 0; set -x;
+fi
+
+# take_keedge will download the source code of kubeedge in master and in edge
+
 take_keedge(){
 
-   git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge
-   source ~/.profile
-   cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
-   make
+    source ~/.profile
+    git clone https://github.com/kubeedge/kubeedge.git \
+$GOPATH/src/github.com/kubeedge/kubeedge
+    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
+    make
 }
 
 source config_kubeedge > /dev/null 2>&1
@@ -21,7 +45,7 @@ source config_kubeedge > /dev/null 2>&1
 common_steps="echo $GOPATH && \
 echo $HOME && \
 echo $(whoami) && \
-sudo git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
+git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
 source ~/.profile && \
 cd $GOPATH/src && \
 sudo chmod -R 777 github.com && \
@@ -29,40 +53,45 @@ cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
 make"
 
 edge_start="cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
-sudo chmod +x kubeedge && \
-sudo ./kubeedge join --edgecontrollerip=$MASTERNODEIP --edgenodeid=$EDGENODEID --k8sserverip=$MASTERNODEIP:8080"
+sudo chmod +x keadm && \
+sudo ./keadm join --edgecontrollerip=$MASTERNODEIP --edgenodeid=$EDGENODEID \
+--k8sserverip=$MASTERNODEIP:8080"
+
+# Initialisation of ELIOT master with kubeedge
 
 execute_keedge_controller(){
-   cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
-   sudo chmod +x kubeedge
-   ./kubeedge init
+    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
+    sudo chmod +x keadm
+    sudo ./keadm init
 }
+
+# Initialisation of Eliot edge with kubeedge
 
 exec_edge(){
 
-   cd $PATH_OF_ELIOTFOLDER/scripts/src
+    cd $PATH_OF_ELIOTFOLDER/scripts/src
 
-   sshpass -p ${EDGENODEPASSWORD} \
-   scp $PATH_OF_ELIOTFOLDER/scripts/src/config_kubeedge \
-   ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
+    sshpass -p ${EDGENODEPASSWORD} \
+    scp $PATH_OF_ELIOTFOLDER/scripts/src/config_kubeedge \
+    ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
-   sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
-   source config_kubeedge
+    sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
+    source config_kubeedge
 
-   source config_kubeedge > /dev/null 2>&1
-   sshpass -p ${EDGENODEPASSWORD} \
-   ssh ${EDGENODEUSR}@${EDGENODEIP} ${common_steps}
+    source config_kubeedge > /dev/null 2>&1
+    sshpass -p ${EDGENODEPASSWORD} \
+    ssh ${EDGENODEUSR}@${EDGENODEIP} ${common_steps}
 
-   echo "After cloning the code in ELIOT edge node"
-   sshpass -p ${EDGENODEPASSWORD} \
-   scp /etc/kubeedge/certs.tgz ${EDGENODEUSR}@${EDGENODEIP}:/etc/kubeedge
+    echo "After cloning the code in ELIOT edge node"
+    sshpass -p ${EDGENODEPASSWORD} \
+    scp /etc/kubeedge/certs.tgz ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
-   sshpass -p ${EDGENODEPASSWORD} \
-   ssh ${EDGENODEUSR}@${EDGENODEIP} \
-   tar -xvzf /etc/kubeedge/certs.tgz --directory /etc/kubeedge
+    sshpass -p ${EDGENODEPASSWORD} \
+    ssh ${EDGENODEUSR}@${EDGENODEIP} \
+    sudo tar -xvzf $HOME/certs.tgz --directory /etc/kubeedge
 
-   sshpass -p ${EDGENODEPASSWORD} \
-   ssh ${EDGENODEUSR}@${EDGENODEIP} ${edge_start}
+    sshpass -p ${EDGENODEPASSWORD} \
+    ssh ${EDGENODEUSR}@${EDGENODEIP} ${edge_start}
 }
 
 # start
@@ -77,6 +106,16 @@ exec_edge > /dev/null 2>&1
 
 sleep 10
 sudo kubectl get nodes
+
+if [ "$(id -u)" = 0 ]; then
+    echo "export KUBECONFIG=/etc/kubernetes/admin.conf" | \
+tee -a "${HOME}/.profile"
+    source "${HOME}/.profile"
+else
+    mkdir -p "${HOME}/.kube"
+    sudo cp -i /etc/kubernetes/admin.conf "${HOME}/.kube/config"
+    sudo chown "$(id -u)":"$(id -g)" "${HOME}/.kube/config"
+fi
 
 chmod +x $PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh
 source $PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh
