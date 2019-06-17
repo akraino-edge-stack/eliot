@@ -20,7 +20,7 @@ value=$(whoami)
 
 if [ -d "/root/go/src/github.com/kubeedge/kubeedge/keadm" ]; then
    cd /root/go/src/github.com/kubeedge/kubeedge/keadm
-   ./kubeedge reset
+   ./keadm reset
 fi
 
 # delete the previously existing certificates
