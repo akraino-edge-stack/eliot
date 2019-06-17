@@ -18,9 +18,9 @@ value=$(whoami)
 
 # kubeedge reset internally undo the things done by ./kubeedge init
 
-if [ -d "/root/go/src/github.com/kubeedge/kubeedge/keadm" ]; then
-   cd /root/go/src/github.com/kubeedge/kubeedge/keadm
-   ./kubeedge reset
+if [ -d "$GOPATH/src/github.com/kubeedge/kubeedge/keadm" ]; then
+   cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
+   ./keadm reset
 fi
 
 # delete the previously existing certificates
@@ -41,8 +41,8 @@ fi
 
 # delete the kubeedge code
 
-if [ -d "/root/go/src" ]; then
-   cd /root/go
+if [ -d "$GOPATH/src" ]; then
+   cd $GOPATH
    sudo rm -rf src
 fi
 
