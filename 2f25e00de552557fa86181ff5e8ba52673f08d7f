@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a7d531e_94ca0217",
+        "filename": "scripts/common_centos.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-27T08:40:58Z",
+      "side": 1,
+      "message": "Modified and included using sysctl",
+      "parentUuid": "2df50889_125a5cdb",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 56
+      },
+      "revId": "2f25e00de552557fa86181ff5e8ba52673f08d7f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4824f69d_e0b577c3",
         "filename": "scripts/common_centos.sh",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2019-06-26T09:01:09Z",
       "side": 1,
       "message": "instead of hardcoding we can have uname -m so that it will be generic for both X86 and Arm Based servers.",
+      "range": {
+        "startLine": 36,
+        "startChar": 67,
+        "endLine": 36,
+        "endChar": 73
+      },
+      "revId": "2f25e00de552557fa86181ff5e8ba52673f08d7f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a83ed8c_428a0781",
+        "filename": "scripts/common_centos.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-27T08:40:58Z",
+      "side": 1,
+      "message": "fixed by including uname -m in generic way",
+      "parentUuid": "4824f69d_e0b577c3",
       "range": {
         "startLine": 36,
         "startChar": 67,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "efd253e5_fc607c5a",
+        "filename": "scripts/common_centos.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-27T08:40:58Z",
+      "side": 1,
+      "message": "removed in k8smaster_centos.sh",
+      "parentUuid": "15c3a7dd_20726a9a",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "2f25e00de552557fa86181ff5e8ba52673f08d7f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c69b8f15_b953290a",
         "filename": "scripts/k8smaster_centos.sh",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2019-06-26T09:01:09Z",
       "side": 1,
       "message": "add the version numbers for the kubernetes packages",
+      "range": {
+        "startLine": 23,
+        "startChar": 20,
+        "endLine": 23,
+        "endChar": 43
+      },
+      "revId": "2f25e00de552557fa86181ff5e8ba52673f08d7f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3347a30_4a3684fb",
+        "filename": "scripts/k8smaster_centos.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-27T08:40:58Z",
+      "side": 1,
+      "message": "Added and included kubernetes-cni",
+      "parentUuid": "c69b8f15_b953290a",
       "range": {
         "startLine": 23,
         "startChar": 20,
