@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94fbcdaf_a912d563",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-28T08:37:26Z",
+      "side": 1,
+      "message": "the current path is for root user. We can make it for non-root user also.",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "621d093f_68a32a2b",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-28T08:37:26Z",
+      "side": 1,
+      "message": "Need to have non-root user path.",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7792b4d5_0d45a3cd",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-28T08:37:26Z",
+      "side": 1,
+      "message": "Need to handle for non-root user.",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c85d278_fe641c3f",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-06-28T08:37:26Z",
+      "side": 1,
+      "message": "Need to handle as sudo rm ? when clean up is having as non-root user script.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 20
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
