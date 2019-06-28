@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1194dac0_c873783f",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-28T09:16:32Z",
+      "side": 1,
+      "message": "Changed to $GOPATH instead of /root/go",
+      "parentUuid": "94fbcdaf_a912d563",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "621d093f_68a32a2b",
         "filename": "scripts/ci_management/cleanup_master.sh",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cea8d9ce_df3acdef",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-28T09:16:32Z",
+      "side": 1,
+      "message": "Changed to $GOPATH instead of /root/go",
+      "parentUuid": "621d093f_68a32a2b",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7792b4d5_0d45a3cd",
         "filename": "scripts/ci_management/cleanup_master.sh",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2019-06-28T08:37:26Z",
       "side": 1,
       "message": "Need to handle for non-root user.",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "bf79eba8a709259fb6f32cc32bbe89e9e1c66395",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2250d0e6_5d5a7af9",
+        "filename": "scripts/ci_management/cleanup_master.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-06-28T09:16:32Z",
+      "side": 1,
+      "message": "Modified to $GOPATH instead of /root/go",
+      "parentUuid": "7792b4d5_0d45a3cd",
       "range": {
         "startLine": 44,
         "startChar": 9,
