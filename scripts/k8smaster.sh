@@ -12,6 +12,9 @@ KUBE_VERSION=1.13.0-00
 POD_NETWORK_CIDR=192.168.0.0/16
 K8S_CNI_VERSION=0.6.0-00
 
+#K8s service CIDR range
+K8s_SVC_CIDR=10.96.0.0/12
+
 # Install Kubernetes with Kubeadm
 
 # Disable swap
@@ -38,7 +41,8 @@ if ! kubectl get nodes; then
   sudo kubeadm config images pull
   sudo kubeadm init \
 	 --apiserver-advertise-address="${MASTER_IP}" \
-	 --pod-network-cidr="${POD_NETWORK_CIDR}"
+	 --pod-network-cidr="${POD_NETWORK_CIDR}" \
+         --service-cidr="{K8s_SVC_CIDR}"
 
   if [ "$(id -u)" = 0 ]; then
     echo "export KUBECONFIG=/etc/kubernetes/admin.conf" | \
