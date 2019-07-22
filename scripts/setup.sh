@@ -21,7 +21,7 @@
 # constants
 
 OSPLATFORM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
-
+ELIOT_REPO="https://gerrit.akraino.org/r/eliot"
 
 show_help()
 {
@@ -54,7 +54,6 @@ setup_k8sworkers()
   set -o xtrace
 
   # Install Docker on ELIOT Node
-  ELIOT_REPO="https://gerrit.akraino.org/r/eliot"
   SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
                        cd eliot/scripts && source common.sh"
@@ -99,7 +98,6 @@ setup_k8sworkers_centos()
   set -o xtrace
   # Install Docker on ELIOT Node
 
-  ELIOT_REPO="https://gerrit.akraino.org/r/eliot"
   SETUP_WORKER_COMMON_CENTOS="sudo rm -rf ~/eliot &&\
                               git clone ${ELIOT_REPO} &&\
                               cd eliot/scripts && source common_centos.sh"
