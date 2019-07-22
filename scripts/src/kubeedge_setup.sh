@@ -8,6 +8,10 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+#Constants
+KUBEEDGE_SRC="$GOPATH/src/github.com/kubeedge/kubeedge"
+KUBEEDGE_BIN="$GOPATH/src/github.com/kubeedge/kubeedge/keadm"
+
 { set +x; } > /dev/null 2>&1
 
 if [ -n "$1" ]; then
@@ -35,24 +39,22 @@ take_keedge(){
 
     source ~/.profile
     git clone https://github.com/kubeedge/kubeedge.git \
-$GOPATH/src/github.com/kubeedge/kubeedge
-    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
+    $KUBEEDGE_SRC
+    cd $KUBEEDGE_BIN
     make
 }
 
 source config_kubeedge > /dev/null 2>&1
 
 common_steps="echo $GOPATH && \
-echo $HOME && \
-echo $(whoami) && \
-git clone https://github.com/kubeedge/kubeedge.git $GOPATH/src/github.com/kubeedge/kubeedge && \
+git clone https://github.com/kubeedge/kubeedge.git $KUBEEDGE_SRC && \
 source ~/.profile && \
 cd $GOPATH/src && \
 sudo chmod -R 777 github.com && \
-cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
+cd $KUBEEDGE_BIN && \
 make"
 
-edge_start="cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm && \
+edge_start="cd $KUBEEDGE_BIN && \
 sudo chmod +x keadm && \
 sudo ./keadm join --edgecontrollerip=$MASTERNODEIP --edgenodeid=$EDGENODEID \
 --k8sserverip=$MASTERNODEIP:8080"
@@ -60,7 +62,7 @@ sudo ./keadm join --edgecontrollerip=$MASTERNODEIP --edgenodeid=$EDGENODEID \
 # Initialisation of ELIOT master with kubeedge
 
 execute_keedge_controller(){
-    cd $GOPATH/src/github.com/kubeedge/kubeedge/keadm
+    cd $KUBEEDGE_BIN
     sudo chmod +x keadm
     sudo ./keadm init
 }
