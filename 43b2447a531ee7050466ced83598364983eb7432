@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b1cd239_c01cace9",
+        "filename": "scripts/k8smaster_centos.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T04:14:39Z",
+      "side": 1,
+      "message": "why duplicate this variable with common_centos.sh",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "43b2447a531ee7050466ced83598364983eb7432",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
