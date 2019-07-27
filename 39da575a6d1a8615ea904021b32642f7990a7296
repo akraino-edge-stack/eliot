@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "089e70ae_612c2bad",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T04:05:22Z",
+      "side": 1,
+      "message": "remove whitespace",
+      "range": {
+        "startLine": 86,
+        "startChar": 82,
+        "endLine": 86,
+        "endChar": 84
+      },
+      "revId": "39da575a6d1a8615ea904021b32642f7990a7296",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9835590a_79cdecb5",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T04:05:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 119,
+        "startChar": 7,
+        "endLine": 119,
+        "endChar": 8
+      },
+      "revId": "39da575a6d1a8615ea904021b32642f7990a7296",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f2c2253_516ab3bf",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T04:05:22Z",
+      "side": 1,
+      "message": "could it display the prometheus pod in kubernetes",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 32
+      },
+      "revId": "39da575a6d1a8615ea904021b32642f7990a7296",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
