@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7acc85f9_d4d18a1c",
+        "filename": "src/LEDGERP/installation/ledge_vm_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T03:11:51Z",
+      "side": 1,
+      "message": "why don\u0027t install bridge-utlis and so on on arm server",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "3f943daa571dfe62dd71eb30a91e35007c54310e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8adcaa0_d362985d",
         "filename": "src/LEDGERP/installation/ledge_vm_setup.sh",
         "patchSetId": 1
