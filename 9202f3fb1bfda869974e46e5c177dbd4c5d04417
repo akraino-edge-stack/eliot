@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5448174_bdcd8b9b",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T04:12:07Z",
+      "side": 1,
+      "message": "where define $GOPATH",
+      "range": {
+        "startLine": 12,
+        "startChar": 15,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "9202f3fb1bfda869974e46e5c177dbd4c5d04417",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
