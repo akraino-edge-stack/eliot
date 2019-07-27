@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1f62c89_8ad1be9a",
+        "filename": "scripts/src/kubeedge_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T02:58:59Z",
+      "side": 1,
+      "message": "please remove the whitespace",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "593356d04a7916c61e7609ffb48e4b32a9065541",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
