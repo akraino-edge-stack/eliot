@@ -140,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "8de8da95_26b18d44",
+        "filename": "thinos_setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T03:14:37Z",
+      "side": 1,
+      "message": "it better to change url to variable, which would be easy for us to modify later,",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "52be1c9fbd5560f08bcbb8494dddd7fac29f60b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d06ba89_4ecb68b8",
         "filename": "thinos_setup.sh",
         "patchSetId": 1
