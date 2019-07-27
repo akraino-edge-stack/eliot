@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "362f85eb_a6e1ab5d",
+        "filename": "docs/conf.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T04:08:21Z",
+      "side": 1,
+      "message": "is this python script uesed to build the doc for eliot?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 47
+      },
+      "revId": "4f01987f1c2d8aba3ff5e5dba974c68a57bb5e7d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
