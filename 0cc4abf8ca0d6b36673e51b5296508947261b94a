@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5d79686_546e24b6",
+        "filename": "scripts/src/config_kubeedge",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T03:30:07Z",
+      "side": 1,
+      "message": "could it be remove the password from the code? otherwise hacker may use the password to attack the cloud VM",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 35
+      },
+      "revId": "0cc4abf8ca0d6b36673e51b5296508947261b94a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
