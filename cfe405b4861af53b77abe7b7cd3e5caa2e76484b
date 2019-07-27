@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "554f0dd5_1d42a57c",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2019-07-27T06:39:38Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 86,
+        "startChar": 69,
+        "endLine": 86,
+        "endChar": 70
+      },
+      "revId": "cfe405b4861af53b77abe7b7cd3e5caa2e76484b",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
