@@ -39,7 +39,12 @@ sudo systemctl restart kubelet
 sudo kubeadm init \
 	--apiserver-advertise-address="${MASTER_IP}" \
 	--pod-network-cidr="${POD_NETWORK_CIDR}"
-
-mkdir -p "${HOME}/.kube"
-sudo cp -i /etc/kubernetes/admin.conf "${HOME}/.kube/config"
-sudo chown "$(id -u)":"$(id -g)" "${HOME}/.kube/config"
+if [ "$(id -u)" = 0 ]; then
+   echo "export KUBECONFIG=/etc/kubernetes/admin.conf" | \
+   tee -a "${HOME}/.profile"
+   source "${HOME}/.profile"
+else
+   mkdir -p "${HOME}/.kube"
+   sudo cp -i /etc/kubernetes/admin.conf "${HOME}/.kube/config"
+   sudo chown "$(id -u)":"$(id -g)" "${HOME}/.kube/config"
+fi
