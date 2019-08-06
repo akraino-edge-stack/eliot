@@ -11,6 +11,7 @@
 #Constants
 KUBEEDGE_SRC="$GOPATH/src/github.com/kubeedge/kubeedge"
 KUBEEDGE_BIN="$GOPATH/src/github.com/kubeedge/kubeedge/keadm"
+VERIFY_K8S="$PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh"
 
 { set +x; } > /dev/null 2>&1
 
@@ -119,6 +120,6 @@ else
     sudo chown "$(id -u)":"$(id -g)" "${HOME}/.kube/config"
 fi
 
-chmod +x $PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh
-source $PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh
+chmod +x $VERIFY_K8S
+source $VERIFY_K8S
 
