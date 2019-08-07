@@ -1,0 +1,154 @@
+---
+- project:
+
+    name: eliot-ci
+
+    installer: 'eliot'
+
+    project: 'eliot'
+
+    master: &master
+      stream: master
+      branch: '{stream}'
+      gs-pathname: ''
+      ppa-pathname: '/{stream}'
+      disabled: false
+    # -------------------------------
+    # POD, INSTALLER, AND BRANCH MAPPING
+    # -------------------------------
+    #        CI PODs
+    # -------------------------------
+    pod:
+      - kubeedge-virtual:
+          slave-label: eliot-kubeedge-virtual
+          <<: *master
+          auto-trigger-name: 'eliot-deploy-{pod}-daily-{stream}'
+      - k8s-virtual:
+          slave-label: eliot-k8s-virtual
+          <<: *master
+          auto-trigger-name: 'eliot-deploy-{pod}-daily-{stream}'
+      - k8s-centos-virtual:
+          slave-label: eliot-k8s-centos-virtual
+          <<: *master
+          auto-trigger-name: 'eliot-deploy-{pod}-daily-{stream}'
+
+
+    jobs:
+      - 'eliot-deploy-{pod}-daily-{stream}'
+
+########################
+# job templates
+########################
+- job-template:
+    name: 'eliot-deploy-{pod}-daily-{stream}'
+
+    disabled: '{obj:disabled}'
+
+    concurrent: true
+
+    properties:
+      - logrotate-default
+      - throttle:
+          enabled: true
+          max-per-node: 1
+          option: 'project'
+      - build-blocker:
+          use-build-blocker: true
+          blocking-jobs:
+            - 'eliot-deploy-{pod}-daily-.*?'
+            - 'eliot-verify-deploy-.*?'
+          blocking-level: 'NODE'
+
+
+    wrappers:
+      - build-name:
+          name: '$BUILD_NUMBER'
+      - timeout:
+          timeout: 360
+          abort: true
+      - fix-workspace-permissions
+
+    parameters:
+      - project-parameter:
+          project: '{project}'
+          branch: '{branch}'
+      - eliot-ci-parameter:
+          installer: '{installer}'
+          gs-pathname: '{gs-pathname}'
+          ppa-pathname: '{ppa-pathname}'
+      - '{slave-label}-defaults'
+      - '{installer}-defaults'
+
+    triggers:
+      - '{auto-trigger-name}'
+
+    scm:
+      - git-scm
+
+    builders:
+      - description-setter:
+          description: "POD: $NODE_NAME"
+      - conditional-step:
+          condition-kind: regex-match
+          regex: "k8s-.*"
+          label: '{pod}'
+          steps:
+            - shell:
+                !include-raw-escape: ./eliot-clean.sh
+            - shell:
+                !include-raw-escape: ./eliot-deploy.sh
+      - conditional-step:
+          condition-kind: regex-match
+          regex:  "kubeedge-.*"
+          label: '{pod}'
+          steps:
+            - shell:
+                !include-raw-escape: ./eliot-kubeedge-clean.sh
+            - shell:
+                !include-raw-escape: ./eliot-kubeedge-deploy.sh
+
+########################
+# parameter macros
+########################
+- parameter:
+    name: eliot-ci-parameter
+    parameters:
+      - string:
+          name: GS_URL
+          default: '$GS_BASE{gs-pathname}'
+          description: "URL to Google Storage."
+      - string:
+          name: PPA_REPO
+          default: "https://artifacts.opnfv.org/compass4nfv/package{ppa-pathname}"
+      - string:
+          name: PPA_CACHE
+          default: "$WORKSPACE/work/repo/"
+      - string:
+          name: LOG_DIRECTORY
+          default: $WORKSPACE/log_output
+          description: "Directory where the logs will be located upon the completion of the collection."
+
+
+########################
+# trigger macros
+########################
+
+
+# -----------------
+# virtual-master
+# -----------------
+
+- trigger:
+    name: 'eliot-deploy-kubeedge-virtual-daily-master'
+    triggers:
+      - timed: '0 20 * * *'
+
+- trigger:
+    name: 'eliot-deploy-k8s-virtual-daily-master'
+    triggers:
+      - timed: '0 21 * * *'
+
+- trigger:
+    name: 'eliot-deploy-k8s-centos-virtual-daily-master'
+    triggers:
+      - timed: '0 23 * * *'

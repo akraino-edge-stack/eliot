@@ -1,0 +1,39 @@
+---
+- parameter:
+    name: 'eliot-kubeedge-virtual-defaults'
+    parameters:
+      - label:
+          name: SLAVE_LABEL
+          default: 'eliot-kubeedge-virtual'
+          all-nodes: false
+          node-eligibility: 'ignore-offline'
+      - string:
+          name: GIT_BASE
+          default: https://gerrit.akraino.org/r/$PROJECT
+          description: 'Git URL to use on this Jenkins Slave'
+
+- parameter:
+    name: 'eliot-k8s-virtual-defaults'
+    parameters:
+      - label:
+          name: SLAVE_LABEL
+          default: 'eliot-k8s-virtual'
+          all-nodes: false
+          node-eligibility: 'ignore-offline'
+      - string:
+          name: GIT_BASE
+          default: https://gerrit.akraino.org/r/$PROJECT
+          description: 'Git URL to use on this Jenkins Slave'
+
+- parameter:
+    name: 'eliot-k8s-centos-virtual-defaults'
+    parameters:
+      - label:
+          name: SLAVE_LABEL
+          default: 'eliot-k8s-centos-virtual'
+          all-nodes: false
+          node-eligibility: 'ignore-offline'
+      - string:
+          name: GIT_BASE
+          default: https://gerrit.akraino.org/r/$PROJECT
+          description: 'Git URL to use on this Jenkins Slave'
