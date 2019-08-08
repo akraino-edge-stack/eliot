@@ -54,9 +54,9 @@ setup_k8sworkers()
   set -o xtrace
 
   # Install Docker on ELIOT Node
-  SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
+  SETUP_WORKER_COMMON="rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
-                       cd eliot/scripts && source common.sh"
+                       cd eliot/scripts/ && source common.sh"
   #SETUP_WORKER_COMMON="cd eliot/scripts && source common.sh"
   SETUP_WORKER="cd eliot/scripts/ && source k8sworker.sh"
 
@@ -73,7 +73,7 @@ setup_k8sworkers()
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
- done < nodelist > /dev/null 2>&1
+ done < nodelist
 
 }
 
