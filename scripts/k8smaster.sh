@@ -45,6 +45,7 @@ if ! kubectl get nodes; then
          --service-cidr="${K8s_SVC_CIDR}"
 
   if [ "$(id -u)" = 0 ]; then
+    KUBECONFIG=/etc/kubernetes/admin.conf
     echo "export KUBECONFIG=/etc/kubernetes/admin.conf" | \
       tee -a "${HOME}/.profile"
     source "${HOME}/.profile"

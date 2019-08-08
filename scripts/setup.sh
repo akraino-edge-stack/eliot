@@ -54,9 +54,9 @@ setup_k8sworkers()
   set -o xtrace
 
   # Install Docker on ELIOT Node
-  SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
+  SETUP_WORKER_COMMON="rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
-                       cd eliot/scripts && source common.sh"
+                       cd eliot/scripts/ && source common.sh"
   #SETUP_WORKER_COMMON="cd eliot/scripts && source common.sh"
   SETUP_WORKER="cd eliot/scripts/ && source k8sworker.sh"
 
@@ -70,9 +70,9 @@ setup_k8sworkers()
      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON}
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER}
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN}
  done < nodelist > /dev/null 2>&1
 
 }
@@ -115,7 +115,7 @@ setup_k8sworkers_centos()
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON_CENTOS} < /dev/null
      #sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_CENTOS} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null
- done < nodelist
+ done < nodelist > /dev/null 2>&1
 
 }
 
