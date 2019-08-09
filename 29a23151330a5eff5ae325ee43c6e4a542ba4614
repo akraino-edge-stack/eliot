@@ -94,6 +94,69 @@
     },
     {
       "key": {
+        "uuid": "2f8e8d7d_2f1724a6",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-09T09:24:41Z",
+      "side": 1,
+      "message": "Need to reduce the number of character \u003c 80 per line.",
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ea4ef5b_d97eb208",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-09T09:24:41Z",
+      "side": 1,
+      "message": "This file is getting generated in which script ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae0866fa_76e3c259",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-09T09:24:41Z",
+      "side": 1,
+      "message": "Add dev/null , to avoid showing the logs in the console.",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 16
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b939f02d_4c546a55",
         "filename": "scripts/setup.sh",
         "patchSetId": 1
