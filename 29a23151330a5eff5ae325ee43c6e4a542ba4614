@@ -25,6 +25,75 @@
     },
     {
       "key": {
+        "uuid": "3b495d11_29a07060",
+        "filename": "scripts/kubernetes_cleanup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-09T09:14:54Z",
+      "side": 1,
+      "message": "Any specific reason for upgrade of packages before purging the packages?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 28
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26d63ec_d2d4bbbf",
+        "filename": "scripts/kubernetes_cleanup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-09T09:14:54Z",
+      "side": 1,
+      "message": "Kindly add /dev/null as we have to avoid showing the username and password in the console.",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 16
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b909a1f_c327ae3c",
+        "filename": "scripts/kubernetes_cleanup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-09T09:14:54Z",
+      "side": 1,
+      "message": "can have a check of the OS in which the script is getting exeecuted. If the OS is Ubuntu / Debian , then only proceed or else throw appropriate error message",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 18
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b939f02d_4c546a55",
         "filename": "scripts/setup.sh",
         "patchSetId": 1
