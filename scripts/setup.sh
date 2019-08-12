@@ -74,7 +74,6 @@ setup_k8sworkers()
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
  done < nodelist > /dev/null 2>&1
-
 }
 
 setup_k8smaster_centos()
@@ -106,6 +105,7 @@ setup_k8sworkers_centos()
   KUBEADM_JOIN_CENTOS="sudo ${KUBEADM_TOKEN}"
 
  # Read all the Worker Node details from nodelist file.
+ set +x
  while read line
  do
      nodeinfo="${line}"
@@ -116,7 +116,7 @@ setup_k8sworkers_centos()
      #sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_CENTOS} < /dev/null
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null
  done < nodelist
-
+ set -x
 }
 
 #verify kubernetes setup by deploying nginx server.

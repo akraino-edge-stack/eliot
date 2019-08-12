@@ -36,7 +36,7 @@ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 sudo yum-config-manager \
 --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-sudo yum install docker-ce-${DOCKER_VERSION} docker-ce-cli-${DOCKER_VERSION} \
+sudo yum install -y docker-ce-${DOCKER_VERSION} docker-ce-cli-${DOCKER_VERSION} \
 containerd.io
 
 # Kubernetes repository set
