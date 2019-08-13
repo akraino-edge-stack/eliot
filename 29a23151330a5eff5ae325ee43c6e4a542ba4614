@@ -224,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "02151041_6408bee2",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-13T14:05:56Z",
+      "side": 1,
+      "message": "Ok, will check once, is the name always the same ?",
+      "parentUuid": "a4e4b6c0_17ccc7ca",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae0866fa_76e3c259",
         "filename": "scripts/kubernetes_reset.sh",
         "patchSetId": 1
@@ -258,6 +282,30 @@
       "writtenOn": "2019-08-13T07:02:10Z",
       "side": 1,
       "message": "Added back.\nThe changes done can be seen in Change ID:1 1392.",
+      "parentUuid": "ae0866fa_76e3c259",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 16
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54eea61b_5da6d350",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-08-13T14:05:56Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "ae0866fa_76e3c259",
       "range": {
         "startLine": 57,
