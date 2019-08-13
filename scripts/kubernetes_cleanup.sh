@@ -24,7 +24,6 @@ show_help()
 # Rollbacking the changes on ELIOT Manager Node
 rollback_k8smaster()
 {
-sudo yes y | apt-get upgrade
 sudo apt-get install iptables
 sudo iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 sudo apt-get install ipvsadm
@@ -53,7 +52,6 @@ rollback_k8sworkers
 rollback_k8sworkers()
 {
 
-UPGRADE1="sudo yes y | apt-get upgrade"
 INSTALL_IPVSADM="sudo apt-get install ipvsadm"
 RESET_PORT="fuser -k -n tcp 10250"
 #REMOVE_KUBE_FILES="cd /etc/kubernetes && sudo rm -rf !('manifests') "
@@ -82,7 +80,6 @@ AUTO_CLEAN="sudo yes y | apt-get autoclean"
      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${UPGRADE1}
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${INSTALL_IPVSADM}
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${RESET_PORT}
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${REMOVE_KUBE_FILES}
