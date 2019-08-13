@@ -9,11 +9,16 @@
 # Script is tested in Ubuntu 16.04 version.                                            #
 ########################################################################################
 
+# constants
+OSPLATFORM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
 show_help()
 {
-  echo "The script is to reset the settings on ELIOT Manager and ELIOT nodes which needs to be done before executing the setup.sh file again."
+  echo "The script is to reset the settings on ELIOT Manager and ELIOT nodes which "
+  echo "needs to be done before executing the setup.sh file again."
   echo "The changes will be first executed on manager machine and then on the node machines."
   echo "It will pick the node machine details from nodelist file"
+  echo "This file supports Linux- Ubuntu version only"
 }
 
 # Resetting ELIOT Manager Node
@@ -64,8 +69,15 @@ verify_reset_status()
 echo "Success!!"
 }
 
-show_help
-reset_k8smaster
-verify_reset_status
+if [ $1 == "--help" ] || [ $1 == "-h" ];
+then
+  show_help
+  exit 0
+fi
 
-
+if [[ $OSPLATFORM = *Ubuntu* ]]; then
+   reset_k8smaster
+   verify_reset_status
+else
+   echo "The script supoorts only Linux - Ubuntu"
+fi

@@ -9,18 +9,21 @@
 # Script is tested in Ubuntu 16.04 version.                                            #
 ########################################################################################
 
+# constants
+OSPLATFORM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
 show_help()
 {
   echo "This script will remove docker and its related files from the master and node machines"
   echo "This script will remove kubeadm kubectl kubelet kubernetes from the master and node machines"
   echo "The changes will be first executed on manager machine and then node machines."
   echo "It will pick the node machine details from nodelist file"
+  echo "This file supports Linux- Ubuntu version only"
 }
 
 # Rollbacking the changes on ELIOT Manager Node
 rollback_k8smaster()
 {
-sudo yes y | apt-get update
 sudo yes y | apt-get upgrade
 sudo apt-get install iptables
 sudo iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
@@ -50,7 +53,6 @@ rollback_k8sworkers
 rollback_k8sworkers()
 {
 
-UPDATE1="sudo yes y | apt-get update"
 UPGRADE1="sudo yes y | apt-get upgrade"
 INSTALL_IPVSADM="sudo apt-get install ipvsadm"
 RESET_PORT="fuser -k -n tcp 10250"
@@ -80,7 +82,6 @@ AUTO_CLEAN="sudo yes y | apt-get autoclean"
      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${UPDATE1}
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${UPGRADE1}
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${INSTALL_IPVSADM}
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${RESET_PORT}
@@ -109,6 +110,17 @@ verify_reset_status()
 echo "Success!!"
 }
 
-show_help
-rollback_k8smaster
-verify_reset_status
+if [ $1 == "--help" ] || [ $1 == "-h" ];
+then
+  show_help
+  exit 0
+fi
+
+if [[ $OSPLATFORM = *Ubuntu* ]]; then
+   rollback_k8smaster
+   verify_reset_status
+else
+   echo "Script only supports Ubuntu Version."
+fi
+
+
