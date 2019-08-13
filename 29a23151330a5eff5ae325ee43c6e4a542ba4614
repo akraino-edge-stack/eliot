@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "797373d4_6506c00d",
+        "filename": "scripts/k8smaster.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-13T07:02:10Z",
+      "side": 1,
+      "message": "In the very next line, echo command is using the same variable, which is used further. So, i put this line. I have also added \u0027export\u0027 ahead of this line, so that it can be used throughout.\n\nThe changes done can be seen in Change ID:1 1392.",
+      "parentUuid": "ae861f5a_5a159168",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 4
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b495d11_29a07060",
         "filename": "scripts/kubernetes_cleanup.sh",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-09T09:14:54Z",
       "side": 1,
       "message": "Any specific reason for upgrade of packages before purging the packages?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 28
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4abc4990_1bf9d690",
+        "filename": "scripts/kubernetes_cleanup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-13T07:02:10Z",
+      "side": 1,
+      "message": "No, there is no specific reason.\nRemoved the line for update and upgrade\n\nThe changes done can be seen in Change ID:1 1392/1393.",
+      "parentUuid": "3b495d11_29a07060",
       "range": {
         "startLine": 23,
         "startChar": 0,
@@ -111,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "9451a187_ee5dee14",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-13T07:02:10Z",
+      "side": 1,
+      "message": "Done the recommended changes.\n\nThe changes done can be seen in Change ID:1 1392.",
+      "parentUuid": "2f8e8d7d_2f1724a6",
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ea4ef5b_d97eb208",
         "filename": "scripts/kubernetes_reset.sh",
         "patchSetId": 1
@@ -122,6 +188,30 @@
       "writtenOn": "2019-08-09T09:24:41Z",
       "side": 1,
       "message": "This file is getting generated in which script ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 51
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4e4b6c0_17ccc7ca",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-13T07:02:10Z",
+      "side": 1,
+      "message": "When we run the setup.sh file again, it sometime throws error while installing kubernetes on Edge Node that the file already exists and cannot be removed, which interrupts the installation.",
+      "parentUuid": "5ea4ef5b_d97eb208",
       "range": {
         "startLine": 42,
         "startChar": 33,
@@ -157,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "b9bb9fe8_d431ed72",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-13T07:02:10Z",
+      "side": 1,
+      "message": "Added back.\nThe changes done can be seen in Change ID:1 1392.",
+      "parentUuid": "ae0866fa_76e3c259",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 16
+      },
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b939f02d_4c546a55",
         "filename": "scripts/setup.sh",
         "patchSetId": 1
@@ -168,6 +282,24 @@
       "writtenOn": "2019-08-08T12:12:38Z",
       "side": 1,
       "message": "By removing /dev/null, In CI build and in the nexus logs, it will show the password and ip explicitly.  To avoid security issues, we have to undo the changes.",
+      "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd0bafe_4a3ec3e7",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-13T07:02:10Z",
+      "side": 1,
+      "message": "Added back.\nThe changes done can be seen in Change ID:1 1392.",
+      "parentUuid": "b939f02d_4c546a55",
       "revId": "29a23151330a5eff5ae325ee43c6e4a542ba4614",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
