@@ -25,12 +25,6 @@ rm hostname.tmp
 sudo yum install -y kubelet-${KUBE_VERSION} kubectl-${KUBE_VERSION} \
 kubernetes-cni-${KUBERNETES_CNI}
 
-sudo systemctl start kubelet #&& sudo systemctl enable kubelet
-
-sudo docker info | grep -i cgroup
-sudo sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' \
-/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 

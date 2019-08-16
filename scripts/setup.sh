@@ -70,9 +70,9 @@ setup_k8sworkers()
      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null 2>&1
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null 2>&1
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null 2>&1
  done < nodelist > /dev/null 2>&1
 
 }
@@ -87,9 +87,10 @@ setup_k8smaster_centos()
   # Setup ELIOT Node
   setup_k8sworkers_centos
 
-  cd cni/calico
-  kubectl apply -f rbac.yaml
-  kubectl apply -f calico.yaml
+  #cd cni/calico
+  kubectl apply -f cni/calico/rbac.yaml
+  kubectl apply -f cni/calico/calico.yaml
+
 }
 
 
@@ -102,24 +103,24 @@ setup_k8sworkers_centos()
                               git clone ${ELIOT_REPO} &&\
                               cd eliot/scripts && source common_centos.sh"
 
+  # SETUP_WORKER_COMMON_CENTOS="cd /root/eliot/scripts && source common_centos.sh"
+
   KUBEADM_TOKEN=$(sudo kubeadm token create --print-join-command)
   KUBEADM_JOIN_CENTOS="sudo ${KUBEADM_TOKEN}"
-
- # Read all the Worker Node details from nodelist file.
- while read line
- do
-     nodeinfo="${line}"
-     nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
-     nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
-     nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON_CENTOS} < /dev/null
-     #sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_CENTOS} < /dev/null
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null
- done < nodelist
+  # Read all the Worker Node details from nodelist file.
+  while read line
+  do
+      nodeinfo="${line}" < /dev/null 2>&1
+      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1) < /dev/null 2>&1
+      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)  < /dev/null 2>&1
+      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3) < /dev/null 2>&1
+      sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON_CENTOS} < /dev/null 2>&1
+      sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null 2>&1
+  done < nodelist > /dev/null 2>&1
 
 }
 
-#verify kubernetes setup by deploying nginx server.
+# verify kubernetes setup by deploying nginx server.
 
 verify_k8s_status(){
   set -o xtrace
@@ -128,7 +129,7 @@ verify_k8s_status(){
 
 install_cadvisor_edge(){
  set -o xtrace
- SETUP_CADVISOR_ATEDGE="cd eliot/scripts/ && source cadvisorsetup.sh" 
+ SETUP_CADVISOR_ATEDGE="cd eliot/scripts/ && source cadvisorsetup.sh"
  while read line
  do
      nodeinfo="${line}"
