@@ -45,6 +45,30 @@
       "revId": "3cd3784f66c6ae3f7091eaf8a72c721cb7868470",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a264fb4_d53b42f8",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-08-19T11:28:38Z",
+      "side": 1,
+      "message": "git can it be a pre-requisite already given as per our installation guide in worker node also.",
+      "parentUuid": "9a151a01_009e1241",
+      "range": {
+        "startLine": 103,
+        "startChar": 30,
+        "endLine": 104,
+        "endChar": 73
+      },
+      "revId": "3cd3784f66c6ae3f7091eaf8a72c721cb7868470",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
