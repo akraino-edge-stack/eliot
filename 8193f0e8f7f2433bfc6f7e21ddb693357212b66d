@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d64eeef4_841e576b",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-08-20T05:24:25Z",
+      "side": 1,
+      "message": "node related info can show credentials in logs. \nAdd \" \u003e /dev/null 2\u003e\u00261\" in line no. 59",
+      "revId": "8193f0e8f7f2433bfc6f7e21ddb693357212b66d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb5e79f4_6b2acbb6",
+        "filename": "scripts/setup.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-08-20T05:24:25Z",
+      "side": 1,
+      "message": "nodeinfo, nodeusr, nodeip, nodepasswd will explicitly show our credentials.\nwe can add \" \u003e /dev/null 2\u003e\u00261\" in 76th line",
+      "revId": "8193f0e8f7f2433bfc6f7e21ddb693357212b66d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
