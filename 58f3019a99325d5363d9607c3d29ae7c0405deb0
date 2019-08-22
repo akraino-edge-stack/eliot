@@ -16,6 +16,24 @@
       "revId": "58f3019a99325d5363d9607c3d29ae7c0405deb0",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d231aeca_98f51f6f",
+        "filename": "scripts/kubernetes_reset.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 262
+      },
+      "writtenOn": "2019-08-22T05:04:49Z",
+      "side": 1,
+      "message": "Corrected it.",
+      "parentUuid": "a63ba60b_0344226c",
+      "revId": "58f3019a99325d5363d9607c3d29ae7c0405deb0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
