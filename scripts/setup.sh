@@ -56,8 +56,8 @@ setup_k8sworkers()
   # Install Docker on ELIOT Node
   SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
-                       cd eliot/scripts && source common.sh"
-  #SETUP_WORKER_COMMON="cd eliot/scripts && source common.sh"
+                       cd eliot/scripts/ && source common.sh"
+  #SETUP_WORKER_COMMON="cd eliot/scripts/ && source common.sh"
   SETUP_WORKER="cd eliot/scripts/ && source k8sworker.sh"
 
   KUBEADM_JOIN=$(grep "kubeadm join" ./kubeadm.log)
@@ -70,9 +70,9 @@ setup_k8sworkers()
      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null 2>&1
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null 2>&1
-     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null 2>&1
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON} < /dev/null
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER} < /dev/null
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
  done < nodelist > /dev/null 2>&1
 
 }
@@ -100,9 +100,9 @@ setup_k8sworkers_centos()
 
   SETUP_WORKER_COMMON_CENTOS="sudo rm -rf ~/eliot &&\
                               git clone ${ELIOT_REPO} &&\
-                              cd eliot/scripts && source common_centos.sh"
+                              cd eliot/scripts/ && source common_centos.sh"
 
-  # SETUP_WORKER_COMMON_CENTOS="cd /root/eliot/scripts && source common_centos.sh"
+  # SETUP_WORKER_COMMON_CENTOS="cd /root/eliot/scripts/ && source common_centos.sh"
 
   KUBEADM_TOKEN=$(sudo kubeadm token create --print-join-command)
   KUBEADM_JOIN_CENTOS="sudo ${KUBEADM_TOKEN}"
@@ -110,11 +110,11 @@ setup_k8sworkers_centos()
   while read line
   do
       nodeinfo="${line}" < /dev/null 2>&1
-      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1) < /dev/null 2>&1
-      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)  < /dev/null 2>&1
-      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3) < /dev/null 2>&1
-      sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON_CENTOS} < /dev/null 2>&1
-      sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null 2>&1
+      nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1) < /dev/null
+      nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)  < /dev/null
+      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3) < /dev/null
+      sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_WORKER_COMMON_CENTOS} < /dev/null
+      sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null
   done < nodelist > /dev/null 2>&1
 
 }
