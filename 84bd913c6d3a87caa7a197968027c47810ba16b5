@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5864c2eb_f5e90161",
+        "filename": "scripts/ci_management/cleanup_centos_control.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-08-26T04:31:04Z",
+      "side": 1,
+      "message": "Can we add a comment just to inform what it is doing..",
+      "revId": "84bd913c6d3a87caa7a197968027c47810ba16b5",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
