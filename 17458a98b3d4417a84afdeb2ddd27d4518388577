@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ffbc1e9_4adb08bb",
+        "filename": "scripts/cni/flannel/kube-flannel.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-09-04T05:50:08Z",
+      "side": 1,
+      "message": "shall we specify / modify this like our existing kubernetes pod ip range within 192.x.x.x series?",
+      "revId": "17458a98b3d4417a84afdeb2ddd27d4518388577",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
