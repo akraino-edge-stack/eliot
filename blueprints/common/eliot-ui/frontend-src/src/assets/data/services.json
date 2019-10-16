@@ -1,0 +1,67 @@
+{
+    "eliotServices":[
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        },
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        },
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        },
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        },
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        },
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        },
+        {
+            "serviceName":"commandnodeport",
+            "serviceType":"Nodeport",
+            "clusterIp": "10.10.032",
+            "externalIp": "<None>",
+            "ports": "42321:83230/TCP",
+            "age": "29d",
+            "selector": "app=nodeport"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "podNamespaces": [
+        "kube-system",
+        "default1",
+        "default2",
+        "default3",
+        "default4"
+    ]
+}
