@@ -1,0 +1,167 @@
+<div
+  style="background-image:url('./../../assets/images/datacenterr.jpg');height:100%;background-position: center;background-repeat: no-repeat;background-size:cover;overflow-y: auto;">
+  <div style="padding: 05px;">
+
+    <mat-accordion >
+      <mat-expansion-panel style="background-image:url('./../../assets/images/datacenterr.jpg');height:100%;background-size:cover;">
+        <mat-expansion-panel-header>
+          <mat-panel-title style="color:floralwhite;font-size: medium">
+            <b> SMART EDGE DATA CENTER </b>
+          </mat-panel-title >
+          <mat-panel-description style="color: floralwhite;font-size: medium">
+            Change Min Max Threshold
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        
+        <div style="padding: 5px;">
+            <div>
+            
+            </div>
+            <div style="padding-bottom: 10px;">
+
+              <input style="padding: 10px;margin-right: 10px;color: black;" matInput [(ngModel)]="minTemp" placeholder="Min Temp in degrees (20-40)">
+              <input style="padding: 10px;color:black" matInput [(ngModel)]="maxTemp" placeholder="Max Temp in degrees (50-70)">
+
+              <div style="padding: 20px">
+              <mat-card class="example-card">
+          
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Message</mat-card-title>
+      
+                </mat-card-header>
+      
+                <mat-card-content>  
+                  <div>
+                    <p>
+                       {{this.message}}
+                    </p>
+                  </div>
+                </mat-card-content>
+      
+              </mat-card>
+              </div>
+
+            </div>
+            <div>
+              <button style="padding: 2px;" mat-raised-button (click)="postRoomInfo()" color="primary">Set Temperature Threshold</button>
+            </div>
+            <div>
+            
+            </div>
+            
+            
+                
+        
+          </div>
+
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+
+  <div style="padding: 30px;">
+
+      <div style="padding: 5px;padding-bottom: 15px;">
+          <button style="padding: 2px;" mat-raised-button (click)="getRoomInfo()">Get Data Center Status</button>
+      </div>
+
+      <div style="display: flex;flex-wrap: nowrap;">
+
+      <div style="padding-right: 30px;">
+
+      <mat-card class="example-card">
+
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Smart Edge Data center</mat-card-title>
+
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+          <div>
+            
+            <p>
+              AC is OFF when Temp falls below <b> {{default.min}} </b>
+            </p>
+            <p>
+              AC is ON when Temp reaches : <b> {{default.max}} </b>
+            </p>
+          </div>
+
+        </mat-card-content>
+
+        
+
+        <!-- <mat-card-actions>
+          <button mat-button (click)="close()">OK</button>
+        </mat-card-actions> -->
+      </mat-card>
+      </div>
+      <!-- card2 -->
+      <div style="padding-right: 30px;">
+      <mat-card class="example-card">
+
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Sensor Data</mat-card-title>
+
+          </mat-card-header>
+
+          <mat-card-content>  
+            <div style="padding-bottom: 10px;">
+              <p>
+                 Actual Temperature: <b>{{temp}}</b> degrees
+              </p>
+              
+            </div>
+            <div>
+               <img mat-card-image src="./../../assets/images/temp1.png">
+            </div>
+  
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+      <!-- card3 -->
+      <div>
+          <mat-card class="example-card">
+    
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Air-conditioner</mat-card-title>
+    
+              </mat-card-header>
+    
+              <mat-card-content>  
+                <div>
+                  <p>
+                     Status: <b>{{status}}</b>
+                  </p>
+                </div>
+                <div>
+                  <!-- *ngIf="showbulb; else bulboffblock"> -->
+                    <img mat-card-image src="./../../assets/images/air.png">
+                  </div>
+          
+                  <!-- <ng-template #bulboffblock>
+                    <img mat-card-image src="./../../assets/images/air.png">
+                  </ng-template> -->
+              </mat-card-content>
+    
+            </mat-card>
+            </div>
+      </div>
+
+
+      
+    </div>
+    
+
+
+  
+</div>

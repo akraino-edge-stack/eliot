@@ -1,0 +1,20 @@
+.main {
+    .menu {
+        .options {
+            
+            .home {
+                font-size: 25px;
+            }
+            .others {
+                // padding: 0 14px;
+                
+            }
+
+        }
+    }
+    .sidemenu {
+        mat-sidenav-container {
+            height: 86vh;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+export interface nodeDetailss {
+    nodeName: string;
+    position: number;
+    role: string;
+    nodeStatus: string;
+}
+
+export interface nodeDetails {
+    eliotNodes: nodinfo[];
+}
+
+export interface nodinfo {
+  nodeName: string;
+  nodeStatus: string;
+  nodeRole: string;
+  age: string;
+  version: string;
+  internalIp: string;
+  externalIp: string;
+  osImage: string;
+  kernel: string;
+  containerRuntime: string;
+}
+
+export interface podNamespace {
+  podNamespaces: string[];
+}
+
+export interface podDetails {
+  eliotPods: podinfo[];
+}
+
+export interface podinfo {
+  namespace: string;
+  name: string;
+  ready: string;
+  status: string;
+  restarts: string;
+  age: string;
+  ip: string;
+  node: string;
+  nominated: string;
+  readiness: string;
+}
+
+export interface nodesDropDownDetails {
+  nodesArray: nodesDropDown[];
+}
+
+export interface nodesDropDown {
+  value: string;
+  viewValue: string;
+}
+
+export interface serviceDetails {
+  eliotServices: serviceinfo[];
+}
+
+export interface serviceinfo {
+  serviceName: string;
+  serviceType: string;
+  clusterIp: string;
+  externalIp: string;
+  ports: string;
+  age: string;
+  selector: string;
+}
