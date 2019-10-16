@@ -1,0 +1,138 @@
+<!-- <div style="float: right;"> -->
+<!-- <div style="background-image:url('./../assets/images/iot.jpg');height: 100%"> -->
+<!-- <div -->
+  <!-- style="background-image:url('./../assets/images/datacenterr.jpg');height:100%;background-position: center;background-repeat: no-repeat;background-size:cover;overflow-y: auto;"> -->
+  <mat-toolbar color="primary">
+    
+    <mat-toolbar-row>
+
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+
+      <!-- <span style="font-size: 25px;">ELIOT</span> -->
+
+
+      <div>
+
+        <button mat-button style="font-size: 25px;"[routerLink]="'/home'">ELIOT</button>
+        <div style="float: right;">
+          <button mat-button [matMenuTriggerFor]="network">Network Management</button>
+          <button mat-button [matMenuTriggerFor]="application">Application Management</button>
+          <button mat-button [matMenuTriggerFor]="demo">Demo</button>
+          <button mat-button [matMenuTriggerFor]="developer">Developer</button>
+          <button mat-button [matMenuTriggerFor]="appsolution">ELIOT App Solution</button>
+        </div>
+
+        <mat-menu #appsolution="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="solutions">ELIOT Solutions</button>
+        </mat-menu>
+
+        <mat-menu #solutions="matMenu">
+            <button mat-menu-item >Video Surveilance</button>
+            <button mat-menu-item >EdgeX</button>
+            <button mat-menu-item >Smart Edge Data Center</button>
+        </mat-menu>
+
+        <mat-menu #developer="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="api">ELIOT Application APIs</button>
+            <button mat-menu-item [matMenuTriggerFor]="sdk">ELIOT SDKs</button>
+            <button mat-menu-item >Frameworks</button>
+            <button mat-menu-item [matMenuTriggerFor]="developmentflow">Development flow</button>
+        </mat-menu>
+
+        <mat-menu #api="matMenu">
+            <button mat-menu-item >Video Surveilance API's</button>
+        </mat-menu>
+
+        <mat-menu #sdk="matMenu">
+            <button mat-menu-item >EdgeX</button>
+            <button mat-menu-item >Face Detection</button>
+            <button mat-menu-item >Model Building</button>
+        </mat-menu>
+
+        <mat-menu #developmentflow="matMenu">
+            <button mat-menu-item >Model / Graph</button>
+        </mat-menu>
+
+        <mat-menu #demo="matMenu">
+          <button mat-menu-item [routerLink]="'/demo/edge-data-center'">Smart Edge Data Center</button>
+        </mat-menu>
+
+        <mat-menu #network="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="eliotcluster">ELIOT Cluster</button>
+          <button mat-menu-item [matMenuTriggerFor]="eliotnamespace">ELIOT Namespace</button>
+        </mat-menu>
+
+        <mat-menu #application="matMenu">
+          <button mat-menu-item>Deployment</button>
+          <button mat-menu-item>Uninstallation</button>
+          <button mat-menu-item [matMenuTriggerFor]="monitoring">Monitoring</button>
+        </mat-menu>
+
+        <mat-menu #monitoring="matMenu">
+          <button mat-menu-item>Application Info</button>
+        </mat-menu>
+
+        <mat-menu #eliotcluster="matMenu">
+          <button mat-menu-item [routerLink]="'/nodes'">Nodes</button>
+          <button mat-menu-item [routerLink]="'/deployments'">Deployments</button>
+          <button mat-menu-item [routerLink]="'/pods'">Pods</button>
+          <button mat-menu-item [routerLink]="'/services'">Services</button>
+          <button mat-menu-item [routerLink]="'/replica'">Replication</button>
+        </mat-menu>
+
+        <mat-menu #eliotnamespace="matMenu">
+          <button mat-menu-item>Namespace 1</button>
+        </mat-menu>
+
+
+      </div>
+    </mat-toolbar-row>
+    <!-- <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">Menu</mat-icon>
+    </button>
+
+    <span class="menu-spacer"></span>
+      
+      
+  </mat-toolbar-row> -->
+
+
+
+  </mat-toolbar>
+<!-- </div> -->
+<!-- </div> -->
+
+
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav>
+
+    <mat-nav-list>
+
+      <a mat-list-item [routerLink]="'/demo/first'"> Network Management </a>
+      <a mat-list-item> Application Management</a>
+      <a mat-list-item> Developer </a>
+      <a mat-list-item>ELIOT App solution</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+<!-- </div> -->
+<!-- </div> -->
+
+
+
+<div style="text-align:center">
+
+</div>
+<!-- </div> -->

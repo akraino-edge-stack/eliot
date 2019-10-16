@@ -1,0 +1,35 @@
+// .maindiv {
+//   // text-align: center
+// }
+
+table {
+    width: 100%;
+}
+
+.example-card {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: lightskyblue;
+}
+
+.edgenodes {
+  // margin-left: auto;
+  // margin-right: auto;
+  // display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.edgenodescard{
+  margin: 0 auto;
+  display: inline-block;
+  padding-right: 20px;
+}
+
+// .mastercard{
+//   margin: 0 auto;
+// }

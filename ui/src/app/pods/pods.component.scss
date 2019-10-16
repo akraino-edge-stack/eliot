@@ -1,0 +1,74 @@
+// table {
+//     width: 100%;
+// }
+
+// .filter {
+//     width: 100%;
+// }
+
+.maindiv {
+    padding: 20px;
+    height: 100%;
+    position: center;
+    // border: 3px solid greenyellow;
+    position: relative;
+    // padding-bottom: 20px;
+    // position: fixed;
+
+    width: 95%;
+
+    .centerdiv {
+
+        // border: 3px solid purple;
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // -ms-transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
+
+    }
+
+    .dropdown {
+        // padding-left: 20px;
+        // border: 3px solid rgb(114, 219, 219);
+        padding-bottom: 40px;
+        right: 0;
+        // margin: 0;
+        // top: 50%;
+        // left: 50%;
+        // -ms-transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
+        position: relative;
+        mat-form-field {
+            // border: 3px solid red;
+            right: 0;
+            position: relative;
+            // padding-bottom: 10px;
+            
+        }
+    }
+
+    .tablepage {
+        // border: 3px solid green;
+        // width: 100%;
+        // margin: 0;
+        position: relative;
+        // top: 50%;
+        // left: 50%;
+        // -ms-transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
+        .filter {
+            width: 70%;
+            padding-left: 20px;
+        }
+        .podtable {
+            table {
+                width: 100%;
+            }
+        }
+
+    }
+
+}
