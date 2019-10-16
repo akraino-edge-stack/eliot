@@ -1,0 +1,75 @@
+<div class="maindiv">
+
+    <div class="centerdiv">
+        <div class="tablepage" *ngIf="display">
+
+            <div class="nodetable">
+                <mat-form-field >
+                      <input matInput (keyup)="nodeFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+
+                <table mat-table [dataSource]="nodeDataSource">
+
+                    <ng-container matColumnDef="nodeName">
+                        <th mat-header-cell *matHeaderCellDef> Node Name </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.nodeName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="nodeStatus">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.nodeStatus}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="nodeRole">
+                        <th mat-header-cell *matHeaderCellDef> Roles </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.nodeRole}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="age">
+                        <th mat-header-cell *matHeaderCellDef> age </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.age}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="version">
+                        <th mat-header-cell *matHeaderCellDef> version </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.version}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="internalIp">
+                        <th mat-header-cell *matHeaderCellDef> Internal IP </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.internalIp}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="externalIp">
+                        <th mat-header-cell *matHeaderCellDef> External IP </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.externalIp}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="osImage">
+                        <th mat-header-cell *matHeaderCellDef> OS Image </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.osImage}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="kernel">
+                        <th mat-header-cell *matHeaderCellDef> Kernel Version </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.kernel}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="containerRuntime">
+                        <th mat-header-cell *matHeaderCellDef> Container Runtime </th>
+                        <td mat-cell *matCellDef="let eliot"> {{eliot.containerRuntime}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="nodeColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: nodeColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
