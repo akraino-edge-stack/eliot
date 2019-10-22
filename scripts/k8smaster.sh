@@ -8,9 +8,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-KUBE_VERSION=1.13.0-00
+KUBE_VERSION=1.16.0-00
 POD_NETWORK_CIDR=192.168.0.0/16
-K8S_CNI_VERSION=0.6.0-00
+K8S_CNI_VERSION=0.7.5-00
 
 #K8s service CIDR range
 K8s_SVC_CIDR=10.96.0.0/12
@@ -54,7 +54,7 @@ if ! kubectl get nodes; then
     sudo cp -i /etc/kubernetes/admin.conf "${HOME}/.kube/config"
     sudo chown "$(id -u)":"$(id -g)" "${HOME}/.kube/config"
   fi
-  kubectl apply -f "cni/calico/rbac.yaml"
-  kubectl apply -f "cni/calico/calico.yaml"
+  #kubectl apply -f "cni/calico/rbac.yaml"
+  kubectl apply -f "cni/calico/v38/calico.yaml"
 
 fi
