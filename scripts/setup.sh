@@ -60,8 +60,8 @@ setup_k8sworkers()
   #SETUP_WORKER_COMMON="cd eliot/scripts/ && source common.sh"
   SETUP_WORKER="cd eliot/scripts/ && source k8sworker.sh"
 
-  KUBEADM_JOIN=$(grep "kubeadm join" ./kubeadm.log)
-  KUBEADM_JOIN="sudo ${KUBEADM_JOIN}"
+  KUBEADM_TOKEN=$(kubeadm token create --print-join-command)
+  KUBEADM_JOIN="sudo ${KUBEADM_TOKEN}"
 
  # Read all the Worker Node details from nodelist file.
  while read line
@@ -126,6 +126,12 @@ verify_k8s_status(){
   source verifyk8s.sh | tee verifyk8s.log
 }
 
+
+install_edgex(){
+ set -o xtrace
+ cd edgex && source edgexonk8s.sh
+}
+
 install_cadvisor_edge(){
  set -o xtrace
  SETUP_CADVISOR_ATEDGE="cd eliot/scripts/ && source cadvisorsetup.sh"
@@ -166,3 +172,12 @@ sleep 10
 install_prometheus
 sleep 5
 sudo docker ps | grep prometheus
+
+install_edgex
+sleep 20
+
+# Removing the taint from master node
+kubectl taint nodes --all node-role.kubernetes.io/master- || true
+
+echo "ELIOT Setup execution is Completed..."
+
