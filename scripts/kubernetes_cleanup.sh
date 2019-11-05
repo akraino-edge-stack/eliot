@@ -24,25 +24,41 @@ show_help()
 # Rollbacking the changes on ELIOT Manager Node
 rollback_k8smaster()
 {
-sudo apt-get install iptables
-sudo iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
-sudo apt-get install ipvsadm
-sudo fuser -k -n tcp 10250
-sudo yes y | apt-get purge -y docker-engine
-sudo yes y | apt-get purge -y docker
-sudo yes y | apt-get purge -y docker.io
-sudo yes y | apt-get purge -y docker-ce
-sudo yes y | apt-get purge -y docker-ce-cli
-sudo yes y | groupdel docker
-sudo yes y | kubeadm reset
-sudo yes y | apt-get purge kubeadm
-sudo yes y | apt-get purge kubectl
-sudo yes y | apt-get purge kubelet
-sudo yes y | apt-get purge kube*
-sudo yes y | apt-get purge kubernetes-cni
-sudo rm -rf ~/.kube
-sudo yes y | apt-get autoremove
-sudo yes y | apt-get autoclean
+if [ "$(id -u)" = 0 ]; then
+  sudo apt-get install iptables
+  sudo iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+  sudo apt-get install ipvsadm
+  sudo fuser -k -n tcp 10250
+  sudo yes y | apt-get purge -y docker-engine
+  sudo yes y | apt-get purge -y docker
+  sudo yes y | apt-get purge -y docker.io
+  sudo yes y | apt-get purge -y docker-ce
+  sudo yes y | apt-get purge -y docker-ce-cli
+  sudo yes y | groupdel docker
+  sudo yes y | kubeadm reset
+  sudo yes y | apt-get purge kubeadm
+  sudo yes y | apt-get purge kubectl
+  sudo yes y | apt-get purge kubelet
+  sudo yes y | apt-get purge kube*
+  sudo yes y | apt-get purge kubernetes-cni
+  sudo rm -rf ~/.kube
+  sudo yes y | apt-get autoremove
+  sudo yes y | apt-get autoclean
+else
+  sudo fuser -k -n tcp 10250
+  sudo yes y | sudo apt-get purge -y docker-engine
+  sudo yes y | sudo apt-get purge -y docker
+  sudo yes y | sudo apt-get purge -y docker.io
+  sudo yes y | sudo apt-get purge -y docker-ce
+  sudo yes y | sudo apt-get purge -y docker-ce-cli
+  sudo yes y | sudo kubeadm reset
+  sudo yes y | sudo apt-get purge kubeadm
+  sudo yes y | sudo apt-get purge kubectl
+  sudo yes y | sudo apt-get purge kubelet
+  sudo yes y | sudo apt-get purge kube*
+  sudo yes y | sudo apt-get purge kubernetes-cni
+  sudo rm -rf ~/.kube
+fi
 
 rollback_k8sworkers
 
@@ -51,26 +67,43 @@ rollback_k8sworkers
 #Rollbacking the changes on ELIOT Worker Node
 rollback_k8sworkers()
 {
-INSTALL_IPVSADM="sudo apt-get install ipvsadm"
-RESET_PORT="fuser -k -n tcp 10250"
-#REMOVE_KUBE_FILES="cd /etc/kubernetes && sudo rm -rf !('manifests') "
-REMOVE_KUBE_FILES="cd /etc/kubernetes && sudo rm -rf bootstrap-kubelet.conf kubelet.conf pki"
-REMOVE_DOCKER1="sudo yes y | apt-get purge -y docker-engine"
-REMOVE_DOCKER2="sudo yes y | apt-get purge -y docker"
-REMOVE_DOCKER3="sudo yes y | apt-get purge -y docker.io"
-REMOVE_DOCKER4="sudo yes y | apt-get purge -y docker-ce"
-REMOVE_DOCKER5="sudo yes y | apt-get purge -y docker-ce-cli"
-REMOVE_DOCKER6="sudo yes y | groupdel docker"
-RESET_KUBEADM="sudo yes y | kubeadm reset"
-REMOVE_KUBE_FILES1="sudo yes y | apt-get purge kubeadm"
-REMOVE_KUBE_FILES2="sudo yes y | apt-get purge kubectl "
-REMOVE_KUBE_FILES3="sudo yes y | apt-get purge kubelet "
-REMOVE_KUBE_FILES4="sudo yes y | apt-get purge kube* "
-REMOVE_KUBE_FILES5="sudo yes y | apt-get purge kubernetes-cni"
-REMOVE_KUBE_FILES6="sudo rm -rf ~/.kube"
-AUTO_REMOVE="sudo yes y | apt-get autoremove"
-AUTO_CLEAN="sudo yes y | apt-get autoclean"
-
+if [ " $(id -u)" = 0]; then
+  INSTALL_IPVSADM="sudo apt-get install ipvsadm"
+  RESET_PORT="fuser -k -n tcp 10250"
+  #REMOVE_KUBE_FILES="cd /etc/kubernetes && sudo rm -rf !('manifests') "
+  REMOVE_KUBE_FILES="cd /etc/kubernetes && sudo rm -rf bootstrap-kubelet.conf kubelet.conf pki"
+  REMOVE_DOCKER1="sudo yes y | apt-get purge -y docker-engine"
+  REMOVE_DOCKER2="sudo yes y | apt-get purge -y docker"
+  REMOVE_DOCKER3="sudo yes y | apt-get purge -y docker.io"
+  REMOVE_DOCKER4="sudo yes y | apt-get purge -y docker-ce"
+  REMOVE_DOCKER5="sudo yes y | apt-get purge -y docker-ce-cli"
+  REMOVE_DOCKER6="sudo yes y | groupdel docker"
+  RESET_KUBEADM="sudo yes y | kubeadm reset"
+  REMOVE_KUBE_FILES1="sudo yes y | apt-get purge kubeadm"
+  REMOVE_KUBE_FILES2="sudo yes y | apt-get purge kubectl "
+  REMOVE_KUBE_FILES3="sudo yes y | apt-get purge kubelet "
+  REMOVE_KUBE_FILES4="sudo yes y | apt-get purge kube* "
+  REMOVE_KUBE_FILES5="sudo yes y | apt-get purge kubernetes-cni"
+  REMOVE_KUBE_FILES6="sudo rm -rf ~/.kube"
+  AUTO_REMOVE="sudo yes y | apt-get autoremove"
+  AUTO_CLEAN="sudo yes y | apt-get autoclean"
+else
+  RESET_PORT="fuser -k -n tcp 10250"
+  REMOVE_KUBE_FILES="cd /etc/kubernetes && sudo rm -rf bootstrap-kubelet.conf kubelet.conf pki"
+  REMOVE_DOCKER1="sudo yes y | sudo apt-get purge -y docker-engine"
+  REMOVE_DOCKER2="sudo yes y | sudo apt-get purge -y docker"
+  REMOVE_DOCKER3="sudo yes y | sudo apt-get purge -y docker.io"
+  REMOVE_DOCKER4="sudo yes y | sudo apt-get purge -y docker-ce"
+  REMOVE_DOCKER5="sudo yes y | sudo apt-get purge -y docker-ce-cli"
+  REMOVE_DOCKER6="sudo yes y | sudo groupdel docker"
+  RESET_KUBEADM="sudo yes y | sudo kubeadm reset"
+  REMOVE_KUBE_FILES1="sudo yes y | sudo apt-get purge kubeadm"
+  REMOVE_KUBE_FILES2="sudo yes y | sudo apt-get purge kubectl "
+  REMOVE_KUBE_FILES3="sudo yes y | sudo apt-get purge kubelet "
+  REMOVE_KUBE_FILES4="sudo yes y | sudo apt-get purge kube* "
+  REMOVE_KUBE_FILES5="sudo yes y | sudo apt-get purge kubernetes-cni"
+  REMOVE_KUBE_FILES6="sudo rm -rf ~/.kube"
+fi
 
 #Read all the Worker Node details from nodelist file.
  while read line
