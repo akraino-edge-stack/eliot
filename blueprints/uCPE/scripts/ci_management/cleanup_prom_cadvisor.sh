@@ -15,7 +15,7 @@
 source uninstall_prometheus.sh | tee uninstall_prometheus.log
 
 #stop cadvisor statement executed at ELIOT Edge Node
-stop_cadvisor_atedge="cd eliot/scripts/ci_management && source uninstall_cadvisor.sh"
+stop_cadvisor_atedge="cd eliot/blueprints/uCPE/scripts/ci_management && source uninstall_cadvisor.sh"
 # Read all the Worker Node details from nodelist file.
 while read line
 do
