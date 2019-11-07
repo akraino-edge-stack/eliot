@@ -11,7 +11,7 @@
 #Constants
 KUBEEDGE_SRC="$GOPATH/src/github.com/kubeedge/kubeedge"
 KUBEEDGE_BIN="$GOPATH/src/github.com/kubeedge/kubeedge/keadm"
-VERIFY_K8S="$PATH_OF_ELIOTFOLDER/scripts/verifyk8s.sh"
+VERIFY_K8S="$PATH_OF_ELIOTFOLDER/blueprints/uCPE/scripts/verifyk8s.sh"
 
 { set +x; } > /dev/null 2>&1
 
@@ -72,10 +72,10 @@ execute_keedge_controller(){
 
 exec_edge(){
 
-    cd $PATH_OF_ELIOTFOLDER/scripts/src
+    cd $PATH_OF_ELIOTFOLDER/blueprints/uCPE/scripts/src
 
     sshpass -p ${EDGENODEPASSWORD} \
-    scp $PATH_OF_ELIOTFOLDER/scripts/src/config_kubeedge \
+    scp $PATH_OF_ELIOTFOLDER/blueprints/uCPE/scripts/src/config_kubeedge \
     ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
     sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \

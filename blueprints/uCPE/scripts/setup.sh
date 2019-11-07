@@ -56,9 +56,9 @@ setup_k8sworkers()
   # Install Docker on ELIOT Node
   SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
-                       cd eliot/scripts/ && source common.sh"
+                       cd eliot/blueprints/uCPE/scripts/ && source common.sh"
   #SETUP_WORKER_COMMON="cd eliot/scripts/ && source common.sh"
-  SETUP_WORKER="cd eliot/scripts/ && source k8sworker.sh"
+  SETUP_WORKER="cd eliot/blueprints/uCPE/scripts/ && source k8sworker.sh"
 
   KUBEADM_TOKEN=$(kubeadm token create --print-join-command)
   KUBEADM_JOIN="sudo ${KUBEADM_TOKEN}"
@@ -75,7 +75,7 @@ setup_k8sworkers()
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN} < /dev/null
  done < nodelist > /dev/null 2>&1
 
-}
+
 
 setup_k8smaster_centos()
 {
@@ -100,7 +100,7 @@ setup_k8sworkers_centos()
 
   SETUP_WORKER_COMMON_CENTOS="sudo rm -rf ~/eliot &&\
                               git clone ${ELIOT_REPO} &&\
-                              cd eliot/scripts/ && source common_centos.sh"
+                              cd eliot/blueprints/uCPE/scripts/ && source common_centos.sh"
 
   # SETUP_WORKER_COMMON_CENTOS="cd /root/eliot/scripts/ && source common_centos.sh"
 
@@ -130,7 +130,7 @@ verify_k8s_status(){
 
 install_cadvisor_edge(){
  set -o xtrace
- SETUP_CADVISOR_ATEDGE="cd eliot/scripts/ && source cadvisorsetup.sh"
+ SETUP_CADVISOR_ATEDGE="cd eliot/blueprints/uCPE/scripts/ && source cadvisorsetup.sh"
  while read line
  do
      nodeinfo="${line}"

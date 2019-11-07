@@ -21,17 +21,17 @@ kubectl delete -f $TESTYAML
 exec_edge_master(){
 
    sshpass -p ${EDGENODEPASSWORD} \
-   scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge.sh \
+   scp ${PATH_OF_ELIOTFOLDER}/blueprints/uCPE/scripts/ci_management/cleanup_edge.sh \
    ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
    sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
    source cleanup_edge.sh
 
-   cd $PATH_OF_ELIOTFOLDER/scripts/ci_management
+   cd $PATH_OF_ELIOTFOLDER/blueprints/uCPE/scripts/ci_management
    source cleanup_master.sh
-
+f
    sshpass -p ${EDGENODEPASSWORD} \
-   scp ${PATH_OF_ELIOTFOLDER}/scripts/ci_management/cleanup_edge_final.sh \
+   scp ${PATH_OF_ELIOTFOLDER}/blueprints/uCPE/scripts/ci_management/cleanup_edge_final.sh \
    ${EDGENODEUSR}@${EDGENODEIP}:$HOME_EDGENODE
 
    sshpass -p ${EDGENODEPASSWORD} ssh ${EDGENODEUSR}@${EDGENODEIP} \
