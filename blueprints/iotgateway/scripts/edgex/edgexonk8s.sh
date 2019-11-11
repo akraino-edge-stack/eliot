@@ -12,13 +12,19 @@
 #######################################################################################
 
 
-
+echo "Deploying Edgex Platform on IOT-Gateway Edge Node"
 git clone https://github.com/edgexfoundry-holding/edgex-kubernetes-support.git
 cd edgex-kubernetes-support/releases/edinburgh/kubernetes
 ls
 kubectl create -k .
+echo "-----------------------------------------------------------"
+echo "Edgex platform PODs"
 kubectl get pod
+echo "-----------------------------------------------------------"
+echo "-----------------------------------------------------------"
+echo "Edge platform Kubernetes Services"
 kubectl get svc
+echo "-----------------------------------------------------------"
 kubectl expose deployment edgex-core-consul --type=NodePort --name=consulnodeport
 kubectl expose deployment edgex-core-command --type=NodePort --name=commandnodeport
 kubectl expose deployment edgex-core-data --type=NodePort --name=datanodeport

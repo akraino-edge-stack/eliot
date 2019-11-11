@@ -56,9 +56,9 @@ setup_k8sworkers()
   # Install Docker on ELIOT Node
   SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
-                       cd eliot/scripts/ && source common.sh"
+                       cd eliot/blueprints/iotgteway/scripts/ && source common.sh"
   #SETUP_WORKER_COMMON="cd eliot/scripts/ && source common.sh"
-  SETUP_WORKER="cd eliot/scripts/ && source k8sworker.sh"
+  SETUP_WORKER="cd eliot/blueprints/iotgateway/scripts/ && source k8sworker.sh"
 
   KUBEADM_TOKEN=$(kubeadm token create --print-join-command)
   KUBEADM_JOIN="sudo ${KUBEADM_TOKEN}"
@@ -100,7 +100,7 @@ setup_k8sworkers_centos()
 
   SETUP_WORKER_COMMON_CENTOS="sudo rm -rf ~/eliot &&\
                               git clone ${ELIOT_REPO} &&\
-                              cd eliot/scripts/ && source common_centos.sh"
+                              cd eliot/blueprints/iotgateway/scripts/ && source common_centos.sh"
 
   # SETUP_WORKER_COMMON_CENTOS="cd /root/eliot/scripts/ && source common_centos.sh"
 
@@ -132,9 +132,18 @@ install_edgex(){
  cd edgex && source edgexonk8s.sh
 }
 
+# verify installation of edgex platform 
+verify_edgex()
+{
+ set -o xtrace
+ source verifyedgex.sh
+
+}
+
+
 install_cadvisor_edge(){
  set -o xtrace
- SETUP_CADVISOR_ATEDGE="cd eliot/scripts/ && source cadvisorsetup.sh"
+ SETUP_CADVISOR_ATEDGE="cd eliot/blueprints/iotgateway/scripts/ && source cadvisorsetup.sh"
  while read line
  do
      nodeinfo="${line}"
@@ -175,9 +184,10 @@ sudo docker ps | grep prometheus
 
 install_edgex
 sleep 20
+verify_edgex
 
 # Removing the taint from master node
 kubectl taint nodes --all node-role.kubernetes.io/master- || true
 
-echo "ELIOT Setup execution is Completed..."
+echo "ELIOT IOT-Gateway Platform is Successfully Deployed !!!"
 
