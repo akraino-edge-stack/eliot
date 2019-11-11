@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f44e179d_efb4f312",
+        "filename": "blueprints/uCPE/scripts/common_centos.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-11-11T07:04:51Z",
+      "side": 1,
+      "message": "version number modify to 1.16",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "f9771dd062e4985cf02d24c39911676005114a0f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2755c459_816139e9",
+        "filename": "blueprints/uCPE/scripts/k8smaster_centos.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-11-11T07:04:51Z",
+      "side": 1,
+      "message": "Upgrade the version number to 1.16 as in the Release 2 we are supporting 1.16 version.",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "f9771dd062e4985cf02d24c39911676005114a0f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "294d703e_6f7feeba",
+        "filename": "blueprints/uCPE/scripts/setup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-11-11T07:04:51Z",
+      "side": 1,
+      "message": "Please check the closed braces once.",
+      "revId": "f9771dd062e4985cf02d24c39911676005114a0f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
