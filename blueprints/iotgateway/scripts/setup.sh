@@ -56,7 +56,7 @@ setup_k8sworkers()
   # Install Docker on ELIOT Node
   SETUP_WORKER_COMMON="sudo rm -rf ~/eliot &&\
                        git clone ${ELIOT_REPO} &&\
-                       cd eliot/blueprints/iotgteway/scripts/ && source common.sh"
+                       cd eliot/blueprints/iotgateway/scripts/ && source common.sh"
   #SETUP_WORKER_COMMON="cd eliot/scripts/ && source common.sh"
   SETUP_WORKER="cd eliot/blueprints/iotgateway/scripts/ && source k8sworker.sh"
 
