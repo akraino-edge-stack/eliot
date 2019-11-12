@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e317aa24_eb363ce3",
+        "filename": "blueprints/iotgateway/scripts/edgex/edgexonk8s.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-11-12T09:24:02Z",
+      "side": 1,
+      "message": "Instead of traversing back with 4 steps. Shall we give exact path cd \u003cpath\u003e",
+      "revId": "dfdb84cdd13e024c51fc733c1b09b92cfe9cfc22",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
