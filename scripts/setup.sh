@@ -46,7 +46,7 @@ setup_k8smaster()
   source common.sh | tee eliotcommon.log
   source k8smaster.sh | tee kubeadm.log
   # Setup ELIOT Node
-  setup_k8sworkers
+  oscheck_edge
 }
 
 setup_k8sworkers()
@@ -85,11 +85,7 @@ setup_k8smaster_centos()
   source k8smaster_centos.sh | tee kubeadm_centos.log
 
   # Setup ELIOT Node
-  setup_k8sworkers_centos
-
-  kubectl apply -f cni/calico/rbac.yaml
-  kubectl apply -f cni/calico/calico.yaml
-
+  oscheck_edge
 }
 
 
@@ -117,6 +113,25 @@ setup_k8sworkers_centos()
       sudo sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${KUBEADM_JOIN_CENTOS} < /dev/null
   done < nodelist > /dev/null 2>&1
 
+}
+
+# ELIOT edgenode os check and setup edge node
+oscheck_edge()
+{
+  while read line
+  do
+     nodeinfo="${line}"
+     nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
+     nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
+     nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
+     if sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} [ $OSPLATFORM="*Ubuntu*" ]; then
+       setup_k8sworkers
+       elif sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} [ $OSPLATFORM="*CentOS*" ]; then
+         setup_k8sworkers_centos
+         kubectl apply -f cni/calico/rbac.yaml
+         kubectl apply -f cni/calico/calico.yaml
+     fi
+  done < nodelist > /dev/null 2>&1
 }
 
 # verify kubernetes setup by deploying nginx server.
