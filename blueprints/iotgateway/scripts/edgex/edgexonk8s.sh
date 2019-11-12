@@ -17,6 +17,8 @@ git clone https://github.com/edgexfoundry-holding/edgex-kubernetes-support.git
 cd edgex-kubernetes-support/releases/edinburgh/kubernetes
 ls
 kubectl create -k .
+cd ../../../../
+
 echo "-----------------------------------------------------------"
 echo "Edgex platform PODs"
 kubectl get pod
