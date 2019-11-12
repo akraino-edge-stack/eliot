@@ -136,7 +136,7 @@ install_edgex(){
 verify_edgex()
 {
  set -o xtrace
- source verifyedgex.sh
+ cd edgex && source verifyedgex.sh
 
 }
 
@@ -152,11 +152,13 @@ install_cadvisor_edge(){
      nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
      sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${SETUP_CADVISOR_ATEDGE} < /dev/null
  done < nodelist > /dev/null 2>&1
+ echo "CADVISOR Installed in all the ELIOT IOT-GATEWAY Nodes"
 }
 
 install_prometheus(){
-set -o xtrace
-source prometheus.sh | tee install_prometheus.log
+ set -o xtrace
+ source prometheus.sh | tee install_prometheus.log
+ echo "Prometheus deployed successfully on ELIOT Manager Node  and integrated with CAdvisor running on IOT-Gateway Nodes "
 }
 
 # Start
