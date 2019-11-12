@@ -136,7 +136,7 @@ install_edgex(){
 verify_edgex()
 {
  set -o xtrace
- cd edgex && source verifyedgex.sh
+ source verifyedgex.sh | tee verifyedgex.log
 
 }
 
