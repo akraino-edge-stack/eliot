@@ -13,10 +13,12 @@
 
 
 echo "Deploying Edgex Platform on IOT-Gateway Edge Node"
+edgexPath=`pwd`
 git clone https://github.com/edgexfoundry-holding/edgex-kubernetes-support.git
 cd edgex-kubernetes-support/releases/edinburgh/kubernetes
 ls
 kubectl create -k .
+cd ${edgexPath}
 echo "-----------------------------------------------------------"
 echo "Edgex platform PODs"
 kubectl get pod
