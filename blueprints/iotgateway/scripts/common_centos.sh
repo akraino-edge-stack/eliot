@@ -12,7 +12,7 @@
 # constants
 
 DOCKER_VERSION=18.09.6
-KUBE_VERSION=1.15.0-0
+KUBE_VERSION=1.16.0-0
 MACHINE=$(uname -m)
 
 # start
