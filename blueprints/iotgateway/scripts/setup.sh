@@ -87,8 +87,7 @@ setup_k8smaster_centos()
   # Setup ELIOT Node
   setup_k8sworkers_centos
 
-  kubectl apply -f cni/calico/rbac.yaml
-  kubectl apply -f cni/calico/calico.yaml
+  kubectl apply -f cni/calico/v38/calico.yaml
 
 }
 
