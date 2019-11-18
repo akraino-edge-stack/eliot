@@ -1,0 +1,8 @@
+EDGENODEUSR=""
+EDGENODEIP=""
+EDGENODEPASSWORD=""
+MASTERNODEIP=""
+HOME_EDGENODE="/root"
+KUBEEDGE_ETC="/etc/kubeedge"
+KUBEEDGE_VERSION_ETC="/etc/kubeedge-v1.1.0-linux-amd64/"
+PATH_OF_KUBEEDGE=":/root/eliot/blueprints/iotgateway/scripts/kubeedge"
