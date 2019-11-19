@@ -160,6 +160,20 @@ install_prometheus(){
  echo "Prometheus deployed successfully on ELIOT Manager Node  and integrated with CAdvisor running on IOT-Gateway Nodes "
 }
 
+install_opcua_centos(){
+ set -o xtrace
+ INSTALL_OPCUA_ATEDGE="cd eliot/blueprints/iotgateway/scripts/opcua/ && source install.sh"
+ while read line
+ do
+     nodeinfo="${line}"
+     nodeusr=$(echo ${nodeinfo} | cut -d"|" -f1)
+     nodeip=$(echo ${nodeinfo} | cut -d"|" -f2)
+     nodepaswd=$(echo ${nodeinfo} | cut -d"|" -f3)
+     sshpass -p ${nodepaswd} ssh ${nodeusr}@${nodeip} ${INSTALL_OPCUA_ATEDGE} < /dev/null
+ done < nodelist > /dev/null 2>&1
+ echo " OPC-UA Server and Client are successfully Deployed on all IOT-Gateway Nodes"
+}
+
 # Start
 #
 
@@ -186,6 +200,12 @@ sudo docker ps | grep prometheus
 install_edgex
 sleep 20
 verify_edgex
+
+# Installing OPC-UA on IOT Gateway Node
+
+if [[ $OSPLATFORM = *CentOS* ]]; then
+   install_opcua_centos
+
 
 # Removing the taint from master node
 kubectl taint nodes --all node-role.kubernetes.io/master- || true
