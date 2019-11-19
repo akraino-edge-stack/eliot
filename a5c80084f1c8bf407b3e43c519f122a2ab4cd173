@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6378ab37_6a0fa4d4",
+        "filename": "blueprints/iotgateway/scripts/opc-ua/docker/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-11-19T10:16:18Z",
+      "side": 1,
+      "message": "Added the license information",
+      "parentUuid": "bdb05b6c_03724a6d",
+      "revId": "a5c80084f1c8bf407b3e43c519f122a2ab4cd173",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "230fcab4_83391d54",
         "filename": "blueprints/iotgateway/scripts/opc-ua/install.sh",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2019-11-19T09:28:02Z",
       "side": 1,
       "message": "Shall we include license info on headers",
+      "revId": "a5c80084f1c8bf407b3e43c519f122a2ab4cd173",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "171ef362_affd6ced",
+        "filename": "blueprints/iotgateway/scripts/opc-ua/install.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-11-19T10:16:18Z",
+      "side": 1,
+      "message": "Added the License information in headers",
+      "parentUuid": "230fcab4_83391d54",
       "revId": "a5c80084f1c8bf407b3e43c519f122a2ab4cd173",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
