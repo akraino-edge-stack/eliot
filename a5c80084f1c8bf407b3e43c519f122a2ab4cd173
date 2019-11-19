@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdb05b6c_03724a6d",
+        "filename": "blueprints/iotgateway/scripts/opc-ua/docker/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-11-19T09:28:02Z",
+      "side": 1,
+      "message": "It will be good to add license information on headers...",
+      "revId": "a5c80084f1c8bf407b3e43c519f122a2ab4cd173",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "230fcab4_83391d54",
+        "filename": "blueprints/iotgateway/scripts/opc-ua/install.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 164
+      },
+      "writtenOn": "2019-11-19T09:28:02Z",
+      "side": 1,
+      "message": "Shall we include license info on headers",
+      "revId": "a5c80084f1c8bf407b3e43c519f122a2ab4cd173",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
