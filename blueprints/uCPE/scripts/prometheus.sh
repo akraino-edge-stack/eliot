@@ -8,6 +8,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+echo "**********************************************************************"
+echo "Prometheus setup ----------------------------------------------STARTED"
+
 # start
 PROMETHEUS_HOST_PORT="9090"
 PROMETHEUS_CONTAINTER_PORT="9090"
@@ -21,3 +24,6 @@ sudo docker run -p ${PROMETHEUS_HOST_PORT}:${PROMETHEUS_CONTAINTER_PORT} \
      -v ~/prometheus.yml:/etc/prometheus/prometheus.yml \
      -d prom/prometheus \
      --config.file=/etc/prometheus/prometheus.yml
+
+echo "Prometheus setup ----------------------------------------------SUCCESS"
+echo "**********************************************************************"

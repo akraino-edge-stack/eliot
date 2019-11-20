@@ -18,6 +18,9 @@
 # sshpass needs to be installed before executing this script.                          #
 ########################################################################################
 
+echo "********************************************************************************"
+echo "ELIOT SD-WAN/WAN EDGE/uCPE Platform Deployment--------------------------STARTED"
+
 # constants
 
 OSPLATFORM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
@@ -175,5 +178,6 @@ sleep 20
 # Removing the taint from master node
 kubectl taint nodes --all node-role.kubernetes.io/master- || true
 
-echo "ELIOT Setup execution is Completed..."
+echo "********************************************************************************"
+echo "ELIOT SD-WAN/WAN EDGE/uCPE Platform Deployment--------------------------SUCCESS"
 
