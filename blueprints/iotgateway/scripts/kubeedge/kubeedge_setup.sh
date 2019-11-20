@@ -8,6 +8,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+echo "**********************************************************************"
+echo "Kubeedge-v1.1.0 Installation------------------------------------------STARTED"
+
 # constants
 
 VERSION="v1.1.0"
@@ -18,8 +21,11 @@ PATH_OF_EDGECORE="/etc/kubeedge-v1.1.0-linux-amd64/edge/edgecore"
 
 initialize_k8s_cluster()
 {
-   source common.sh
-   source k8smaster.sh
+   #cd ../
+   #./setup.sh
+   cp /etc/kubernetes/admin.conf /root/.kube/config
+   #source common.sh
+   #source k8smaster.sh
 }
 
 kubeedge_tar_untar()
@@ -82,7 +88,6 @@ exec_edge()
     echo "exec_edge started"
 
     sshpass -p ${EDGENODEPASSWORD} \
-
     scp -r $KUBEEDGE_ETC \
     ${EDGENODEUSR}@${EDGENODEIP}:/etc
 
@@ -98,6 +103,8 @@ exec_edge()
 apply_node_json()
 {
    echo "apply_node_json started"
+   echo $(pwd)
+   cd ${PATH_OF_KUBEEDGE}
    kubectl apply -f node.json
    echo "apply_node_json ended"
 }
@@ -110,7 +117,7 @@ initialize_k8s_cluster
 
 # sleep added for k8s kube-system pods to be up
 
-sleep 240
+#sleep 240
 
 kubeedge_tar_untar
 
@@ -124,4 +131,5 @@ exec_edge > /dev/null 2>&1
 
 apply_node_json
 
-echo "Kubeedge-v1.1.0 installation completed"
+echo "Kubeedge-v1.1.0 Installation------------------------------------------SUCCESS"
+echo "************************************************************************"

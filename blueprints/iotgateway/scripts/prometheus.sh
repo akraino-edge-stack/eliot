@@ -12,6 +12,11 @@
 PROMETHEUS_HOST_PORT="9090"
 PROMETHEUS_CONTAINTER_PORT="9090"
 #cp ci_management/prometheus.yml $HOME
+
+echo "**********************************************************************"
+echo "Prometheus setup ----------------------------------------------STARTED"
+
+
 source generatePromeyml.sh
 if [ ! -d "/etc/prometheus" ]; then
   sudo mkdir /etc/prometheus
@@ -21,3 +26,6 @@ sudo docker run -p ${PROMETHEUS_HOST_PORT}:${PROMETHEUS_CONTAINTER_PORT} \
      -v ~/prometheus.yml:/etc/prometheus/prometheus.yml \
      -d prom/prometheus \
      --config.file=/etc/prometheus/prometheus.yml 
+
+echo "Prometheus setup ----------------------------------------------SUCCESS"
+echo "**********************************************************************"

@@ -8,6 +8,9 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+echo "***********************************************************************"
+echo "cadvisor installation-------------------------------------------STARTED"
+
 HOSTNAME=`hostname`
 sudo docker run  \
  --volume=/:/rootfs:ro \
@@ -19,4 +22,7 @@ sudo docker run  \
  --detach=true \
  --name=cadvisor-${HOSTNAME} \
  google/cadvisor:latest 
+
+echo "cadvisor setup--------------------------------------------------SUCCESS"
+echo "***********************************************************************"
 

@@ -18,6 +18,9 @@
 # sshpass needs to be installed before executing this script.                          #
 ########################################################################################
 
+echo "**********************************************************************"
+echo "ELIOT IOT-Gateway Platform Deployment--------------------------STARTED"
+
 # constants
 
 OSPLATFORM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
@@ -210,5 +213,6 @@ if [[ $OSPLATFORM = *CentOS* ]]; then
 # Removing the taint from master node
 kubectl taint nodes --all node-role.kubernetes.io/master- || true
 
-echo "ELIOT IOT-Gateway Platform is Successfully Deployed !!!"
+echo "**********************************************************************"
+echo "ELIOT IOT-Gateway Platform Deployment--------------------------SUCCESS"
 

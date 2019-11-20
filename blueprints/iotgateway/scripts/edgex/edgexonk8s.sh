@@ -11,6 +11,8 @@
 # The script is to setup the Edgex Foundry application as POD in Kubernetes.          #
 #######################################################################################
 
+echo "**********************************************************************"
+echo "Edgex Platform Deployment--------------------------------------STARTED"
 
 echo "Deploying Edgex Platform on IOT-Gateway Edge Node"
 edgexPath=`pwd`
@@ -35,7 +37,8 @@ kubectl expose deployment edgex-support-rulesengine --type=NodePort --name=rules
 kubectl expose deployment edgex-support-logging --type=NodePort --name=loggingnodeport
 kubectl get svc | grep NodePort
 
-
+echo "**********************************************************************"
+echo "Edgex Platform Deployment--------------------------------------SUCCESS"
 
 
 

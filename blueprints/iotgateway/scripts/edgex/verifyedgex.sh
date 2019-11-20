@@ -28,7 +28,7 @@ retrytimes=20
 while [ $retrytimes -gt 0 ]
 do
  if [ 12 == "$(kubectl get pods | grep edgex | grep Running | wc -l)" ]; then
-    echo "Edgex Platform is successfully integrated  on ELIOT IOT-Gateway!!!!"
+    echo "Edgex Platform Deployment integration on IOT Gateway---------------------SUCCESS"
     break
  fi
  ((retrytimes-=1))
