@@ -165,7 +165,7 @@ install_prometheus(){
 
 install_opcua_centos(){
  set -o xtrace
- INSTALL_OPCUA_ATEDGE="cd eliot/blueprints/iotgateway/scripts/opcua/ && source install.sh"
+ INSTALL_OPCUA_ATEDGE="cd eliot/blueprints/iotgateway/scripts/opc-ua/ && source install.sh"
  while read line
  do
      nodeinfo="${line}"
@@ -185,6 +185,8 @@ then
   show_help
   exit 0
 fi
+
+setupPath=`pwd`
 
 if [[ $OSPLATFORM = *CentOS* ]]; then
    setup_k8smaster_centos
@@ -206,6 +208,7 @@ verify_edgex
 
 # Installing OPC-UA on IOT Gateway Node
 
+cd ${setupPath}
 if [[ $OSPLATFORM = *CentOS* ]]; then
    install_opcua_centos
 fi
