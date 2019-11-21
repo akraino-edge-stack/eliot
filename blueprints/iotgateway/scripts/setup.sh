@@ -208,7 +208,7 @@ verify_edgex
 
 if [[ $OSPLATFORM = *CentOS* ]]; then
    install_opcua_centos
-
+fi
 
 # Removing the taint from master node
 kubectl taint nodes --all node-role.kubernetes.io/master- || true
