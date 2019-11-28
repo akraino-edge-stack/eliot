@@ -48,7 +48,7 @@ take_keedge(){
 source config_kubeedge > /dev/null 2>&1
 
 common_steps="echo $GOPATH && \
-git clone https://github.com/kubeedge/kubeedge.git $KUBEEDGE_SRC && \
+sudo git clone https://github.com/kubeedge/kubeedge.git $KUBEEDGE_SRC && \
 source ~/.profile && \
 cd $GOPATH/src && \
 sudo chmod -R 777 github.com && \
@@ -57,7 +57,7 @@ make"
 
 edge_start="cd $KUBEEDGE_BIN && \
 sudo chmod +x keadm && \
-sudo ./keadm join --edgecontrollerip=$MASTERNODEIP --edgenodeid=$EDGENODEID \
+sudo ./keadm join --cloudcoreip=$MASTERNODEIP --edgenodeid=$EDGENODEID \
 --k8sserverip=$MASTERNODEIP:8080"
 
 # Initialisation of ELIOT master with kubeedge
