@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f9f2d45_9d2b72e1",
+        "filename": "scripts/src/kubeedge_cleanup.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-12-04T13:57:58Z",
+      "side": 1,
+      "message": "We dont have any K8S binary being installed in the Worker Node. so kubernetes uninstallation is not applucable. Kubeedge clean up can include edge_core and kubeedge folder removal.\nPlease check once the same in the kubeedge environment",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "ad11183577837c2dca3a340af76679e085452a47",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17e33f48_0c99190a",
+        "filename": "scripts/src/kubeedge_reset.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 159
+      },
+      "writtenOn": "2019-12-04T13:57:58Z",
+      "side": 1,
+      "message": "path has to be kept in some configuration file. /home/iot-mgr path is not generic. Path is hardocded here. Need to make it configurable",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 54
+      },
+      "revId": "ad11183577837c2dca3a340af76679e085452a47",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
