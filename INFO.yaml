@@ -1,0 +1,58 @@
+---
+project: 'eliot'
+project_creation_date: '2019-12-16'
+project_category: ''
+lifecycle_state: 'Incubation'
+project_lead: &akraino_eliot_ptl
+    name: ''
+    email: ''
+    id: ''
+    company: ''
+    timezone: ''
+primary_contact: *akraino_eliot_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.akraino.org/projects/'
+    key: 'eliot'
+mailing_list:
+    type: 'groups.io'
+    url: 'technical-discuss@lists.akraino.org'
+    tag: '[]'
+realtime_discussion:
+    type: 'irc'
+    server: 'freenode.net'
+    channel: '#akraino'
+meetings:
+    - type: 'gotomeeting+irc'
+      agenda: 'https://wiki.akraino.org/display/'
+      url: ''
+      server: 'freenode.net'
+      channel: '#akraino'
+      repeats: ''
+      time: ''
+repositories:
+    - eliot
+committers:
+    - <<: *akraino_eliot_ptl
+    - name: 'wutianwei '
+      email: 'wutianwei1@huawei.com'
+      company: 'huawei'
+      id: 'wutianwei'
+      timezone: 'Unknown/Unknown'
+    - name: 'Yang (Gabriel) Yu'
+      email: 'Gabriel.yuyang@huawei.com'
+      company: 'huawei'
+      id: 'yuyang'
+      timezone: 'Unknown/Unknown'
+    - name: 'khemendra kumar'
+      email: 'khemendra.kumar13@gmail.com'
+      company: 'gmail'
+      id: 'khemendra'
+      timezone: 'Unknown/Unknown'
+tsc:
+    # yamllint disable rule:line-length
+    approval: 'missing'
+    changes:
+        - type: ''
+          name: ''
+          link: ''
