@@ -1,0 +1,19 @@
+.main{
+    .example-container {
+        // background-color: lightskyblue;
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      padding: 10px;
+      margin: auto;
+      height: auto;
+      mat-card {
+        background-color: lightyellow;
+        color: black;
+        min-height: calc(100vh - 20px);
+      }
+    }
+  
+  }
+  
+  

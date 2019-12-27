@@ -1,7 +1,254 @@
-<!-- <div>
-    <button mat-button color="accent"> ELIOT UI </button>
+<div class="main" *ngIf="(toolbarService.visible|async)">
+  <div class="toolbar">
+    <app-toolbar></app-toolbar>
+  </div>
+  <div class="carousel">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[0]" alt="Random first slide">
 
-</div> -->
+        </div>
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[1]" alt="Random second slide">
+        </div>
 
-<div class="background">
+        <div class="carousel-caption">
+        </div>
+
+      </ng-template>
+      <ng-template ngbSlide>
+
+        <div class="picsum-img-wrapper">
+          <img [src]="images[2]" alt="Random third slide">
+        </div>
+
+        <div class="carousel-caption">
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
 </div>
+
+<!-- <div class="main">
+    <div class="menu">
+  
+      <mat-toolbar color="primary">
+  
+          <mat-toolbar-row>
+  
+            <button mat-icon-button>
+              <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+            </button>
+  
+            <div class="options">
+                <button class="home" mat-button [routerLink]="'/home'">ELIOT</button>
+  
+                <button mat-button [matMenuTriggerFor]="network">Network Management</button>
+                <button mat-button [matMenuTriggerFor]="application">Application Management</button>
+                
+                <button mat-button [matMenuTriggerFor]="developer">Developer</button>
+                <button mat-button [matMenuTriggerFor]="appsolution">ELIOT App Solution</button>
+  
+              <mat-menu #appsolution="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="solutions">ELIOT Solutions</button>
+              </mat-menu>
+  
+              <mat-menu #solutions="matMenu">
+                <button mat-menu-item>Video Surveilance</button>
+                <button mat-menu-item>EdgeX</button>
+                <button mat-menu-item [routerLink]="'/demo/edge-data-center'">Smart Edge Data Center</button>
+              </mat-menu>
+  
+              <mat-menu #developer="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="api">ELIOT Application APIs</button>
+                <button mat-menu-item [matMenuTriggerFor]="sdk">ELIOT SDKs</button>
+                <button mat-menu-item>Frameworks</button>
+                <button mat-menu-item [matMenuTriggerFor]="developmentflow">Development flow</button>
+              </mat-menu>
+  
+              <mat-menu #api="matMenu">
+                <button mat-menu-item>Video Surveilance API's</button>
+              </mat-menu>
+  
+              <mat-menu #sdk="matMenu">
+                <button mat-menu-item>EdgeX</button>
+                <button mat-menu-item>Face Detection</button>
+                <button mat-menu-item>Model Building</button>
+              </mat-menu>
+  
+              <mat-menu #developmentflow="matMenu">
+                <button mat-menu-item>Model / Graph</button>
+              </mat-menu>
+  
+              <mat-menu #demo="matMenu">
+                <button mat-menu-item [routerLink]="'/demo/edge-data-center'">Smart Edge Data Center</button>
+              </mat-menu>
+  
+              <mat-menu #network="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="eliotcluster">ELIOT Cluster</button>
+                <button mat-menu-item [matMenuTriggerFor]="eliotnamespace">ELIOT Namespace</button>
+              </mat-menu>
+  
+              <mat-menu #application="matMenu">
+                <button mat-menu-item>Deployment</button>
+                <button mat-menu-item>Uninstallation</button>
+                <button mat-menu-item [matMenuTriggerFor]="monitoring">Monitoring</button>
+              </mat-menu>
+  
+              <mat-menu #monitoring="matMenu">
+                <button mat-menu-item>Application Info</button>
+              </mat-menu>
+  
+              <mat-menu #eliotcluster="matMenu">
+                <button mat-menu-item [routerLink]="'/nodes'">Nodes</button>
+                <button mat-menu-item [routerLink]="'/deployments'">Deployments</button>
+                <button mat-menu-item [routerLink]="'/pods'">Pods</button>
+                <button mat-menu-item [routerLink]="'/services'">Services</button>
+                <button mat-menu-item [routerLink]="'/replica'">Replication</button>
+              </mat-menu>
+  
+              <mat-menu #eliotnamespace="matMenu">
+                <button mat-menu-item>Namespace 1</button>
+              </mat-menu>
+  
+  
+            </div>
+          </mat-toolbar-row>
+      </mat-toolbar>
+  
+    </div>
+  
+    <div class="sidemenu">
+  
+      <mat-sidenav-container >
+  
+        <mat-sidenav #sidenav>
+  
+          <mat-nav-list>
+  
+            <a mat-list-item [matMenuTriggerFor]="network"> Network Management </a>
+            <a mat-list-item [matMenuTriggerFor]="application"> Application Management</a>
+            <a mat-list-item [matMenuTriggerFor]="demo">Demo</a>
+            <a mat-list-item [matMenuTriggerFor]="developer"> Developer </a>
+  
+            <a mat-list-item [matMenuTriggerFor]="appsolution">ELIOT App solution</a>
+          </mat-nav-list>
+  
+        </mat-sidenav>
+  
+        <mat-sidenav-content>
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+  
+      </mat-sidenav-container>
+  
+    </div>
+  </div> -->
+
+<section id="services" class="services section-bg">
+  <div class="container">
+
+    <div class="section-title text-center" data-aos="fade-up">
+      <h2>Features</h2>
+      <p>Features provided by the ELIOT includes Deploy the new Edge Application on ELIOT Cluster, Monitoring the
+        existing ELIOT Cluster tablewise data as well as graphical manner and providing some predefined app deployment
+        packages</p>
+    </div>
+
+    <div class="row mat-elevation-z8">
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-cloud"></i></div>
+          <h4 class="title"><a href="" [routerLink]="'/nodes'">ELIOT Cluster</a></h4>
+          <p class="description">Monitoring the existing ELIOT Cluster with tablewise data management</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box">
+          <div class="icon"><i class="material-icons">card_travel</i></div>
+          <h4 class="title"><a href="">Application Management</a></h4>
+          <p class="description">Deployment of custom app .csar package, uninstallation and Monitoring the app</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <div class="icon"><i class="material-icons">dashboard</i></div>
+          <h4 class="title"><a href="" [routerLink]="'/history'">Cluster Monitoring</a></h4>
+          <p class="description">Monitoring the existing ELIOT Cluster with graphical data view
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="icon-box">
+          <div class="icon"><i class="material-icons">offline_pin</i></div>
+          <h4 class="title"><a href="">App Solution</a></h4>
+          <p class="description">Provides predefined app solution for some of the applications through deploy ready csar packages</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="about section-bg">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" >
+        <a href="https://www.youtube.com/watch?v=t2pRRwCRr_k"  class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+      </div>
+
+      <div
+        class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5 mat-elevation-z8">
+        <h4 data-aos="fade-up">About us</h4>
+        <h3 data-aos="fade-up">Edge Lightweight IOT</h3>
+        <p data-aos="fade-up">ELIOT is "Enterprise Edge Lightweight and IOT" project under Akraino approved blueprint
+          family
+          and part of Akraino Edge Stack, which intends to provide an platform for a fully integrated edge network
+          infrastructure and running edge computing applications, on lightweight Edge Nodes. ELIOT targets on making the
+          edge node a
+          lightweight software stack which can be deployed on edge nodes which have limited hardware capacity by
+          leveraging lightweight OS, a container running environment and container orchestration applications.</p>
+
+        <div class="icon-box" data-aos="fade-up">
+          <div class="icon"><i class="fas fa-cloud"></i></div>
+          <h4 class="title"><a href="" [routerLink]="'/describe'">ELIOT IOT Gateway</a></h4>
+          <p class="description">IoT Gateway Blueprint will provide an infrastructure platform for an edge node 
+            to provide features of an IoT Gateway.  This is achieved by leveraging the upstream opensource 
+            application like Dockers, Kubernetes , Prometheus , cAdvisor, KubeEdge and EdgeX.  Companies having
+             applications to be deployed on edge nodes related to IoT application , can use the IoT Gateway 
+             platform to have a functional end to end to ecosystem of IoT.
+          </p>
+        </div>
+
+        <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-cloud"></i></div>
+          <h4 class="title"><a href="" [routerLink]="'/describe'">ELIOT SD-WAN</a></h4>
+          <p class="description">Enterprise WAN edge use of SD-WAN solutions or universal CPE (uCPE)</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section><!-- End About Section -->
+
+<footer id="footer">
+
+  <div class="container d-lg-flex py-4">
+
+    <div class="mr-lg-auto text-center text-lg-left">
+      <div class="copyright">
+        &copy; Copyright <strong><span>ELIOT Akraino</span></strong>. All Rights Reserved
+      </div>
+    </div>
+    <div class="social-links text-center text-lg-right pt-3 pt-lg-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer -->

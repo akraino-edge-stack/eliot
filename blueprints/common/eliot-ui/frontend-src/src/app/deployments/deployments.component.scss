@@ -1,0 +1,76 @@
+
+.main{
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    padding: 10px;
+    margin: auto;
+    height: auto;
+    mat-card {
+      min-height: calc(100vh - 100px);
+    }
+
+    .stepper-com {
+      .insert-deploy-yaml-card {
+        .app-accordion {
+          padding: 20px;
+          .upload-csar-label {
+            padding-bottom: 20px;
+            padding-top:20px;
+            mat-label {
+              padding-right: 20px;
+            }
+            .submit-button {
+              padding-top:20px;
+            }
+          }
+        }
+      }
+      .additional-fields-stepper{
+        .node-label-txt{
+          mat-form-field {
+            width: 40%;
+            justify-content: center;
+          }
+        }
+      }
+      .finish-stepper {
+          .deploy-button {
+            display:flex;
+            justify-content: center;
+          }
+      }
+    }
+
+    .node-radio-group {
+      display: flex;
+      flex-direction: column;
+      margin: 15px 0;
+    }
+    
+    .node-radio-button {
+      margin: 5px;
+    }
+
+    .toaster {
+      float: right;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 20px;
+      ngb-toast {
+        float: right;
+      }
+    }
+  }
+
+}
+
+mat-tab-group {
+  background-color: primary;
+}
+
+mat-card-header {
+  display: flex; justify-content: center;
+}

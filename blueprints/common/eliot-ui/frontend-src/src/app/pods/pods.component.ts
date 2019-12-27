@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MyserviceService } from './../myservice.service';
+import { EliotserviceService } from '../eliotservice.service';
 import { podDetails, podinfo, nodesDropDownDetails } from '../datainterface';
 
 import {MatTableDataSource} from '@angular/material/table';
@@ -36,7 +36,7 @@ export class PodsComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private serviceobj:MyserviceService) { }
+  constructor(private serviceobj:EliotserviceService) { }
 
   ngOnInit() {
     this.display = true;

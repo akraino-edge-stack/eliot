@@ -1,13 +1,19 @@
 .maindiv {
-    padding: 20px;
-    height: 90%;
+    // padding: 20px;
+    height: 100%;
+    .toolbar {
+        padding-bottom:30px;
+    }
 
-
-    width: 95%;
+    width: 100%;
+    .whole-features {
+        padding-top: 20px;
+        background: linear-gradient(to right, rgb(145, 224, 241), rgb(206, 255, 174));
 
     .dropdown {
 
         padding-bottom: 40px;
+        // padding: 30px;
         right: 0;
         .options {
             float: right;
@@ -26,7 +32,6 @@
     .tablepage {
 
         position: relative;
-
         .filter {
             width: 70%;
             padding-left: 20px;
@@ -38,5 +43,14 @@
         }
 
     }
-
 }
+}
+
+.mat-table {
+    background: linear-gradient(to right, rgb(145, 224, 241), rgb(206, 255, 174));
+  }
+  
+  mat-paginator{
+    background: linear-gradient(to right, rgb(145, 224, 241), rgb(206, 255, 174));
+  }
+  
