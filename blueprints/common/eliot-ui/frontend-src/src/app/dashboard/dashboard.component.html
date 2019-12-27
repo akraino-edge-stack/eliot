@@ -1,0 +1,77 @@
+<!-- Toolbar Component -->
+<div>
+    <app-toolbar></app-toolbar>
+</div>
+
+<div class="main">
+    <div class="row chart  ">
+        <!-- Deployment Status Chart -->
+        <div class="col-xl-6 col-lg-6">
+            <div class="card shadow mb-4 ">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
+                    <h6 class="m-0 font-weight-bold text-dark">Deployment Success / Failed / Pending</h6>
+                </div>
+                <div class="card-body">
+                    <canvas mdbChart [chartType]="appChartType" [datasets]="appChartDatasets" [labels]="appChartLabels"
+                        [colors]="appChartColors" [options]="appChartOptions" [legend]="true"
+                        (chartHover)="appChartHovered($event)" (chartClick)="appChartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pods/Nods/Services Chart -->
+        <div class="col-xl-6 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
+                    <h6 class="m-0 font-weight-bold text-dark">Pods / Nods stability & Services Running</h6>
+                </div>
+                <div class="card-body">
+                    <canvas mdbChart [chartType]="podsNodesChartType" [datasets]="podsNodesChartDatasets"
+                        [labels]="podsNodesChartLabels" [colors]="podsNodesChartColors"
+                        [options]="podsNodesChartOptions" [legend]="true" (chartHover)="podsNodesChartHovered($event)"
+                        (chartClick)="podsNodesChartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row chart">
+
+        <!-- Successful Deployments Chart-->
+        <div class="col-xl-7 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
+                    <h6 class="m-0 font-weight-bold text-dark">Successful Deployment Dataset</h6>
+                </div>
+
+                <div class="success-deploy-card-body">
+                    <canvas mdbChart [chartType]="historyChartType" [datasets]="historyChartDatasets"
+                        [labels]="historyChartLabels" [colors]="historyChartColors" [options]="historyChartOptions"
+                        [legend]="true" (chartHover)="historyChartHovered($event)"
+                        (chartClick)="historyChartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <!-- New Application Deployment Plus Icon -->
+        <div class="col-xl-5 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
+                    <h6 class="m-0 font-weight-bold text-dark">New Application / Package (csar) Deployment</h6>
+                </div>
+
+                <div class="new-app-card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <div class="col d-flex justify-content-center">
+                            <img src="./../../assets/images/plus-1.png" height="180" [routerLink]="'/deployments'"
+                                class="mat-elevation-z8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

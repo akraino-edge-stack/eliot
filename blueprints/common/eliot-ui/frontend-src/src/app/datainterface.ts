@@ -43,6 +43,27 @@ export interface podinfo {
   readiness: string;
 }
 
+export interface uninstallinfo {
+  id: string;
+  appName: string;
+  nodeIp: string;
+  date: string;
+  runningStatus: string;
+}
+
+export interface currentDeployDetails {
+  currentDeployArray: currentDeployInfo[];
+}
+
+export interface currentDeployInfo {
+  deployId: string;
+  appName: string;
+  yamlName: string;
+  nodeIp: string;
+  runningStatus: string;
+}
+
+
 export interface nodesDropDownDetails {
   nodesArray: nodesDropDown[];
 }
@@ -64,4 +85,76 @@ export interface serviceinfo {
   ports: string;
   age: string;
   selector: string;
+}
+
+export interface deploymentData {
+  deployFile: any;
+}
+
+export interface historyDetails {
+  eliotHistory: historyInformation[];
+}
+
+export interface historyinfo {
+  namespace: string;
+  name: string;
+}
+
+export interface historyInformation {
+  id: string;
+  date: string;
+  csarPackage: string;
+  yamlFile: string;
+  month: string;
+  status: string;
+}
+
+export interface historyPostInfo {
+  fileDownload: fileDownload[];
+}
+
+export interface fileDownload {
+  id: string;
+  fileName: string;
+}
+
+export interface nodeDeploy {
+  deployNodeName: string;
+  deployNodeLabel: string;
+}
+
+
+export interface dashboardInfo {
+  appDeployStatus: appDeployStatus;
+  stabilityStatus: stabilityStatus;
+  historyStatus: historyStatus;
+}
+
+export interface appDeployStatus {
+  deploySuccess: number;
+  deployFailed: number;
+  deployPending: number;
+}
+
+export interface stabilityStatus {
+  nodesStable: number;
+  nodesUnstable: number;
+  podsStable: number;
+  podsUnstable: number;
+  servicesRunning: number;
+}
+
+export interface historyStatus {
+  jan: number;
+  feb: number;
+  mar: number;
+  apr: number;
+  may: number;
+  jun: number;
+  jul: number;
+  aug: number;
+  sep: number;
+  oct: number;
+  nov: number;
+  dec: number;
 }

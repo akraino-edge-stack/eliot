@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demoedgex": {
+    "eliotportal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demoedgex",
+            "outputPath": "dist/eliotportal",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +28,10 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/particles.js/particles.js"]
           },
           "configurations": {
             "production": {
@@ -52,13 +53,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
+                  "maximumWarning": "4mb",
                   "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2kb"
                 }
               ]
             }
@@ -67,19 +68,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demoedgex:build",
+            "browserTarget": "eliotportal:build",
             "proxyConfig": "proxy-conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demoedgex:build:production"
+              "browserTarget": "eliotportal:build:production"
             }
-          }
+          },
+          "scripts": [
+            "node_modules/particles.js/particles.js",
+            "node_modules/chart.js/dist/Chart.js"
+
+          ]
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demoedgex:build"
+            "browserTarget": "eliotportal:build"
           }
         },
         "test": {
@@ -94,7 +100,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
+              "node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
+              "node_modules/animate.css/animate.css"
             ],
             "scripts": []
           }
@@ -116,15 +130,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "demoedgex:serve"
+            "devServerTarget": "eliotportal:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demoedgex:serve:production"
+              "devServerTarget": "eliotportal:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "demoedgex"
+    }
+  },
+  "defaultProject": "eliotportal"
 }

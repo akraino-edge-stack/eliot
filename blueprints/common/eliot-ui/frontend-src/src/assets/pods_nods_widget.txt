@@ -1,0 +1,5 @@
+Podsstable, 30
+Nodesstable, 10
+Podsunstable, 10
+Nodsunstable, 10
+Servicesrunning, 30

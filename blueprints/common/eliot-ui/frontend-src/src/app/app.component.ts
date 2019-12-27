@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToolbarService } from './toolbar/toolbar.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'EliotUI';
 
+  constructor(public toolbarService: ToolbarService) {}
+
+  ngOnInit() {
+    this.toolbarService.show();
+  }
 
 }

@@ -1,94 +1,98 @@
 <div class="maindiv">
 
     <!-- <div class="centerdiv"></div> -->
+    <div class="toolbar">
+        <app-toolbar></app-toolbar>
+    </div>
+    <div class="mat-elevation-z8">
+        <div class="whole-features">
+            <div class="dropdown">
+                <div class="options">
+                    <button color="primary" mat-fab aria-label matTooltip="UPDATE">
+                        <!-- <mat-icon (click)="getPodsNamespace(value)">update</mat-icon> -->
+                        <mat-icon>update</mat-icon>
+                    </button>
+                    <mat-form-field class="filter">
 
-        <div class="dropdown">
-            <div class="options">
-                <button color="primary" mat-fab aria-label matTooltip="UPDATE">
-                    <mat-icon (click)="getPodsNamespace(value)">update</mat-icon>
-                </button>
-                <mat-form-field class="filter">
+                        <mat-select placeholder="Edgewise Filter" [(ngModel)]="selectedNode"
+                            (ngModelChange)="onNodeSelection()">
+                            <mat-option *ngFor="let node of nodesArray" [value]="node.value">
+                                {{ node.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
 
-                    <mat-select placeholder="Edgewise Filter" [(ngModel)]="selectedNode"
-                        (ngModelChange)="onNodeSelection()">
-                        <mat-option *ngFor="let node of nodesArray" [value]="node.value">
-                            {{ node.viewValue }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+            <div class="tablepage">
+                <div>
+                    <mat-form-field class="filter">
+                        <input matInput (keyup)="podFilter($event.target.value)" placeholder="Filter">
+                    </mat-form-field>
+                </div>
+
+                <div class="podtable">
+
+                    <table mat-table [dataSource]="podDataSource">
+
+                        <ng-container matColumnDef="namespace">
+                            <th mat-header-cell *matHeaderCellDef> Namespace </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.namespace}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="ready">
+                            <th mat-header-cell *matHeaderCellDef> Ready </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.ready}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="restarts">
+                            <th mat-header-cell *matHeaderCellDef> Restarts </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.restarts}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="age">
+                            <th mat-header-cell *matHeaderCellDef> Age </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.age}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="ip">
+                            <th mat-header-cell *matHeaderCellDef> IP </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.ip}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="node">
+                            <th mat-header-cell *matHeaderCellDef> Node </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.node}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="nominated">
+                            <th mat-header-cell *matHeaderCellDef> Nominated Node </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.nominated}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="readiness">
+                            <th mat-header-cell *matHeaderCellDef> Readiness Gates </th>
+                            <td mat-cell *matCellDef="let eliot"> {{eliot.readiness}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="podColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: podColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+                </div>
             </div>
         </div>
-        <div class="tablepage">
-            <div>
-                <mat-form-field class="filter">
-                    <input matInput (keyup)="podFilter($event.target.value)" placeholder="Filter">
-                </mat-form-field>
-            </div>
-
-            <div class="podtable">
-
-                <table mat-table [dataSource]="podDataSource">
-
-
-
-
-                    <ng-container matColumnDef="namespace">
-                        <th mat-header-cell *matHeaderCellDef> Namespace </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.namespace}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.name}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="ready">
-                        <th mat-header-cell *matHeaderCellDef> Ready </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.ready}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="status">
-                        <th mat-header-cell *matHeaderCellDef> Status </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="restarts">
-                        <th mat-header-cell *matHeaderCellDef> Restarts </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.restarts}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="age">
-                        <th mat-header-cell *matHeaderCellDef> Age </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.age}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="ip">
-                        <th mat-header-cell *matHeaderCellDef> IP </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.ip}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="node">
-                        <th mat-header-cell *matHeaderCellDef> Node </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.node}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="nominated">
-                        <th mat-header-cell *matHeaderCellDef> Nominated Node </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.nominated}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="readiness">
-                        <th mat-header-cell *matHeaderCellDef> Readiness Gates </th>
-                        <td mat-cell *matCellDef="let eliot"> {{eliot.readiness}} </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="podColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: podColumns;"></tr>
-                </table>
-
-                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
-            </div>
-        </div>
-
+    </div>
 </div>
