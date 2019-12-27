@@ -1,0 +1,36 @@
+<div class="bg-image">
+    <mat-card class="login-card">
+        <mat-card-header style="justify-content: center;">
+            <mat-card-title>ELIOT Portal Signup</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="signupForm" (ngSubmit)="onFormSubmit()">
+                <mat-form-field class="login-full-width">
+                    <input matInput placeholder="Username" formControlName="username" name="username" required>
+                </mat-form-field>
+                <mat-form-field class="login-full-width">
+                    <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'"
+                    required >
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="login-full-width">
+                    <input matInput placeholder="First Name" formControlName="firstname" name="firstname" required>
+                </mat-form-field>
+                <mat-form-field class="login-full-width">
+                    <input matInput placeholder="Last Name" formControlName="lastname" name="lastname" required>
+                </mat-form-field>
+                <mat-form-field class="login-full-width">
+                    <input matInput placeholder="Email" formControlName="email" name="email" required>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" matTooltip="click to register to ELIOT Portal" 
+                matTooltipPosition="right">Sign-up</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions style="display: flex; justify-content: center;">
+            <button mat-raised-button routerLink="/login" color="primary" matTooltip="click to login to ELIOT Portal" 
+            matTooltipPosition="right">Login</button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>

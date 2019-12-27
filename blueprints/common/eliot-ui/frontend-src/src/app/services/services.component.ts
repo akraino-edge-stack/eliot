@@ -24,11 +24,11 @@ export class ServicesComponent implements OnInit {
 
   servicesInfo = {} as serviceDetails;
 
-  // nodesArray = [
-  //   {value: 'eliot01', viewValue: 'eliot01'},
-  //   {value: 'eliot02', viewValue: 'eliot02'},
-  //   {value: 'eliot03', viewValue: 'eliot03'}
-  // ];
+  nodesArray = [
+    {value: 'eliot01', viewValue: 'eliot01'},
+    {value: 'eliot02', viewValue: 'eliot02'},
+    {value: 'eliot03', viewValue: 'eliot03'}
+  ];
 
   // nodesArray = [];
 

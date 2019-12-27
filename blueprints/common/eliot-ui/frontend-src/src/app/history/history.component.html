@@ -1,0 +1,918 @@
+<div class="history-main">
+    <app-toolbar></app-toolbar>
+    <p style="padding: 20px;">Yaml Files Uploaded History..!</p>
+
+    <div class="accordian">
+
+        <!-- <mat-accordion>
+            <div *ngFor="let month of monthDetails">
+            <mat-expansion-panel  >
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{month.monthName}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div >
+                    <button mat-stroked-button color="primary">
+                        <mat-icon>{{month.iconName}}</mat-icon>{{month.displayName}}
+                    </button>
+                </div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+
+                        <span *ngIf="month.monthName=='Januaryyyy'">
+                                
+                            <table mat-table [dataSource]="historyDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggleJan() : null"
+                                            [checked]="selection.hasValue() && isAllSelectedJan()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelectedJan()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>{{month.iconName}}</mat-icon>{{month.displayName}}
+                                        </button> </td>
+                                </ng-container>
+
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+                        
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </span>
+
+                        <span *ngIf="month.monthName=='Februaryyyy'">
+                                
+                                <table mat-table [dataSource]="historyFebDataSource">
+                                    <ng-container matColumnDef="select">
+                                        <th mat-header-cell *matHeaderCellDef>
+                                            <mat-checkbox (change)="$event ? masterToggleJan() : null"
+                                                [checked]="selection.hasValue() && isAllSelectedJan()"
+                                                [indeterminate]="selection.hasValue() && !isAllSelectedJan()"
+                                                [aria-label]="checkboxLabel()">
+                                            </mat-checkbox>
+                                        </th>
+                                        <td mat-cell *matCellDef="let row">
+                                            <mat-checkbox (click)="$event.stopPropagation()"
+                                                (change)="$event ? selection.toggle(row) : null"
+                                                [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                            </mat-checkbox>
+                                        </td>
+                                    </ng-container>
+    
+                                    <ng-container matColumnDef="date">
+                                        <th mat-header-cell *matHeaderCellDef> Date </th>
+                                        <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                    </ng-container>
+    
+                                    <ng-container matColumnDef="yamlFile">
+                                        <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                        <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                    </ng-container>
+    
+                                    <ng-container matColumnDef="status">
+                                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                                        <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                    </ng-container>
+    
+                                    <ng-container matColumnDef="download">
+                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                        <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                                <mat-icon>{{month.iconName}}</mat-icon>{{month.displayName}}
+                                            </button> </td>
+                                    </ng-container>
+    
+    
+                                    <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                                </table>
+                            
+                                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                            </span>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            </div>
+        </mat-accordion> -->
+
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        January
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;">
+                    <button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button>
+                </div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                            <table mat-table [dataSource]="historyJanDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggleJan() : null"
+                                            [checked]="selection.hasValue() && isAllSelectedJan()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelectedJan()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        February
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        <div>
+                            <table mat-table [dataSource]="historyFebDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        March
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyMarDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        April
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyAprDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        May
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyMayDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        June
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyJunDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        July
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyJulDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        August
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyAugDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        September
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historySepDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        October
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyOctDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        November
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyNovDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="accordian">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        December
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div style="padding-bottom: 10px;"><button mat-stroked-button color="primary">
+                        <mat-icon>archive</mat-icon>Download
+                    </button></div>
+                <div class="mat-elevation-z8">
+                    <div class="historytable">
+                        {{month}}
+                        <div>
+                            <table mat-table [dataSource]="historyDecDataSource">
+                                <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                            [checked]="selection.hasValue() && isAllSelected()"
+                                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                            [aria-label]="checkboxLabel()">
+                                        </mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let row">
+                                        <mat-checkbox (click)="$event.stopPropagation()"
+                                            (change)="$event ? selection.toggle(row) : null"
+                                            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="date">
+                                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.date}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="yamlFile">
+                                    <th mat-header-cell *matHeaderCellDef> Yaml File </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.yamlFile}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                                    <td mat-cell *matCellDef="let eliot"> {{eliot.status}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="download">
+                                    <th mat-header-cell *matHeaderCellDef> </th>
+                                    <td mat-cell *matCellDef="let eliot"> <button mat-icon-button color="primary">
+                                            <mat-icon>archive</mat-icon>Download
+                                        </button> </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <!-- </div> -->
+</div>

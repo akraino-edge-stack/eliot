@@ -1,1 +1,107 @@
-<p>Development under Progress...</p>
+<div class="main" *ngIf="(toolbarService.visible|async)">
+    <app-toolbar></app-toolbar>
+
+    <div class="example-container">
+            <div class="toaster">
+                    <ngb-toast *ngFor="let toast of toastService.toasts" [class]="toast.classname" [autohide]="true"
+                        [delay]="toast.delay || 5000" (hide)="toastService.remove(toast)" aria-live="polite" aria-atomic="true">
+                        <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+                            <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+                        </ng-template>
+                    
+                        <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+                    </ngb-toast>
+                    </div>
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step>
+                <!-- [stepControl]="firstFormGroup"> -->
+                <ng-template matStepLabel>Basic Fields required</ng-template>
+                <mat-tab-group>
+                    <mat-tab label="Insert Application Deployment Yaml files">
+
+                        <mat-card>
+                            <mat-card-header style="display: flex; justify-content: center;">
+                                <mat-card-title>ELIOT Application Deployment</mat-card-title>
+                            </mat-card-header>
+                            <form [formGroup]="deployForm" (ngSubmit)="onSubmit()">
+
+                                <!-- <mat-form-field> -->
+                                <!-- <input matInput placeholder="Input"formControlName="samplefour"> -->
+                                <!-- </mat-form-field>  -->
+
+
+                                <!-- <div style="padding-bottom: 20px;padding-top:20px;">
+                                    <p>Please upload Application Deployment zip file below...</p>
+                                    <mat-label style="padding-right: 20px; ">Application Deployment Yaml as (zip)
+                                    </mat-label>
+                                    <input type="file" formControlname="deployyamlfile"
+                                        (change)="fileProgress($event)" />
+                                </div> -->
+                                <div style="padding: 20px;">
+                                    <mat-accordion>
+                                       
+                                        <mat-expansion-panel (opened)="typePanelOpenState = true"
+                                            (closed)="typePanelOpenState = false">
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    Custom Application Deployment details
+                                                </mat-panel-title>
+                                                <!-- <mat-panel-description>
+                                                Currently I am {{typePanelOpenState ? 'open' : 'closed'}}
+                                            </mat-panel-description> -->
+                                            </mat-expansion-panel-header>
+                                            <!-- <p>I'm visible because I am open</p> -->
+                                            <div style="padding-bottom: 20px;padding-top:20px;">
+                                                <p>Please upload Application Deployment zip file below...</p>
+                                                <mat-label style="padding-right: 20px; ">Application Deployment Yaml as
+                                                    (zip)
+                                                </mat-label>
+                                                <input type="file" formControlname="deployyamlfile"
+                                                    (change)="fileProgress($event)" />
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </div>
+                                <div class="submit-button">
+                                    <button mat-raised-button color="primary"
+                                        style="width: 10%;justify-content: center;margin: auto;">Submit</button>
+                                </div>
+                                <div class="image-preview mb-3" *ngIf="previewFile">
+                                    <p> {{this.deployForm.get('deployyamlfile').value}} </p>
+                                </div>
+                            </form>
+                            <!-- <button class="btn btn-success" (click)="showSuccess()"
+                                ngbTooltip="Will disappear in 10s">Success
+                                toast</button> -->
+
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="View Application Deployment Yaml files"> Content 2 </mat-tab>
+                    <mat-tab label="Edit Application Deployment Yaml files"> Content 3 </mat-tab>
+                    <mat-tab label="Upload Application Deployment Yaml files">
+                        Content 3
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Additional Fields required</ng-template>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Finish</ng-template>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+       
+
+    </div>
+</div>
+
