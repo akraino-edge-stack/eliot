@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyserviceService } from './../app/myservice.service';
+import { EliotserviceService } from './eliotservice.service';
 
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -21,8 +21,27 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MarkdownModule } from 'ngx-markdown';
+import { NgxMdModule } from 'ngx-md';
+
+import { NgxFloatButtonModule } from 'ngx-float-button';
+import {MatDialogModule} from '@angular/material/dialog';
+
+// import {NgxWebstorageModule, SessionStorageService, LocalStorageService} from 'ngx-webstorage';
+// import { RecaptchaModule } from 'ng-recaptcha';
+// import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+
+import { BotDetectCaptchaModule } from 'angular-captcha'; 
+
+
 import { ParticlesModule } from 'angular-particle';
+
+import { NgTerminalModule } from 'ng-terminal';
+
+import { NgxPermissionsModule } from 'ngx-permissions';
 import * as cors from "cors";
 
 
@@ -33,8 +52,27 @@ import { PodsComponent } from './pods/pods.component';
 import { ServicesComponent } from './services/services.component';
 import { DeploymentsComponent } from './deployments/deployments.component';
 import { ReplicaComponent } from './replica/replica.component';
+import { LoginComponent } from './login/login.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ToastrModule } from 'ngx-toastr';
+import { RegisterComponent } from './register/register.component';
+import { SignupComponent } from './signup/signup.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './carousel/carousel.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { DescriptionComponent } from './description/description.component';
 
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatStepperModule} from '@angular/material/stepper';
+import { HistoryComponent } from './history/history.component';
+import { MenuItemComponent } from './menu-item/menu-item.component';
+import { TerminalComponent } from './terminal/terminal.component';
+
+import { DialogOverviewExampleDialog } from './nodes/nodes.component';
+import { UninstallComponent } from './uninstall/uninstall.component';
+
+// import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -44,7 +82,18 @@ import { ReplicaComponent } from './replica/replica.component';
     PodsComponent,
     ServicesComponent,
     DeploymentsComponent,
-    ReplicaComponent
+    ReplicaComponent,
+    LoginComponent,
+    ToolbarComponent,
+    RegisterComponent,
+    SignupComponent,
+    CarouselComponent,
+    DescriptionComponent,
+    HistoryComponent,
+    MenuItemComponent,
+    TerminalComponent,
+    DialogOverviewExampleDialog,
+    UninstallComponent
   ],
 
   imports: [
@@ -68,12 +117,33 @@ import { ReplicaComponent } from './replica/replica.component';
     MatTableModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule,
+    ToastrModule,
+    BotDetectCaptchaModule,
+    NgbModule,
+    CarouselModule.forRoot(),
+    MatTabsModule,
+    MatStepperModule,
+    MatCheckboxModule,
+    NgTerminalModule,
+    MarkdownModule,
+    NgxMdModule,
+    NgxFloatButtonModule,
+    MatDialogModule,
+    NgxPermissionsModule.forRoot()
   ],
 
   exports: [],
 
-  providers: [ MyserviceService ],
+  providers: [ 
+    EliotserviceService,
+   ],
+
+  entryComponents: [
+    DialogOverviewExampleDialog
+  ],
+  
   bootstrap: [AppComponent]
 
 })

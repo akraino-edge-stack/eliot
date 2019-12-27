@@ -1,0 +1,39 @@
+<div class="main" *ngIf="(toolbarService.visible|async)">
+    <app-toolbar></app-toolbar>
+
+    <div class="example-container">
+        <div NgxMd [path]="'./../../assets/md/README.md'" (error)="errorHandler($event)" (loaded)="loadedHandler($event)"></div>
+        <mat-card>
+            <mat-card-header style="display: flex; justify-content: center;">
+                <mat-card-title>ELIOT Portal Description</mat-card-title>
+            </mat-card-header>
+            <div style="padding-bottom: 20px;">
+                <h5>What is main purpose of ELIOT Portal ?</h5>
+
+                <p>ELIOT Portal helps users deployment easy by providing ELIOT cluster which includes unified
+                    development environment which internally uses Kubernetes cluster (k8s master + worker nodes),
+                    docker, EdgeX, OPC-UA, Cadvisor, etc</p>
+                    <p>ELIOT Portal mainly provides an efficient way to individuals in Edge computing domain making the
+                    development environment as developer friendly.
+                </p>
+            </div>
+
+            <div style="padding-bottom: 20px;">
+                <h5>How to Deploy your app?</h5>
+
+                <p>Upload deployment yaml file in Application Management --> Deployment section and submit it.
+
+                    Internally it will interact with ELIOT environment and then to K8S api’s to deploy the app
+                    successfully. Once the deployment is successful, we can be able to see success message in the bottom
+                </p>
+            </div>
+            <div style="padding-bottom: 20px;">
+                <h5>How to Monitor Kubernetes Cluster / App cluster ?</h5>
+
+                <p>Once user logged in, Under Network management section , we have options to see the Nodes , Pods,
+                    Services, etc of kubernetes cluster / Application cluster.</p>
+            </div>
+        </mat-card>
+
+    </div>
+</div>

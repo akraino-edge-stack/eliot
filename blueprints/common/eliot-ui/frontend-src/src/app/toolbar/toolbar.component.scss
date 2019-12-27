@@ -1,0 +1,39 @@
+.main {
+    .menu {
+    
+        .home {
+            font-size: 25px;
+            // padding: 0px;
+        }
+
+        .power-button {
+            position: absolute;
+            right: 0px;
+            margin-right: 5px;
+        }
+
+ 
+    }
+    .sidemenu {
+        mat-sidenav-container {
+            height: 10vh;
+        }
+    }
+}
+
+
+button:hover {
+    background-color: skyblue;
+    color: black;
+}
+
+
+
+button.mat-menu-item:hover {
+    // background-color: skyblue;
+    // color: black;
+}
+
+.is-active {
+    background-color: red;
+}

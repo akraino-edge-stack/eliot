@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## ELIOT backend IP
 
-Provide ELIOT UI's running backend IP on myservice.service.ts file's baseUrl variable
+Provide ELIOT UI's running backend IP on eliotservice.service.ts file's baseUrl variable
 
 ## Start ELIOT-UI front-end
 

@@ -43,6 +43,15 @@ export interface podinfo {
   readiness: string;
 }
 
+export interface uninstallinfo {
+  id: string;
+  appName: string;
+  nodeIp: string;
+  date: string;
+  runningStatus: string;
+}
+
+
 export interface nodesDropDownDetails {
   nodesArray: nodesDropDown[];
 }
@@ -64,4 +73,34 @@ export interface serviceinfo {
   ports: string;
   age: string;
   selector: string;
+}
+
+export interface deploymentData {
+  deployFile: any;
+}
+
+export interface historyDetails {
+  eliotHistory: historyInformation[];
+}
+
+export interface historyinfo {
+  namespace: string;
+  name: string;
+}
+
+export interface historyInformation {
+  id: string;
+  date: string;
+  yamlFile: string;
+  month: string;
+  status: string;
+}
+
+export interface historyPostInfo {
+  fileDownload: fileDownload[];
+}
+
+export interface fileDownload {
+  id: string;
+  fileName: string;
 }
