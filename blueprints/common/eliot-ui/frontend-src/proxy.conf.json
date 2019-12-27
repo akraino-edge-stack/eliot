@@ -12,5 +12,9 @@
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
+    },
+    "/postDeploy": {
+        "target": "http://localhost:3000/postDeploy",
+        "secure": false
     }
 }

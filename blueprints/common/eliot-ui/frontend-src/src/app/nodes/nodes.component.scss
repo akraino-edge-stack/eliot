@@ -1,20 +1,19 @@
 .maindiv {
-  padding: 20px;
-  height: 85%;
   position: center;
   position: relative;
 
-  width: 95%;
 
   .centerdiv {
 
     width: 100%;
     margin: 0;
     position: absolute;
-
+    padding-top: 30px;
+    
     .tablepage {
       position: relative;
-      width: 100%;
+      margin: 0 auto;
+      width: 95%;
           mat-form-field {
             width: 90%;
             padding-left: 20px;

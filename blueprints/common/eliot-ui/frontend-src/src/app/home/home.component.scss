@@ -1,3 +1,17 @@
-.background {
-    background-image:url('./../../assets/images/iot.jpg');height:100%;background-position: center;background-repeat: no-repeat;background-size:cover;overflow-y: auto;
+
+
+.main {
+    display: block;
+    width: 100%;
+    overflow:hidden;
+    
+    .carousel{
+        display:block;
+        color: black;
+    }
 }
+
+h3,h1,h5,h2 {
+    color: black;
+}
+

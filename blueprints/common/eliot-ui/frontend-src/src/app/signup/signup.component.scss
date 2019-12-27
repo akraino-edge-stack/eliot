@@ -1,0 +1,67 @@
+body, html {
+    height: 100%;
+  }
+
+mat-menu {
+  max-width: none;
+}
+  
+
+  
+  .bg-image {
+    height: 100vh;
+    display: flex;
+    // fef
+    justify-content: center;
+    align-items: center;
+    /* The image used */
+    background-image: url("./../../assets/images/login2.jpg");
+    // mat-menu {
+    //   width: 100%;
+    // }
+  
+    /* Add the blur effect */
+    // filter: blur(4px);
+    // -webkit-filter: blur(4px);
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .login-card {
+        // height: 40vh;
+        // width: 30vh;
+        width: 50vh;
+        // opacity: 0.5;
+        filter: blur(0px);
+        -webkit-filter: blur(0px);
+        .login-full-width {
+            width: 100%;
+            // justify-content: center;
+            // display: flex; 
+            justify-content: center;
+        }
+        // opacity: 0.9;
+        // filter: alpha(opacity=50);
+        // justify-content: center;
+    }
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    // border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // right: 50%;
+    // bottom: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }

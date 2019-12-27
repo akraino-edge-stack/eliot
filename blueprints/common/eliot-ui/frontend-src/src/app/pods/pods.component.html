@@ -1,23 +1,29 @@
 <div class="maindiv">
 
     <!-- <div class="centerdiv"></div> -->
+    <div class="toolbar">
+    <app-toolbar></app-toolbar>
+    </div>
+    <div class="mat-elevation-z8">
+    <div class="whole-features">
+    <div class="dropdown">
+        <div class="options">
+            <button color="primary" mat-fab aria-label matTooltip="UPDATE">
+                <!-- <mat-icon (click)="getPodsNamespace(value)">update</mat-icon> -->
+                <mat-icon>update</mat-icon>
+            </button>
+            <mat-form-field class="filter">
 
-        <div class="dropdown">
-            <div class="options">
-                <button color="primary" mat-fab aria-label matTooltip="UPDATE">
-                    <mat-icon (click)="getPodsNamespace(value)">update</mat-icon>
-                </button>
-                <mat-form-field class="filter">
-
-                    <mat-select placeholder="Edgewise Filter" [(ngModel)]="selectedNode"
-                        (ngModelChange)="onNodeSelection()">
-                        <mat-option *ngFor="let node of nodesArray" [value]="node.value">
-                            {{ node.viewValue }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
+                <mat-select placeholder="Edgewise Filter" [(ngModel)]="selectedNode"
+                    (ngModelChange)="onNodeSelection()">
+                    <mat-option *ngFor="let node of nodesArray" [value]="node.value">
+                        {{ node.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
+    </div>
+    
         <div class="tablepage">
             <div>
                 <mat-form-field class="filter">
@@ -28,9 +34,6 @@
             <div class="podtable">
 
                 <table mat-table [dataSource]="podDataSource">
-
-
-
 
                     <ng-container matColumnDef="namespace">
                         <th mat-header-cell *matHeaderCellDef> Namespace </th>
@@ -90,5 +93,5 @@
 
             </div>
         </div>
-
+    </div>
 </div>

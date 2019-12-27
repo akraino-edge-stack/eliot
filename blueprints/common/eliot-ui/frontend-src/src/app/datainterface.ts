@@ -65,3 +65,33 @@ export interface serviceinfo {
   age: string;
   selector: string;
 }
+
+export interface deploymentData {
+  deployFile: any;
+}
+
+export interface historyDetails {
+  eliotHistory: historyInformation[];
+}
+
+export interface historyinfo {
+  namespace: string;
+  name: string;
+}
+
+export interface historyInformation {
+  id: string;
+  date: string;
+  yamlFile: string;
+  month: string;
+  status: string;
+}
+
+export interface historyPostInfo {
+  fileDownload: fileDownload[];
+}
+
+export interface fileDownload {
+  id: string;
+  fileName: string;
+}

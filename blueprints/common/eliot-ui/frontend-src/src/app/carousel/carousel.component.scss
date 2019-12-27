@@ -1,0 +1,10 @@
+.main {
+    // height: 50vh;
+    height: 100vh;
+    .carousel-card {
+        height: calc(100%-50px);
+        overflow: auto;
+        width: calc(100% - 60px);
+        padding: 0px;
+    }
+}

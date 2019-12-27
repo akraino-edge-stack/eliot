@@ -34,8 +34,9 @@ export class NodesComponent implements OnInit {
 
   ngOnInit() {
     this.display = true;
-    this.nodeDataSource.paginator = this.paginator;
+    
     this.getNodes();
+    this.nodeDataSource.paginator = this.paginator;
   }
 
   nodeFilter(filterValue: string) {

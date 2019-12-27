@@ -1,0 +1,17 @@
+.history-main {
+    // padding: 30px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    .accordian {
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom:10px;
+        .historytable {
+            table {
+                width: 100%;
+            }
+        }
+        // display: flex;
+    }
+}
