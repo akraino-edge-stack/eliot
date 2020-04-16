@@ -8,7 +8,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-KUBE_VERSION=1.16.0-00
+KUBE_VERSION=1.18.0-00
 K8S_CNI_VERSION=0.7.5-00
 
 # Install Kubernetes with Kubeadm
