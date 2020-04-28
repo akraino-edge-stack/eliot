@@ -49,6 +49,8 @@ if ! kubectl get nodes; then
     echo "export KUBECONFIG=/etc/kubernetes/admin.conf" | \
       tee -a "${HOME}/.profile"
     source "${HOME}/.profile"
+    mkdir -p "${HOME}/.kube"
+    sudo cp -i /etc/kubernetes/admin.conf "${HOME}/.kube/config"
   else
     mkdir -p "${HOME}/.kube"
     sudo cp -i /etc/kubernetes/admin.conf "${HOME}/.kube/config"
