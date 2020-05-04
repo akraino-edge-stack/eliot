@@ -61,7 +61,7 @@ REMOVE_CADVISOR_FILES="docker rm cadvisor-iot-node1"
 
 verify_reset_status()
 {
-echo "Success!!"
+echo "Reset Done Successfully!!"
 }
 
 if [ $1 == "--help" ] || [ $1 == "-h" ];
