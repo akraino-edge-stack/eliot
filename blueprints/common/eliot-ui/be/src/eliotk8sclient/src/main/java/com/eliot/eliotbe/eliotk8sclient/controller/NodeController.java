@@ -51,6 +51,7 @@ public class NodeController {
         return new ResponseEntity<>(nodeDetailList, HttpStatus.OK);
     }
 
+    //API To fetch the all running  Pods in the ELIOT Cluster.
     @GetMapping(path = "/getpods")
     public ResponseEntity<EliotPods> getAllPodList() throws ApiException {
         Pod podDetail;
@@ -83,6 +84,7 @@ public class NodeController {
     }
 
 
+    //API To fetch the running services in the ELIOT Cluster.
     @GetMapping(path = "/getservices")
     public ResponseEntity<EliotServices> getServiceList() throws ApiException{
 
