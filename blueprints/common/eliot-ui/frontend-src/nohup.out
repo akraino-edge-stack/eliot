@@ -1,0 +1,4 @@
+
+> demoedgex@0.0.0 start /home/root1/eliot2910/eliot/blueprints/common/eliot-ui/frontend-src
+> ng serve --proxy-config proxy.conf.json --host=0.0.0.0
+

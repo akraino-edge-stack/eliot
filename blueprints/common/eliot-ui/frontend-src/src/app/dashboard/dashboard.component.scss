@@ -1,0 +1,47 @@
+/*css templates*/
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.35rem;
+    background: rgb(255, 255, 255); /* Fallback color */
+    background: rgba(255, 255, 255, 0.2); /* Black background with 0.5 opacity */
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+
+  .new-app-card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+
+  .success-deploy-card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+
+  .card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    // border-bottom: 1px solid #000000;
+    
+  }
+
+  .chart {
+    padding-left:20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:20px;
+  }
+  
+.main {
+  background: linear-gradient(to right, rgb(238, 172, 128), rgb(68,166,187));
+}
+  
