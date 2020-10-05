@@ -206,6 +206,10 @@ install_edgex
 sleep 20
 verify_edgex
 
+
+# Installing hawkbit through docker container
+sudo docker run -p 8080:8080 hawkbit/hawkbit-update-server:latest
+
 # Installing OPC-UA on IOT Gateway Node
 
 cd ${setupPath}
