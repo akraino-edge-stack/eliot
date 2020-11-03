@@ -8,7 +8,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-KUBE_VERSION=1.16.0-00
+KUBE_VERSION=1.17.2-00
 POD_NETWORK_CIDR=192.168.0.0/16
 K8S_CNI_VERSION=0.7.5-00
 
