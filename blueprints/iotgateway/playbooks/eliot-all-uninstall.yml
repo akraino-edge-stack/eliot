@@ -1,0 +1,125 @@
+#
+# Copyright 2020 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+---
+
+############ OCD ############
+
+- hosts: ocdconsolidated
+  become: yes
+  tags:
+    - ocdhost
+    - ocdconsolidated
+
+  roles:
+    - eg_helm-repo
+    - eg_registry
+    - eg_certs
+    - helm
+    - k8s
+
+############ Master ############
+
+### EdgeGallery related ###
+
+- hosts: egmaster
+  become: yes
+  tags:
+    - egmaster
+    - master
+
+  roles:
+    - eg_mecm-meo
+    - eg_mecm-fe
+    - eg_appstore
+    - eg_developer
+    - eg_user-mgmt
+    - service_center
+    - eg_secret
+
+### Other 3rd party related ###
+
+- hosts: thirdpartymaster
+  become: yes
+  tags:
+    - thirdpartymaster
+    - master
+
+  roles:
+    - grafana
+
+### Pre-Requisites ###
+
+- hosts: prerequisitemaster
+  become: yes
+  tags:
+    - prerequisitemaster
+    - master
+
+  roles:
+    - kubeconfig
+    - helm
+
+############ Edge ############
+
+### EdgeGallery related ###
+
+- hosts: egedge
+  become: yes
+  tags:
+    - egedge
+    - edge
+
+  roles:
+    - eg_secret
+    - eg_mep
+    - eg_mecm-mepm
+
+### Other 3rd party related ###
+
+- hosts: thirdpartyedge
+  become: yes
+  tags:
+    - thirdpartyedge
+    - edge
+
+  roles:
+    - rabbitmq
+    - prometheus
+    - kubeconfig
+    - mepkubeconfig
+    - cadvisor
+
+### Pre-Requisites ###
+
+- hosts: prerequisiteedge
+  become: yes
+  tags:
+    - prerequisiteedge
+    - edge
+
+  roles:
+    - helm
+
+### Infrastructure ###
+- hosts: edge-infra
+  become: yes
+  tags:
+    - edge-infra
+    - edge
+
+  roles:
+    - k3s
+    - docker

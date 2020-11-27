@@ -1,0 +1,94 @@
+# Copyright 2020 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+
+######### Common parameters #########
+######### Mandatory #########
+private_repo_ip:
+  name:
+
+######### Optional #########
+eg_image_tag:
+  name: 0.9
+# User can either give common pwd or can opt to provide individual pwds
+common_pwd:
+  name:
+
+########## Edge config #############
+######### Mandatory #########
+mep_kong_pg_pwd:
+  name:
+######### Optional #########
+edge_management_interface:
+  name: eth0
+edge_dataplane_interface:
+  name: eth1
+eg-management-address:
+  name: 100.1.1.2/24
+eg-dataplane-address:
+  name: 200.1.1.2/24
+
+# All Edge related password which needs to be specified if user doesn't
+# need common password for security purpose
+mep_pg_admin_pwd:
+  name:
+mep_cert_pwd:
+  name:
+generate_cert_pass:
+  name:
+mecm_mepm_postgresPassword:
+  name:
+mecm_mepm_postgresLcmCntlrPassword:
+  name:
+mecm_mepm_postgresk8sPluginPassword:
+  name:
+
+########### Master config ###########
+######### Mandatory #########
+mecm_meo_edgeRepoUserName:
+  name:
+mecm_meo_edgeRepoPassword:
+  name:
+
+######### Optional #########
+usermgmt_port:
+  name: 30067
+appstore_port:
+  name: 30091
+developer_port:
+  name: 30092
+mecm_port:
+  name: 30093
+docker_registry_port:
+  name: 5000
+
+# All Master related password which needs to be specified if user
+# doesn't need common password for security purpose
+user_mgmt_encryptPassword:
+  name:
+mecm_meo_keystorePassword:
+  name:
+mecm_meo_truststorePassword:
+  name:
+mecm_meo_postgresPassword:
+  name:
+mecm_meo_postgresApmPassword:
+  name:
+mecm_meo_postgresAppoPassword:
+  name:
+mecm_meo_postgresInventoryPassword:
+  name:
+# Only if env structure, ocd in arm and master and edge in x86_64
+master_edge_processor:
+  name: "x86_64"
