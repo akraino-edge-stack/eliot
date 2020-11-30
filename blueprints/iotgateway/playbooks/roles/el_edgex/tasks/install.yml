@@ -25,3 +25,5 @@
 - name: Execute edgex script
   shell:
     cmd: /tmp/el_edgex/deploy/edgexonk8s.sh
+  ignore_errors: yes
+  no_log: True
