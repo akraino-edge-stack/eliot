@@ -57,6 +57,7 @@
 
   roles:
     - grafana
+    - el_hawkbit
 
 ### EdgeGallery related ###
 
@@ -115,6 +116,7 @@
     - kubeconfig
     - mepkubeconfig
     - cadvisor
+    - el_edgex
 
 ### EdgeGallery related ###
 

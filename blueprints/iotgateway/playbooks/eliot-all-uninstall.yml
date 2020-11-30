@@ -59,6 +59,7 @@
 
   roles:
     - grafana
+    - el_hawkbit
 
 ### Pre-Requisites ###
 
