@@ -18,9 +18,16 @@
 
 - name: Hawkbit add repo
   command: helm repo add eclipse-iot https://eclipse.org/packages/charts
+  ignore_errors: yes
+  no_log: True
 
 - name: Update helm repo
   command: helm repo update
+  ignore_errors: yes
+  no_log: True
+
 
 - name: Install hackbit
   command: helm install eclipse-hawkbit eclipse-iot/hawkbit
+  ignore_errors: yes
+  no_log: True

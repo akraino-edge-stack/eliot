@@ -18,3 +18,5 @@
 
 - name: Uninstall hawkbit
   command: helm delete eclipse-hawkbit
+  ignore_errors: yes
+  no_log: True
