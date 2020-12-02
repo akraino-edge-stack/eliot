@@ -117,6 +117,7 @@
     - mepkubeconfig
     - cadvisor
     - el_edgex
+    - el_opc-au
 
 ### EdgeGallery related ###
 
