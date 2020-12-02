@@ -16,14 +16,72 @@
 
 ---
 
-- name: Doing deployment setup for eliot
-  copy:
-    src: deploy
-    dest: /tmp/el_edgex/
-    mode: 777
+- name: Code clone edgex
+  # yamllint disable rule:line-length
+  command: git clone https://github.com/edgexfoundry-holding/edgex-kubernetes-support.git
+  args:
+    chdir: /tmp/el_edgex/deploy/
+  ignore_errors: yes
+  no_log: True
 
-- name: Execute edgex script
-  shell:
-    cmd: /tmp/el_edgex/deploy/edgexonk8s.sh
+- name: Using kubectl create k
+  command: kubectl create -k .
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+  ignore_errors: yes
+  no_log: True
+
+- name: Node port consul consulnodeport exposed
+  # yamllint disable rule:line-length
+  command: kubectl expose deployment edgex-core-consul --type=NodePort --name=consulnodeport
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+  ignore_errors: yes
+  no_log: True
+
+- name: Node port core-command commandnodeport exposed
+  # yamllint disable rule:line-length
+  command: kubectl expose deployment edgex-core-command --type=NodePort --name=commandnodeport
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+  ignore_errors: yes
+  no_log: True
+
+- name: Node port datanodeport exposed
+  # yamllint disable rule:line-length
+  command: kubectl expose deployment edgex-core-data --type=NodePort --name=datanodeport
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+  ignore_errors: yes
+  no_log: True
+
+- name: Node port metadatanodeport exposed
+  # yamllint disable rule:line-length
+  command: kubectl expose deployment edgex-core-metadata --type=NodePort --name=metadatanodeport
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+  ignore_errors: yes
+  no_log: True
+
+- name: Node port rulesenginenodeport exposed
+  # yamllint disable rule:line-length
+  command: kubectl expose deployment edgex-support-rulesengine --type=NodePort --name=rulesenginenodeport
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+  ignore_errors: yes
+  no_log: True
+
+- name: Node port loggingnodeport exposed
+  # yamllint disable rule:line-length
+  command: kubectl expose deployment edgex-support-logging --type=NodePort --name=loggingnodeport
+  args:
+  # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
   ignore_errors: yes
   no_log: True
