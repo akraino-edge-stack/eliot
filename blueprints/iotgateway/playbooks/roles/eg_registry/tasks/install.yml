@@ -79,6 +79,10 @@
   command: rm -rf /tmp/eg_registry/deploy/eg_swr_images/nginx#stable.tar.gz
   when: processor == "x86_64"
 
+- name: Docker image replaced for cross playform tool chain
+  command: rm -rf /tmp/eg_registry/deploy/eg_swr_images/edgegallery@deploy-tool#latest.tar.gz
+  when: processor == "x86_64"
+
 - name: Copy registry from x86 tarball
   command: cp -r /tmp/eg_registry/armtarball/registry /tmp/eg_registry/deploy/
   when: processor == "x86_64"
@@ -86,6 +90,12 @@
 - name: Copy docker image from x86 tarball
   # yamllint disable rule:line-length
   command: cp -r /tmp/eg_registry/armtarball/eg_swr_images/nginx#stable.tar.gz /tmp/eg_registry/deploy/eg_swr_images/
+  # yamllint disable rule:line-length
+  when: processor == "x86_64"
+
+- name: Copy docker image from x86 tarball tool chain
+  # yamllint disable rule:line-length
+  command: cp -r /tmp/eg_registry/armtarball/eg_swr_images/edgegallery@deploy-tool#latest.tar.gz /tmp/eg_registry/deploy/eg_swr_images/
   # yamllint disable rule:line-length
   when: processor == "x86_64"
 
