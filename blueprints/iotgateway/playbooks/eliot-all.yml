@@ -60,7 +60,6 @@
 
   roles:
     - grafana
-    - el_hawkbit
 
 ### EdgeGallery related ###
 
@@ -122,6 +121,7 @@
     - cadvisor
     - el_edgex
     - el_opc-au
+    - el_hawkbit
 
 ### EdgeGallery related ###
 

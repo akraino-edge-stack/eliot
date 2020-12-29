@@ -44,7 +44,6 @@
 
   roles:
     - grafana
-    - el_hawkbit
 
 ### Pre-Requisites ###
 
@@ -82,6 +81,7 @@
     - edge
 
   roles:
+    - el_hawkbit
     - rabbitmq
     - prometheus
     - kubeconfig
