@@ -16,32 +16,10 @@
 
 ---
 
-############ Center ############
+# Edgegallery installation
 
-### Other 3rd party related ###
-
-- hosts: thirdpartycenter
+- hosts: master
   become: yes
-  tags:
-    - thirdpartycenter
-    - center
-
   roles:
-    - grafana
-
-############ Edge ############
-
-### Other 3rd party related ###
-
-- hosts: thirdpartyedge
-  become: yes
-  tags:
-    - thirdpartyedge
-    - edge
-
-  roles:
-    - rabbitmq
-    - cadvisor
-    - el_edgex
-#    - el_opc-au
-    - el_hawkbit
+    - egallery-tar
+    - egallery-all-aiomode

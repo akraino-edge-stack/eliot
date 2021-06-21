@@ -13,27 +13,8 @@
 # limitations under the License.
 
 ---
-- name: check if grafana is installed before deleting
+- name: Remove edgegallery tar
   shell:
-    cmd: helm status grafana
-  register: result
-  ignore_errors: yes
-  no_log: True
-
-- debug:
-    msg: Uninstalling docker...
-  when: result.stdout != ""
-
-- debug:
-    msg: Ignore Uninstall Log , Grafana not installed
-  when: result.stdout == ""
-
-- name: Uninstall grafana on arm
-  shell:
-    cmd: helm uninstall grafana
-  when: result is succeeded and ansible_architecture == 'aarch64'
-
-- name: Uninstall grafana on x86
-  shell:
-    cmd: helm uninstall grafana
-  when: result is succeeded and ansible_architecture == 'x86_64'
+    cmd: ls
+   #cmd: rm -rf ansible-all*
+    chdir: /tmp/eg_download/deploy/
