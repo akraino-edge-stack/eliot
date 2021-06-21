@@ -1,4 +1,3 @@
-#
 # Copyright 2021 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,36 +11,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 ---
 
-############ Center ############
+- name: Uninstall edgegallery controller on x86
+  shell:
+    # yamllint disable rule:line-length
+    cmd: ansible-playbook --inventory hosts-muno-controller  eg_controller_aio_uninstall.yml -e "ansible_user=root" >> muno_controller_remove.log
+    # yamllint disable rule:line-length
+    chdir: /tmp/eg_download/deploy/EdgeGallery-v1.1.1-controller-x86/install
+  when: ansible_architecture == 'x86_64'
 
-### Other 3rd party related ###
-
-- hosts: thirdpartycenter
-  become: yes
-  tags:
-    - thirdpartycenter
-    - center
-
-  roles:
-    - grafana
-
-############ Edge ############
-
-### Other 3rd party related ###
-
-- hosts: thirdpartyedge
-  become: yes
-  tags:
-    - thirdpartyedge
-    - edge
-
-  roles:
-    - rabbitmq
-    - cadvisor
-    - el_edgex
-    - el_hawkbit
-#    - el_opc-au
+- name: Remove edgegallery tar ball
+  shell:
+    cmd: rm -rf EdgeGallery-v1.1.1-*
+    chdir: /tmp/eg_download/deploy/
+  when: ansible_architecture == 'x86_64'

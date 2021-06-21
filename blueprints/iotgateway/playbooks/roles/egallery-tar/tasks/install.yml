@@ -1,0 +1,63 @@
+# Copyright 2021 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+---
+
+- name: Create directory to download EG-TAR
+  command: mkdir -p /tmp/eg_download/deploy
+  args:
+    chdir: "{{playbook_dir}}"
+  ignore_errors: yes
+
+- name: Download 1.1 edgegallery x86
+# yamllint disable rule:line-length
+  command: wget https://edgegallery.obs.cn-east-3.myhuaweicloud.com/releases/v1.1/x86/EdgeGallery-v1.1-all-x86.tar.gz
+# yamllint disable rule:line-length
+  args:
+    chdir: /tmp/eg_download/deploy/
+  when: ansible_architecture == 'x86_64'
+
+- name: Untar Edgegallery offline tarbal file
+  command: tar -xvf EdgeGallery-v1.1-all-x86.tar.gz
+  args:
+    chdir: /tmp/eg_download/deploy/
+  when: ansible_architecture == 'x86_64'
+
+- name: Set inventory file for aio
+  command: cp hosts-aio /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  args:
+    chdir: "{{playbook_dir}}"
+  when: ansible_architecture == 'x86_64'
+
+- name: Set inventory file for muno
+  command: cp hosts-muno /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  args:
+    chdir: "{{playbook_dir}}"
+  when: ansible_architecture == 'x86_64'
+
+- name: Set var.yml to eg path
+  # yamllint disable rule:line-length
+  command: cp var.yml /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  # yamllint disable rule:line-length
+  args:
+    chdir: "{{playbook_dir}}"
+  when: ansible_architecture == 'x86_64'
+
+- name: Set default-var.yml to eg path
+  # yamllint disable rule:line-length
+  command: cp default-var.yml /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  # yamllint disable rule:line-length
+  args:
+    chdir: "{{playbook_dir}}"
+  when: ansible_architecture == 'x86_64'
