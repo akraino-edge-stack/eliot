@@ -1,5 +1,5 @@
 #
-# Copyright 2020 Huawei Technologies Co., Ltd.
+# Copyright 2021 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,11 +15,11 @@
 #
 
 ---
-# tasks file for el_edgex
-- include: "install.yml"
-  static: false
-  when: operation == 'install'
 
-- include: "uninstall.yml"
-  static: false
-  when: operation == 'uninstall'
+- name: Undeploy edgex
+  shell:
+    cmd: kubectl delete -k .
+    # yamllint disable rule:line-length
+    chdir: /tmp/el_edgex/deploy/edgex-kubernetes-support/releases/edinburgh/kubernetes
+    # yamllint disable rule:line-length
+  ignore_errors: yes
