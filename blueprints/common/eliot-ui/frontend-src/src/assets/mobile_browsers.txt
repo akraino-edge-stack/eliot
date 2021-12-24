@@ -1,4 +1,0 @@
-Deployment, 50
-Initiated, 10.0
-Failure, 10
-Pending, 10
