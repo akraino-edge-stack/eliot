@@ -1,8 +1,0 @@
-<div class="main" *ngIf="(toolbarService.visible|async)">
-    <app-toolbar></app-toolbar>
-
-    <div class="example-container">
-        <div NgxMd [path]="'./../../assets/md/README.md'" (error)="errorHandler($event)" (loaded)="loadedHandler($event)"></div>
-
-    </div>
-</div>
