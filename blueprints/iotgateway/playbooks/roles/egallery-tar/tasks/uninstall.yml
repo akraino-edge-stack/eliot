@@ -16,5 +16,5 @@
 - name: Remove edgegallery tar
   shell:
     cmd: ls
-   #cmd: rm -rf ansible-all*
+   #cmd: rm -rf EdgeGallery*
     chdir: /tmp/eg_download/deploy/

@@ -22,33 +22,33 @@
 
 - name: Download 1.1 edgegallery x86
 # yamllint disable rule:line-length
-  command: wget https://edgegallery.obs.cn-east-3.myhuaweicloud.com/releases/v1.1/x86/EdgeGallery-v1.1-all-x86.tar.gz
+  command: wget https://edgegallery.obs.cn-east-3.myhuaweicloud.com/releases/v1.3.2/x86/EdgeGallery-v1.3.2-all-x86.tar.gz
 # yamllint disable rule:line-length
   args:
     chdir: /tmp/eg_download/deploy/
   when: ansible_architecture == 'x86_64'
 
 - name: Untar Edgegallery offline tarbal file
-  command: tar -xvf EdgeGallery-v1.1-all-x86.tar.gz
+  command: tar -xvf EdgeGallery-v1.3.2-all-x86.tar.gz
   args:
     chdir: /tmp/eg_download/deploy/
   when: ansible_architecture == 'x86_64'
 
 - name: Set inventory file for aio
-  command: cp hosts-aio /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  command: cp hosts-aio /tmp/eg_download/deploy/EdgeGallery-v1.3.2-all-x86/install
   args:
     chdir: "{{playbook_dir}}"
   when: ansible_architecture == 'x86_64'
 
 - name: Set inventory file for muno
-  command: cp hosts-muno /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  command: cp hosts-muno /tmp/eg_download/deploy/EdgeGallery-v1.3.2-all-x86/install
   args:
     chdir: "{{playbook_dir}}"
   when: ansible_architecture == 'x86_64'
 
 - name: Set var.yml to eg path
   # yamllint disable rule:line-length
-  command: cp var.yml /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  command: cp var.yml /tmp/eg_download/deploy/EdgeGallery-v1.3.2-all-x86/install
   # yamllint disable rule:line-length
   args:
     chdir: "{{playbook_dir}}"
@@ -56,7 +56,7 @@
 
 - name: Set default-var.yml to eg path
   # yamllint disable rule:line-length
-  command: cp default-var.yml /tmp/eg_download/deploy/ansible-all-x86-latest/install
+  command: cp default-var.yml /tmp/eg_download/deploy/EdgeGallery-v1.3.2-all-x86/install
   # yamllint disable rule:line-length
   args:
     chdir: "{{playbook_dir}}"
