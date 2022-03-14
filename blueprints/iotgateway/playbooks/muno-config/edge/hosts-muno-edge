@@ -14,7 +14,5 @@
 #   limitations under the License.
 
 [master]
-edge-ip-1
-edge-ip-2
+xxx.xxx.xxx.xxx
 
-# Here you can add edge nodes
